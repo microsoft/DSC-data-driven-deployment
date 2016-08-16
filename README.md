@@ -1,8 +1,25 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/6a59vfritv4kbc7d/branch/master?svg=true)](https://ci.appveyor.com/project/Microsoft/DSC-data-driven-deployment/branch/master)
+
 # DSC-data-driven-deployment
 This is a Proof of Concept Project on how a database solution can be utilized to manage DSC configurations. Metadata for the configuration is stored in JSON within the database so that it can be easily retrieved and deployed. Credentials are also stored securely in the database. The project consists of a database schema and a PowerShell module which has a series of functions.
 
 
-## Resources
+## Why?
+Provide a central repository to store configurations and credentials, to allow efficient Enterprise provisioning and auditing of configurations.
+
+##Prerequisites
+* SQL Server to hold central database repository.
+* Windows Server to act as central deployment server.
+
+##Installation
+* Clone repository with git clone https://github.com/Microsoft/DSC-data-driven-deployment 
+* Open SSMS Right click Databases and select Deploy-Data-tier Application
+* Select dacpac from build directory
+* Click Next and Finish
+* Setup Environment utilizing [Examples](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigExamples.ps1)
+* Copy ConfigurationHelper.psm1 module to modules folder on Build Machine location C:\Program Files\WindowsPowerShell\Modules
+* Modify [Configuration](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCStandAloneJSON_CalledbyDSCExecution.ps1) to match your needs
+* Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
 
 ## Contribute
 
