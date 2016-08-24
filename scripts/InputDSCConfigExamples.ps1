@@ -54,6 +54,12 @@ $Config = [PSCustomObject]@{Configuration ="CompanyDefault"
                             NodeName ='ohsql9030'}
 Add-NewConfigurationToQueue -Configuration $Config -SQLServer $CentralDataStore 
 
+
+
+##########################################################################################################
+#Below are additional commandlets which are available but not needed for Setup
+##########################################################################################################
+
 #Queue Reader to pull the items from queue and push configurations
 #Returns a hashtable of all the meta data for one configuration. 
 #Meta data includes Location of the script to execute the name of the script and the link to the item on the queue.
@@ -65,6 +71,3 @@ Update-ConfigurationStatus -Success True -ConfigurationQueueID 4 -SQLServer $Cen
 #Exports certificate with DocumentEncryption property from the remote server locally in SaveLocation.
 #Utilized for secure configurations
 Get-Cert -RemoteMachine "OHSQL9015" -SaveLocation "f:\publicKeys"
-
-#Next steps
-#Job to clean up failed jobs, set retry, remove finished jobs ect 
