@@ -13,11 +13,11 @@ Provide a central repository to store configurations and credentials, to allow e
 
 ##Installation
 * Clone repository with git clone https://github.com/Microsoft/DSC-data-driven-deployment 
+	* If Clone location is other than G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigExamples.ps1 to reflect the location.
 * Open SSMS Right click Databases and select Deploy-Data-tier Application
 * Select dacpac from build directory
 * Click Next and Finish
 * Setup Environment utilizing [Examples](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigExamples.ps1)
-* Copy ConfigurationHelper.psm1 module to modules folder on Build Machine location C:\Program Files\WindowsPowerShell\Modules
 * Modify [Configuration](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCStandAloneJSON_CalledbyDSCExecution.ps1) to match your needs
 * Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
 
