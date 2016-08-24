@@ -1,7 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/6a59vfritv4kbc7d/branch/master?svg=true)](https://ci.appveyor.com/project/Microsoft/DSC-data-driven-deployment/branch/master)
 
 # DSC-data-driven-deployment
-This is a Proof of Concept Project on how a database solution can be utilized to manage DSC configurations. Metadata for the configuration is stored in JSON within the database so that it can be easily retrieved and deployed. Credentials are also stored securely in the database. The project consists of a database schema and a PowerShell module which has a series of functions.
+Proof-of-concept project illustrating an approach to persisting configuration which allows one to manage and apply DSC configurations in a push driven environment.  Metadata such as parameters and defaults for the configuration are stored as JSON within a database so that it can be programmatically retrieved and deployed. Credentials are also stored securely in the database.  A queuing mechanism exposed as a cmdlet and backed by a table is provided as a means to push configurations on demand.  
 
 
 ## Why?
