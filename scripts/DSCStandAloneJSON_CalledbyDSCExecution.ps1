@@ -122,8 +122,8 @@ Workflow StartConfigs
     foreach –parallel ($Computer in $Computers) 
     {   
          $Destination = "\\"+$computer+"\\c$\Program Files\WindowsPowerShell\Modules"
-         if (Test-Path "$Destination\xSqlServer"){Remove-Item -Path "$Destination\xSqlServer"-Recurse -Force}
-         Copy-Item 'C:\Program Files\WindowsPowerShell\Modules\xSqlServer' -Destination $Destination -Recurse -Force
+         if (Test-Path -Path "$Destination\xSqlServer"){Remove-Item -Path "$Destination\xSqlServer"-Recurse -Force}
+         Copy-Item -Path 'C:\Program Files\WindowsPowerShell\Modules\xSqlServer' -Destination $Destination -Recurse -Force
          Start-DscConfiguration -ComputerName $Computer -Path $Path -Verbose -Wait -Force
     }
 }
