@@ -3,7 +3,7 @@ $OutputPath = 'G:\DSC_Mof'     #Location where mof files will be stored
 $CentralDataStore = 'OHSQL9035' #Central location where metadata for DSC configurations are/will be stored
 
 # Load Common Code
-Import-Module "G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
+Import-Module -Name "G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
 
 #Add Default build for Company.  This maybe SQL2014 on Windows 2012R2. 
 #The ability to add your Own is still there but if you drop items on the queue and dont specify the default will be leveraged
@@ -57,17 +57,17 @@ Add-NewConfigurationToQueue -Configuration $Config -SQLServer $CentralDataStore
 
 
 ##########################################################################################################
-#Below are additional commandlets which are available but not needed for Setup
+#Below are additional cmdlets which are available but not needed for Setup
 ##########################################################################################################
 
 #Queue Reader to pull the items from queue and push configurations
 #Returns a hashtable of all the meta data for one configuration. 
 #Meta data includes Location of the script to execute the name of the script and the link to the item on the queue.
-$MyConfig = Get-ConfigurationToProcess -SQLServer $CentralDataStore
+#$MyConfig = Get-ConfigurationToProcess -SQLServer $CentralDataStore
 
 #Called in the Configuration to update the status on the queue once complete
-Update-ConfigurationStatus -Success True -ConfigurationQueueID 4 -SQLServer $CentralDataStore
+#Update-ConfigurationStatus -Success True -ConfigurationQueueID 4 -SQLServer $CentralDataStore
 
 #Exports certificate with DocumentEncryption property from the remote server locally in SaveLocation.
 #Utilized for secure configurations
-Get-Cert -RemoteMachine "OHSQL9015" -SaveLocation "f:\publicKeys"
+#Get-Cert -RemoteMachine "OHSQL9015" -SaveLocation "f:\publicKeys"
