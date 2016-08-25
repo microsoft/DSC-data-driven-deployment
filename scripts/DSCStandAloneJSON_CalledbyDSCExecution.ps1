@@ -33,7 +33,7 @@ foreach ($computer in $computers)
 Configuration SQLBuild
 {
     Import-DscResource –Module PSDesiredStateConfiguration
-    Import-DscResource -Module xSQLServer -ModuleVersion 1.6.0.0
+    Import-DscResource -Module xSQLServer
 
     Node $AllNodes.NodeName
     {
@@ -134,5 +134,5 @@ try
 }
 catch
 {
-    Update-ConfigurationStatus -Success False -SQLConfigID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore
+    Update-ConfigurationStatus -Success False -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore
 }
