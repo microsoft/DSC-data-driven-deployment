@@ -32,7 +32,7 @@ $SQLServiceAccountName = 'SQLServiceAccount'
 $SQLInstallerAccount = 'CORP\SQLAuto'
 $SQLServiceAccount ='CORP\SQLSvc'
 $SQLAgentAccount = 'CORP\SQLAgt' 
-#$NodestoConfigure = 'ohsql9037'
+$NodestoConfigure = 'ohsql9038','ohsql9039'
 
 # Load Common Code
 Import-Module -Name $("$ConfigurationHelperPath\Modules\ConfigurationHelper.psm1") -Verbose:$False -ErrorAction Stop

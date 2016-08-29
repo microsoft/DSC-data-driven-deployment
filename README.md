@@ -13,14 +13,27 @@ Provide a central repository to store configurations and credentials, to allow e
 
 ##Installation
 * Clone repository with git clone https://github.com/Microsoft/DSC-data-driven-deployment 
-	* If Clone location is other than G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigExamples.ps1 to reflect the location.
-* Open SSMS Right click Databases and select Deploy-Data-tier Application
+	* If Clone location is other than G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigurationMetadata.ps1 to reflect the location.
+* Open PowerShell Prompt as admin
+* Install-module xSQLServer
+* Edit [DSCDataDrivenSQLConfiguration.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCDataDrivenSQLConfiguration.ps1) replace variable values for your environment
+* Run DSCDataDrivenSQLConfiguration.ps1
+* Open SSMS connect to server.
+* Right click Databases and select Deploy-Data-tier Application
 * Select dacpac from build directory
 * Click Next and Finish
-* Setup Environment utilizing [Examples](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigExamples.ps1)
-* Modify [Configuration](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCStandAloneJSON_CalledbyDSCExecution.ps1) to match your needs
+* Setup Environment utilizing [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetadata.ps1)
+* Modify [Configuration](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCSQLMetaBuild.ps1) to match your needs
 * Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
 
+##Assumptions
+
+* SMB (Port 445) is open between deployment server and servers to receive configuration.
+	* xcopy of DSC module is leveraged to move DSC module to remote node
+* Configurations provided are using AllowPlainTextPassword for demonstration purposes only.
+	* Configurations should be updated to leverage certificates so passwords are not stored plain text.
+	* Steps to complete this are detailed [here](https://blogs.msdn.microsoft.com/troy_aults_blog/2016/04/25/sql-dsc-encrypted-configuration/)
+	
 ## Contribute
 
 There are many ways to contribute.
