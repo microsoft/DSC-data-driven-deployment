@@ -11,7 +11,9 @@ Provide a central repository to store configurations and credentials, to allow e
 * SQL Server to hold central database repository.
 * Windows Server to act as central deployment server.
 
+
 ##Installation
+* Log on to SQL Server
 * Clone repository with git clone https://github.com/Microsoft/DSC-data-driven-deployment 
 	* If Clone location is other than C:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigurationMetadata.ps1 to reflect the location.
 * Open PowerShell Prompt as admin
@@ -22,9 +24,13 @@ Provide a central repository to store configurations and credentials, to allow e
 * Right click Databases and select Deploy-Data-tier Application
 * Select dacpac from build directory
 * Click Next and Finish
-* Setup Environment utilizing [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1)
-* InputDSCConfigurationMetaData.ps1
-* Modify [Configuration](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCSQLMetaBuild.ps1) to match your needs
+* Log on to Deployment Server
+* Copy Project locally to Deployment Server. Same drive letter as SQL or modifications will need to be made.
+* Open PowerShell Prompt as admin
+* Install-module xSQLServer
+* Open [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1) and modify parmaters at top to meet your environment.
+* Execute InputDSCConfigurationMetaData.ps1
+* Modify [DSCSQLMetaBuild.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCSQLMetaBuild.ps1) to match your needs
 * Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
 
 ##Assumptions
