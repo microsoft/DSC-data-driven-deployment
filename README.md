@@ -13,7 +13,7 @@ Provide a central repository to store configurations and credentials, to allow e
 
 ##Installation
 * Clone repository with git clone https://github.com/Microsoft/DSC-data-driven-deployment 
-	* If Clone location is other than G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigurationMetadata.ps1 to reflect the location.
+	* If Clone location is other than C:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigurationMetadata.ps1 to reflect the location.
 * Open PowerShell Prompt as admin
 * Install-module xSQLServer
 * Edit [DSCDataDrivenSQLConfiguration.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCDataDrivenSQLConfiguration.ps1) replace variable values for your environment

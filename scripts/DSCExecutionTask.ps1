@@ -5,7 +5,7 @@ $OutputPath = 'G:\DSC_Mof'
 $CentralDataStore = 'OHSQL9035'
 
 # Load Common Code
-Import-Module "G:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
+Import-Module "C:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
 
 #Get a Configuration data to process
 #Loop till no work to do
