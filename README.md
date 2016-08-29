@@ -22,7 +22,8 @@ Provide a central repository to store configurations and credentials, to allow e
 * Right click Databases and select Deploy-Data-tier Application
 * Select dacpac from build directory
 * Click Next and Finish
-* Setup Environment utilizing [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetadata.ps1)
+* Setup Environment utilizing [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1)
+* InputDSCConfigurationMetaData.ps1
 * Modify [Configuration](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCSQLMetaBuild.ps1) to match your needs
 * Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
 
