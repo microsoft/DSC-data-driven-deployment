@@ -1,6 +1,5 @@
 ﻿#Set Required Variables
 $OutputPath = 'C:\DSC_Mof'     #Location where mof files will be stored
-$CentralDataStore = 'OHSQL9035' #Central location where metadata for DSC configurations are/will be stored
 $ConfigurationHelperPath = 'C:\DSC-data-driven-deployment\'
 $SQLServerBitsLocation = '\\ohdc9000\SQLAutoBuilds'
 $DefaultSQLVersion = 'SQL2014'
