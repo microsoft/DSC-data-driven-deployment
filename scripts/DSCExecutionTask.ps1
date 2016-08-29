@@ -1,7 +1,7 @@
 ﻿#Scheduled task or Enterprise scheduler calls this Script at whatever interval required
 
 #Set Required Variables
-$OutputPath = 'G:\DSC_Mof'
+$OutputPath = 'C:\DSC_Mof'
 $CentralDataStore = 'OHSQL9035'
 
 # Load Common Code

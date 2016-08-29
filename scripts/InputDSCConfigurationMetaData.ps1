@@ -76,7 +76,7 @@ Add-PSCredential -CredentialName $SQLServiceAccountName -Credential $SQLServiceA
 #Add Reference of Installer Credential to Default Parent Configuration
 #Add Reference of Credentials for DefaultSQL Configuration
 #Add-NewNodeConfigurationCredential -NodeConfigurationName 
-Add-NewParentConfigurationCredential -ParentConfigurationName $DefaultParentConfigurationName -CredentialName $InstallerAccountName -Verbose
+Add-NewParentConfigurationCredential -ParentConfigurationName $DefaultParentConfigurationName -CredentialName $InstallerAccountName -SQLServer $CentralDataStore
 
 #Utilize the below to add (N) number of servers to an existing configuration StandAloneSQL 
 #INFO:  This is an async call to add work to queue.  When and how often queue is drained is configured by scheduling next call.

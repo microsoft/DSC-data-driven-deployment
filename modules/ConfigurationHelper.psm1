@@ -317,7 +317,7 @@ Function Add-NewParentConfigurationCredential
         $JSONPayload = $Payload | ConvertTo-Json
         $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
         Write-Verbose -Message "Connecting to $connString"
-        $output = Invoke-StoredProcedure -storedProcName "dbo.NewParentConfigurationCredential" -parameters @{ParentConfigurationName=$NodeConfigurationName;CredentialName=$CredentialName;} -conn $connString
+        $output = Invoke-StoredProcedure -storedProcName "dbo.NewParentConfigurationCredential" -parameters @{ParentConfigurationName=$ParentConfigurationName;CredentialName=$CredentialName;} -conn $connString
 }
 
 Function Get-ConfigurationfromQueue
