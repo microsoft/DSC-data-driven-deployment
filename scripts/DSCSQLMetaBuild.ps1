@@ -93,6 +93,7 @@ Configuration SQLBuild
      {
          MinMemory = $node.MinMemory 
          MaxMemory =$node.MaxMemory
+         SQLInstanceName = $Node.InstanceName
          DynamicAlloc = $node.DMemory -as [bool]
          Ensure = "Present"
      
