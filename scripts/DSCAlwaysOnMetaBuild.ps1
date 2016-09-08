@@ -365,33 +365,8 @@ Configuration AlwaysOnCluster
     }
 }
 
-#ForEach ($computer in $computers) {
-#   $Destination = "\\"+$computer+"\\c$\Program Files\WindowsPowerShell\Modules"
-#   if (Test-Path "$Destination\xFailoverCluster"){Remove-Item -Path "$Destination\xFailoverCluster" -Recurse -Force}
-#   if (Test-Path "$Destination\xSqlServer"){Remove-Item -Path "$Destination\xSqlServer"-Recurse -Force}
-#   Copy-Item 'C:\Program Files\WindowsPowerShell\Modules\xFailoverCluster' -Destination $Destination -Recurse -Force
-#   Copy-Item 'C:\Program Files\WindowsPowerShell\Modules\xSqlServer' -Destination $Destination -Recurse -Force
-#}
-#
 AlwaysOnCluster -ConfigurationData $ConfigurationData -OutputPath $OutputPath
 
-#Push################################
-
-#Workflow StartConfigs 
-#{ 
-#    param([string[]]$computers,
-#        [System.string] $Path)
-# 
-#    foreach –parallel ($Computer in $Computers) 
-#    {
-#    
-#        Start-DscConfiguration -ComputerName $Computer -Path $Path -Verbose -Wait -Force
-#    }
-#}
-#
-#StartConfigs -Computers $computers -Path $OutputPath
-
-################################################################
 #Copy Code and push configuration to each Computer
 Workflow StartConfigs 
 { 
