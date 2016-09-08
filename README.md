@@ -21,17 +21,19 @@ Provide a central repository to store configurations and credentials, to allow e
 * Edit [DSCDataDrivenSQLConfiguration.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCDataDrivenSQLConfiguration.ps1) replace variable values for your environment
 * Run DSCDataDrivenSQLConfiguration.ps1
 * Open SSMS connect to server.
-* Right click Databases and select Deploy-Data-tier Application
-* Select dacpac from build directory
-* Click Next and Finish
+	* Right click Databases and select Deploy-Data-tier Application
+	* Select dacpac from build directory
+	* Click Next and Finish
 * Log on to Deployment Server
-* Copy Project locally to Deployment Server. Same drive letter as SQL or modifications will need to be made.
-* Open PowerShell Prompt as admin
-* Install-module xSQLServer
+	* Copy Project locally to Deployment Server. Same drive letter as SQL or modifications will need to be made.
+	* Open PowerShell Prompt as admin
+	* Install-module xSQLServer
+	* Install-module xFailoverCluster
 * Open [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1) and modify parmaters at top to meet your environment.
 * Execute InputDSCConfigurationMetaData.ps1
 * Modify [DSCSQLMetaBuild.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCSQLMetaBuild.ps1) to match your needs
 * Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
+* At this point you can use the Examples commented out in [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1) to Enqueue a new build request.
 
 ##Assumptions
 
@@ -40,6 +42,8 @@ Provide a central repository to store configurations and credentials, to allow e
 * Configurations provided are using AllowPlainTextPassword for demonstration purposes only.
 	* Configurations should be updated to leverage certificates so passwords are not stored plain text.
 	* Steps to complete this are detailed [here](https://blogs.msdn.microsoft.com/troy_aults_blog/2016/04/25/sql-dsc-encrypted-configuration/)
+* SQL Server bits location provided must have a folder in it called Source with the installation bits of SQL Server 
+* Windows Bits location provided must have the full path to the sxs folder of Windows Server you are applying .NET 
 	
 ## Contribute
 
