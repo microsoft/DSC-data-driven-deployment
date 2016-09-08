@@ -280,13 +280,38 @@ Function Add-NewNodeConfigurationDefault
         $output = Invoke-StoredProcedure -storedProcName "dbo.NewNodeConfigurationDefault" -parameters @{NodeConfigurationName=$NodeConfigurationName;Payload=$JSONPayload;} -conn $connString
 }
 
+Function Add-NewNodeConfiguration
+{ 
+[CmdletBinding()]
+   param (
+           [ValidateNotNull()] 
+           [System.String]
+           $ParentConfigurationName, 
+
+           [ValidateNotNull()] 
+           [System.String]
+           $NodeName, 
+
+           [ValidateNotNull()] 
+           [PSCustomObject]
+           $Payload, 
+           [ValidateNotNull()] 
+           [System.String]
+           $SQLServer)
+        
+        $JSONPayload = $Payload | ConvertTo-Json
+        $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
+        Write-Verbose -Message "Connecting to $connString"
+        $output = Invoke-StoredProcedure -storedProcName "dbo.NewNodeConfiguration" -parameters @{ParentConfigurationName = $ParentConfigurationName; NodeName = $NodeName; Payload = $JSONPayload;} -conn $connString
+}
+
 Function Add-NewNodeConfigurationCredential
 { 
 [CmdletBinding()]
    param (
            [ValidateNotNull()] 
            [System.String]
-           $NodeConfigurationName, 
+           $NodeName, 
            [ValidateNotNull()] 
            [PSCustomObject]
            $CredentialName, 
@@ -297,7 +322,7 @@ Function Add-NewNodeConfigurationCredential
         $JSONPayload = $Payload | ConvertTo-Json
         $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
         Write-Verbose -Message "Connecting to $connString"
-        $output = Invoke-StoredProcedure -storedProcName "dbo.NewNodeConfigurationCredential" -parameters @{NodeConfigurationName=$NodeConfigurationName;CredentialName=$CredentialName;} -conn $connString
+        $output = Invoke-StoredProcedure -storedProcName "dbo.NewNodeConfigurationCredential" -parameters @{NodeName=$NodeName;CredentialName=$CredentialName;} -conn $connString
 }
 
 Function Add-NewParentConfigurationCredential

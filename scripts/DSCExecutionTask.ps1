@@ -2,7 +2,7 @@
 
 #Set Required Variables
 $OutputPath = 'C:\DSC_Mof'
-$CentralDataStore = 'OHSQL9035'
+$CentralDataStore = 'OHSQL9038'
 
 # Load Common Code
 Import-Module "C:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
