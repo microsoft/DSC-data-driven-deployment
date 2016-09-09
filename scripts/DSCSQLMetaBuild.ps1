@@ -128,10 +128,32 @@ Workflow StartConfigs
          Start-DscConfiguration -ComputerName $Computer -Path $Path -Verbose -Wait -Force
     }
 }
+
+Function TestConfigs 
+{ 
+    param([string[]]$computers)
+ 
+    [System.Boolean] $ReturnValue = $true
+    foreach  ($Computer in $Computers) 
+    {   
+         $Result=Test-DscConfiguration -ComputerName $Computer
+         If ($Result -eq $false){
+            $ReturnValue -eq $false
+         }
+    }
+    Return $ReturnValue
+}
+
 try
 {
     StartConfigs -Computers $computers -Path $OutputPath
-    Update-ConfigurationStatus -Success True -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore 
+    $TestConfigs =TestConfigs -computers $Computers
+    if ($TestConfigs){
+        Update-ConfigurationStatus -Success True -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore 
+    }
+    else{
+        Update-ConfigurationStatus -Success False -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore
+    }
 }
 catch
 {
