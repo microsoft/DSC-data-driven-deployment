@@ -1,11 +1,11 @@
 ﻿#Scheduled task or Enterprise scheduler calls this Script at whatever interval required
 
 #Set Required Variables
-$OutputPath = 'F:\DSCLocal'
-$CentralDataStore = 'OHSQL9018'
+$OutputPath = 'C:\DSC_Mof'
+$CentralDataStore = 'OHSQL9038'
 
 # Load Common Code
-Import-Module "C:\Program Files\WindowsPowerShell\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
+Import-Module "C:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1" -Verbose:$False -ErrorAction Stop
 
 #Get a Configuration data to process
 #Loop till no work to do

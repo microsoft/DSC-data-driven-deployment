@@ -33,7 +33,7 @@ foreach ($computer in $computers)
 Configuration SQLBuild
 {
     Import-DscResource –Module PSDesiredStateConfiguration
-    Import-DscResource -Module xSQLServer -ModuleVersion 1.6.0.0
+    Import-DscResource -Module xSQLServer
 
     Node $AllNodes.NodeName
     {
@@ -93,6 +93,7 @@ Configuration SQLBuild
      {
          MinMemory = $node.MinMemory 
          MaxMemory =$node.MaxMemory
+         SQLInstanceName = $Node.InstanceName
          DynamicAlloc = $node.DMemory -as [bool]
          Ensure = "Present"
      
@@ -122,17 +123,39 @@ Workflow StartConfigs
     foreach –parallel ($Computer in $Computers) 
     {   
          $Destination = "\\"+$computer+"\\c$\Program Files\WindowsPowerShell\Modules"
-         if (Test-Path "$Destination\xSqlServer"){Remove-Item -Path "$Destination\xSqlServer"-Recurse -Force}
-         Copy-Item 'C:\Program Files\WindowsPowerShell\Modules\xSqlServer' -Destination $Destination -Recurse -Force
+         if (Test-Path -Path "$Destination\xSqlServer"){Remove-Item -Path "$Destination\xSqlServer"-Recurse -Force}
+         Copy-Item -Path 'C:\Program Files\WindowsPowerShell\Modules\xSqlServer' -Destination $Destination -Recurse -Force
          Start-DscConfiguration -ComputerName $Computer -Path $Path -Verbose -Wait -Force
     }
 }
+
+Function TestConfigs 
+{ 
+    param([string[]]$computers)
+ 
+    [System.Boolean] $ReturnValue = $true
+    foreach  ($Computer in $Computers) 
+    {   
+         $Result=Test-DscConfiguration -ComputerName $Computer
+         If ($Result -eq $false){
+            $ReturnValue -eq $false
+         }
+    }
+    Return $ReturnValue
+}
+
 try
 {
     StartConfigs -Computers $computers -Path $OutputPath
-    Update-ConfigurationStatus -Success True -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore 
+    $TestConfigs =TestConfigs -computers $Computers
+    if ($TestConfigs){
+        Update-ConfigurationStatus -Success True -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore 
+    }
+    else{
+        Update-ConfigurationStatus -Success False -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore
+    }
 }
 catch
 {
-    Update-ConfigurationStatus -Success False -SQLConfigID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore
+    Update-ConfigurationStatus -Success False -ConfigurationQueueID $ConfigurationData.ConfigurationQueueID -SQLServer $CentralDataStore
 }

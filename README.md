@@ -1,9 +1,50 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/6a59vfritv4kbc7d/branch/master?svg=true)](https://ci.appveyor.com/project/Microsoft/DSC-data-driven-deployment/branch/master)
+
 # DSC-data-driven-deployment
-This is a Proof of Concept Project on how a database solution can be utilized to manage DSC configurations. Metadata for the configuration is stored in JSON within the database so that it can be easily retrieved and deployed. Credentials are also stored securely in the database. The project consists of a database schema and a PowerShell module which has a series of functions.
+Proof-of-concept project illustrating an approach to persisting configuration which allows one to manage and apply DSC configurations in a push driven environment.  Metadata such as parameters and defaults for the configuration are stored as JSON within a database so that it can be programmatically retrieved and deployed. Credentials are also stored securely in the database.  A queuing mechanism exposed as a cmdlet and backed by a table is provided as a means to push configurations on demand.  
 
 
-## Resources
+## Why?
+Provide a central repository to store configurations and credentials, to allow efficient Enterprise provisioning and auditing of configurations.
 
+##Prerequisites
+* SQL Server to hold central database repository.
+* Windows Server to act as central deployment server.
+
+
+##Installation
+* Log on to SQL Server
+* Clone repository with git clone https://github.com/Microsoft/DSC-data-driven-deployment 
+	* If Clone location is other than C:\DSC-data-driven-deployment\Modules\ConfigurationHelper.psm1 then update DSCExecutionTask.ps1 and InputDSCConfigurationMetadata.ps1 to reflect the location.
+* Open PowerShell Prompt as admin
+* Install-module xSQLServer
+* Edit [DSCDataDrivenSQLConfiguration.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCDataDrivenSQLConfiguration.ps1) replace variable values for your environment
+* Run DSCDataDrivenSQLConfiguration.ps1
+* Open SSMS connect to server.
+	* Right click Databases and select Deploy-Data-tier Application
+	* Select dacpac from build directory
+	* Click Next and Finish
+* Log on to Deployment Server
+	* Copy Project locally to Deployment Server. Same drive letter as SQL or modifications will need to be made.
+	* Open PowerShell Prompt as admin
+	* Install-module xSQLServer
+	* Install-module xFailoverCluster
+* Open [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1) and modify parmaters at top to meet your environment.
+* Execute InputDSCConfigurationMetaData.ps1
+* Modify [DSCSQLMetaBuild.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCSQLMetaBuild.ps1) to match your needs
+* Create scheduled [task](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/DSCExecutionTask.ps1) to call script
+* At this point you can use the Examples commented out in [InputDSCConfigurationMetadata.ps1](https://github.com/Microsoft/DSC-data-driven-deployment/blob/dev/scripts/InputDSCConfigurationMetaData.ps1) to Enqueue a new build request.
+
+##Assumptions
+
+* SMB (Port 445) is open between deployment server and servers to receive configuration.
+	* xcopy of DSC module is leveraged to move DSC module to remote node
+* Configurations provided are using AllowPlainTextPassword for demonstration purposes only.
+	* Configurations should be updated to leverage certificates so passwords are not stored plain text.
+	* Steps to complete this are detailed [here](https://blogs.msdn.microsoft.com/troy_aults_blog/2016/04/25/sql-dsc-encrypted-configuration/)
+* SQL Server bits location provided must have a folder in it called Source with the installation bits of SQL Server 
+* Windows Bits location provided must have the full path to the sxs folder of Windows Server you are applying .NET 
+	
 ## Contribute
 
 There are many ways to contribute.
