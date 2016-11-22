@@ -44,7 +44,9 @@ Provide a central repository to store configurations and credentials, to allow e
 	* Steps to complete this are detailed [here](https://blogs.msdn.microsoft.com/troy_aults_blog/2016/04/25/sql-dsc-encrypted-configuration/)
 * SQL Server bits location provided must have a folder in it called Source with the installation bits of SQL Server 
 * Windows Bits location provided must have the full path to the sxs folder of Windows Server you are applying .NET 
-	
+
+##Updates
+* New Utility added [LabInaBox](https://github.com/Microsoft/DSC-data-driven-deployment/tree/dev/utility/LabInaBox)
 ## Contribute
 
 There are many ways to contribute.
