@@ -47,8 +47,8 @@ Provide a central repository to store configurations and credentials, to allow e
 
 ##Updates
 * New Utility added [LabInaBox](https://github.com/Microsoft/DSC-data-driven-deployment/tree/dev/utility/LabInaBox)
-## Contribute
 
+## Contribute
 There are many ways to contribute.
 
 * [Submit bugs](https://github.com/Microsoft/DSC-data-driven-deployment/issues) and help us verify fixes as they are checked in.
