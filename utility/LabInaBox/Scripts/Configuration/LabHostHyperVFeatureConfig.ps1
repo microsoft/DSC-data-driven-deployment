@@ -9,7 +9,7 @@ Configuration LCM_Push
     Settings
         {
             AllowModuleOverwrite = $True
-            ConfigurationMode = 'ApplyAndAutoCorrect'
+            ConfigurationMode = 'ApplyOnly'
             ActionAfterReboot = 'ContinueConfiguration'  
             RefreshMode = 'Push'
             RebootNodeIfNeeded = $True    

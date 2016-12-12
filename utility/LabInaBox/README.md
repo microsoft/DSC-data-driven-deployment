@@ -1,7 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/6a59vfritv4kbc7d/branch/master?svg=true)](https://ci.appveyor.com/project/Microsoft/DSC-data-driven-deployment/branch/master)
 
 #Lab In a Box
-Utility to allow developers to spin up a sandbox lab environment quickly.    Virtual machines will be created on a private network without access to host. 
+Simple lightweight utility to allow developers to spin up a sandbox lab environment quickly.    Virtual machines will be created on a private network without access to host. Ability to create multiple lab environments that can coexist.
  
 #Why
 Getting started with DSC can be difficult for developers because they don't have control over all over their environment.  Often its difficult to validate secure configurations due to the need for certificates.  With LabInaBox these restrictions are lifted since its all encompassed in a sandbox.  Active Directory and Certificate services are already installed and configured allowing developers to begin testing their configurations as soon as the deployment is complete.
@@ -15,23 +15,34 @@ Getting started with DSC can be difficult for developers because they don't have
 
 ##Installation
 * Download LabInaBox to a USB drive
-* Create folder under LabInaBox named ParentDisks
+* Create folder under LabInaBox named ParentVMDisks
 * Copy your sysprepped image of Windows 2016 to ParentDisks
 	* AnswerFile Reference: [https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx "Building a Simple Answer File")
 	* Sysprep Command Reference: [https://technet.microsoft.com/en-us/library/hh825033.aspx](https://technet.microsoft.com/en-us/library/hh825033.aspx "Sysprep Command Line")
 * Open PowerShell ISE as an administrator
-* Open Main_Setup.ps1
-* Read through Required Variables to Configure and Optional Variables to Configure
+* Open Examples folder
+* Modify DemoConfig.json or rename it entirely and modify parameters within
+* Ensure you update the ParentFolderPath and ChildFolderPath variables to the drives for your machine
+* Modify localAdminPass and domainAdminPass to your liking 
+* Modify sysPrepDriveName and DCSysPrepDriveName to point to match your name
+	* I have provided two names here in-case you want to utilize Windows Core for your Domain Controller
+* Modify DCMachineName DomainJoinServers variables
+* Open Main.ps1 this gives an example of calling each of the functions available
 * LabInaBox will utilize your sysprep drive in as a parent differencing disk
 	* Reference: [https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx "Using differencing disks")
 * For the best performance parent and child disks should be on different disk drives
-* Ensure you update the $Parent and $ChildDrive variables to the drives for your machine
-* Modify $localAdminPass and $domainAdminPass to your liking 
-* Modify $sysPrepDriveName and $DCSysPrepDriveName to point to match your name
-	* I have provided two names here in-case you want to utilize Windows Core for your Domain Controller
-* Modify $DCMachineName $DSCentral and $DomainJoinServers variables
-* Execute Script
-* If Hyper-V is not installed on the machine a reboot will be required and the script will need to be executed one final time.
+* If Hyper-V is not installed on the machine a reboot will be required and New-LabinBox will need to be executed again.
+* 
+##Updates
+* Simplified approach, functions added which take a JSON file as input with required variables.  
+* New functions added
+	* New-LabinaBox
+	* Stop-LabinaBox
+	* Start-LabinaBox
+	* CheckPoint-LabinaBox
+	* Remote-LabinaBoxSnapshot
+	* Remove-LabinaBox
+
 
 ##Assumptions
 * Requires Windows 10 or Server 2016 as the Host Operating System

@@ -1,10 +1,9 @@
 ﻿Param (
     [Parameter(Mandatory)][string]$machineName,
-    [Parameter(Mandatory)][string]$domainname,
-    [Parameter(Mandatory)][string]$DCMachineName,
-    [Parameter(Mandatory)][string]$domainnamespace,
+    [PSCustomObject] $configuration,
     [Parameter(Mandatory)][pscredential]$domainCred
 )
+
 
 [DSCLocalConfigurationManager()]
 Configuration LCM_Push
@@ -17,7 +16,7 @@ Configuration LCM_Push
     Settings
         {
             AllowModuleOverwrite = $True
-            ConfigurationMode = 'ApplyAndAutoCorrect'
+            ConfigurationMode = 'ApplyOnly'
             RefreshMode = 'Push'
             RebootNodeIfNeeded = $True    
         }
@@ -28,16 +27,13 @@ Set-DSCLocalConfigurationManager -cimsession localhost -Path C:\Mofs -Verbose
 
 configuration PostDomainConfig
 {
-   param
-   (
-       [string[]]$NodeName,
-       [Parameter(Mandatory)][string]$MachineName,    
-       [Parameter(Mandatory)][string]$domainname,
-       [Parameter(Mandatory)][string]$DCMachineName,
-       [Parameter(Mandatory)][string]$domainnamespace,
-       [Parameter(Mandatory)][pscredential]$domainCred
-   ) 
-     
+    Param (
+        [Parameter(Mandatory)][string]$nodeName,
+        [Parameter(Mandatory)][string]$machineName,
+        [PSCustomObject] $configuration,
+        [Parameter(Mandatory)][pscredential]$domainCred
+    )
+         
     #Import the required DSC Resources
     Import-DscResource -ModuleName xCertificate
  
@@ -45,9 +41,9 @@ configuration PostDomainConfig
     {     
         xCertReq MyCert
         {
-            CARootName                = "$domainname-$DCMachineName-CA"
-            CAServerFQDN              = "$DCMachineName.$domainnamespace"
-            Subject                   = "$MachineName.$domainnamespace"
+            CARootName                = "$($Configuration.domainname)-$($Configuration.DCMachineName)-CA"
+            CAServerFQDN              = "$($configuration.domainname)$($configuration.domainExtention)"
+            Subject                   = "$MachineName.$($configuration.domainname)$($configuration.domainExtention)"
 	        KeyLength                 = '1024'
             Exportable                = $true
             ProviderName              = '"Microsoft RSA SChannel Cryptographic Provider"'
@@ -69,7 +65,7 @@ configuration PostDomainConfig
         }
     )
     }
-PostDomainConfig -ConfigurationData $cd -NodeName localhost -MachineName $machineName -domainname $domainname -DCMachineName $DCMachineName -domainnamespace $domainnamespace -domainCred $domainCred -OutputPath c:\Mofs
+PostDomainConfig -ConfigurationData $cd -NodeName localhost -MachineName $machineName -configuration $configuration -domainCred $domainCred -OutputPath c:\Mofs
 
 Start-DscConfiguration -ComputerName localhost -Path c:\Mofs -Wait -Force -Verbose
 

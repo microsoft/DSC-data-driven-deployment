@@ -1,9 +1,6 @@
 Param (
     [Parameter(Mandatory)][string]$machineName,
-    [Parameter(Mandatory)][string]$DomainNamespace,
-    [Parameter(Mandatory)][string]$DomainIpAddress,
-    [Parameter(Mandatory)][string]$DHCPScopeIpStart,
-    [Parameter(Mandatory)][string]$DHCPScopeIpEnd,
+    [PSCustomObject] $configuration,
     [Parameter(Mandatory)][pscredential]$domainCred,
     [Parameter(Mandatory)][pscredential]$safemodeCred
 
@@ -20,7 +17,7 @@ Configuration LCM_Push
     Settings
         {
             AllowModuleOverwrite = $True
-            ConfigurationMode = 'ApplyAndAutoCorrect'
+            ConfigurationMode = 'ApplyOnly'
             ActionAfterReboot = 'ContinueConfiguration'  
             RefreshMode = 'Push'
             RebootNodeIfNeeded = $True    
@@ -35,32 +32,29 @@ configuration DomainConfig
    param
    (
        [string[]]$NodeName,
-       [Parameter(Mandatory)][string]$machineName,
-       [Parameter(Mandatory)][string]$DomainNamespace,
-       [Parameter(Mandatory)][string]$DomainIpAddress,
-       [Parameter(Mandatory)][string]$DHCPScopeIpStart,
-       [Parameter(Mandatory)][string]$DHCPScopeIpEnd,
+       [PSCustomObject] $configuration,
        [Parameter(Mandatory)][pscredential]$domaincred,
        [Parameter(Mandatory)][pscredential]$safemodeCred
    ) 
      
     #Import the required DSC Resources
-    Import-DscResource –ModuleName PSDesiredStateConfiguration
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     Import-DscResource -ModuleName xComputerManagement -ModuleVersion 1.8.0.0
     Import-DscResource -ModuleName xActiveDirectory -ModuleVersion 2.14.0.0
     Import-DscResource -ModuleName xNetworking -ModuleVersion 2.12.0.0
     Import-DscResource -ModuleName xDhcpServer -ModuleVersion 1.5.0.0
     Import-DscResource -ModuleName xADCSDeployment -ModuleVersion 1.0.0.0
+    Import-DscResource -ModuleName xSmbShare -ModuleVersion 2.0.0.0
 
     Node $NodeName
     {
         xComputer SetName
         {
-            Name          = $machineName    
+            Name          = $Configuration.DCMachineName   
         }
 
         xIPAddress SetIP{
-            IpAddress = $DomainIpAddress
+            IpAddress = $Configuration.DomainIpAddress
             InterfaceAlias = 'Ethernet'
             SubnetMask = '24'
             AddressFamily = 'IPv4'
@@ -76,11 +70,31 @@ configuration DomainConfig
             Name = 'AD-Domain-Services'
         }
         xADDomain MyDC{
-            DomainName = $domainnamespace
+            DomainName = "$($configuration.domainname)$($configuration.domainExtention)"
             DomainAdministratorCredential = $domainCred
             SafemodeAdministratorPassword =  $safemodeCred
             DependsOn = '[xComputer]SetName','[xIpAddress]SetIP','[WindowsFeature]ADDSInstall','[WindowsFeature]ADDSTools' 
         }  
+
+        if (Test-Path "D:\")
+        {
+            xSmbShare SQLShare{
+                Ensure= 'Present'
+                Name = 'Source'
+                Path = 'D:\'
+                Description = 'SQL Server Installation Media'
+            }
+        }
+
+        if (Test-Path "E:\")
+        {
+            xSmbShare WinShare{
+                Ensure= 'Present'
+                Name = 'Windows2016ISO'
+                Path = 'E:\'
+                Description = 'Windows Server 2016 Installation Media'
+            }
+        }
 
         WindowsFeature ADDSTools            
         {             
@@ -104,8 +118,8 @@ configuration DomainConfig
         xDhcpServerScope Scope 
         { 
             Ensure = 'Present'
-            IPStartRange = $DHCPScopeIpStart 
-            IPEndRange = $DHCPScopeIpEnd 
+            IPStartRange = $Configuration.DHCPScopeIpStart 
+            IPEndRange = $Configuration.DHCPScopeIpEnd 
            
             Name = 'MyScope'
             SubnetMask = '255.255.255.0' 
@@ -119,15 +133,15 @@ configuration DomainConfig
         xDhcpServerOption Option 
         { 
             Ensure = 'Present' 
-            ScopeID = $DHCPScopeIpStart  
-            DnsDomain = $DomainNamespace
-            DnsServerIPAddress = $DomainIpAddress           
+            ScopeID = $Configuration.DHCPScopeIpStart  
+            DnsDomain = "$($configuration.domainname)$($configuration.domainExtention)"
+            DnsServerIPAddress = $Configuration.DomainIpAddress           
             AddressFamily = 'IPv4' 
-            Router = $DomainIpAddress
+            Router = $Configuration.DomainIpAddress
         
             DependsOn = '[xDhcpServerScope]Scope'
         } 
-        
+
         
         xDhcpServerAuthorization AuthorizeAD
         {
@@ -179,7 +193,7 @@ configuration DomainConfig
         }
     )
     }
-DomainConfig -ConfigurationData $cd -NodeName localhost -machineName $machineName -DomainNamespace $DomainNamespace -DomainIpAddress $DomainIpAddress -DHCPScopeIpStart $DHCPScopeIpStart -DHCPScopeIpEnd $DHCPScopeIpEnd -domaincred $domainCred -safemodecred $safemodeCred -OutputPath c:\Mof
+DomainConfig -ConfigurationData $cd -NodeName localhost -configuration $configuration -domaincred $domainCred -safemodeCred $safemodeCred -OutputPath c:\Mof
 
 
 Start-DscConfiguration -ComputerName localhost -Path c:\Mof -Wait -Force -Verbose

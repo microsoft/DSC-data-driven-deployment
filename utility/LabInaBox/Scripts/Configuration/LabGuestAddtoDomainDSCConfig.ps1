@@ -1,12 +1,7 @@
 ﻿Param (
     [Parameter(Mandatory)][string]$machineName,
-    [Parameter(Mandatory)][string]$domainname,
-    [Parameter(Mandatory)][string]$DCMachineName,
-    [Parameter(Mandatory)][string]$DSCResourceDest,
-    [Parameter(Mandatory)][string]$domainnamespace,
-    [Parameter(Mandatory)][pscredential]$domainCred
+    [PSCustomObject] $configuration
 )
-
 [DSCLocalConfigurationManager()]
 Configuration LCM_Push
 {    
@@ -18,7 +13,7 @@ Configuration LCM_Push
     Settings
         {
             AllowModuleOverwrite = $True
-            ConfigurationMode = 'ApplyAndAutoCorrect'
+            ConfigurationMode = 'ApplyOnly'
             RefreshMode = 'Push'
             RebootNodeIfNeeded = $True    
         }
@@ -29,16 +24,11 @@ Set-DSCLocalConfigurationManager -cimsession localhost -Path C:\Mofs -Verbose
 
 configuration AddToDomain
 {
-   param
-   (
-       [string[]]$NodeName,
-       [Parameter(Mandatory)][string]$MachineName,    
-       [Parameter(Mandatory)][string]$domainname,
-       [Parameter(Mandatory)][string]$DCMachineName,
-       [Parameter(Mandatory)][string]$DSCResourceDest,
-       [Parameter(Mandatory)][string]$domainnamespace,
-       [Parameter(Mandatory)][pscredential]$domainCred
-   ) 
+    Param (
+        [Parameter(Mandatory)][string]$nodeName,
+        [Parameter(Mandatory)][string]$machineName,
+        [PSCustomObject] $configuration
+    )
      
     #Import the required DSC Resources
     Import-DscResource -ModuleName xActiveDirectory -ModuleVersion 2.14.0.0
@@ -54,7 +44,7 @@ configuration AddToDomain
 
         xOfflineDomainJoin ODJ
         {
-          RequestFile = "$DSCResourceDest\$MachineName.txt"
+          RequestFile = "$($Configuration.DSCResourceDest)\$MachineName.txt"
           IsSingleInstance = 'Yes'
         }
     }
@@ -69,7 +59,7 @@ configuration AddToDomain
         }
     )
     }
-AddToDomain -ConfigurationData $cd -NodeName localhost -MachineName $machineName -domainname $domainname -DCMachineName $DCMachineName -DSCResourceDest $DSCResourceDest -domainnamespace $domainnamespace -domainCred $domainCred -OutputPath c:\Mofs
+AddToDomain -ConfigurationData $cd -NodeName localhost -MachineName $machineName -configuration $configuration -OutputPath c:\Mofs
 
 Start-DscConfiguration -ComputerName localhost -Path c:\Mofs -Wait -Force -Verbose
 
