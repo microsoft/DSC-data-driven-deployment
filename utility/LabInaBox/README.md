@@ -40,7 +40,7 @@ Getting started with DSC can be difficult for developers because they don't have
 	* Stop-LabinaBox
 	* Start-LabinaBox
 	* CheckPoint-LabinaBox
-	* Remote-LabinaBoxSnapshot
+	* Remove-LabinaBoxSnapshot
 	* Remove-LabinaBox
 
 
