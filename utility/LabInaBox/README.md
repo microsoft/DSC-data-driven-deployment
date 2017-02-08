@@ -42,6 +42,10 @@ Getting started with DSC can be difficult for developers because they don't have
 	* CheckPoint-LabinaBox
 	* Remove-LabinaBoxSnapshot
 	* Remove-LabinaBox
+*New functions added
+	* Update-LabinaBox
+	* New-DSCDataDrivenSQL
+	* Add-ServerConfigtoQueue
 
 
 ##Assumptions
