@@ -138,7 +138,7 @@ Configuration SQLBuild
                       If ($CredTest){$true}
                       else {$False}
         }
-            DependsOn = ("[xDatabase]" + "DeployDac")
+            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
             Credential = $DomCred
         }
 
@@ -157,7 +157,7 @@ Configuration SQLBuild
                       If ($ParentTest){$true}
                       else {$False}
                      }
-            DependsOn = ("[xDatabase]" + "DeployDac")
+            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
             Credential = $DomCred
         }
         
@@ -176,7 +176,7 @@ Configuration SQLBuild
                       If ($NodeTest){$true}
                       else {$False}
         }
-            DependsOn = ("[xDatabase]" + "DeployDac")
+            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
             Credential = $DomCred
         }
         
@@ -199,7 +199,7 @@ Configuration SQLBuild
                       If ($ParentTest){$true}
                       else {$False}
         }
-            DependsOn = ("[xDatabase]" + "DeployDac")
+            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
             Credential = $DomCred
         }
 
@@ -214,7 +214,7 @@ Configuration SQLBuild
             RepeatInterval = 5
             StartTime = (Get-Date).AddMinutes(10)
             ExecuteAsCredential = $DomCred
-            DependsOn = ("[xDatabase]" + "DeployDac")
+            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
        }
     } 
 }
