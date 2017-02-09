@@ -1,29 +1,36 @@
-#Function to create our Credentials to be passed in plain text for simplicity.  
+ï»¿#Function to create our Credentials to be passed in plain text for simplicity.  
 #Do not leverage this for production use
 function New-Cred
 {
     [CmdletBinding()]
     Param(
-        [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Mandatory, Position = 0)]
         [string] $userPass,
-        [Parameter(Position = 1)]
+        [Parameter(Mandatory, Position = 1)]
         [string] $userName
     )
 
     $password = ConvertTo-SecureString $userPass -AsPlainText -Force
-     $cred = New-Object System.Management.Automation.PSCredential($userName,$password)
+    $cred = New-Object System.Management.Automation.PSCredential($userName,$password)
     return $cred
 }
 
 function WaitForSQLConn
 {
    [CmdletBinding()]
-   Param([string]$VMName, $cred)
+   Param(
+       [Parameter(Mandatory, Position = 0)]
+       [string]$VMName, 
+       [Parameter(Mandatory, Position = 1)]
+       $cred
+   )
    Write-Output "[$($VMName)]:: Waiting for SQL Server Connection (using $($cred.username))"
    [Int]$LoopCnt = 0
+   $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
    Do {
+       $retryDelay = [Math]::Ceiling(([Math]::pow( $LoopCnt, $backOff )))
+       while ($( Invoke-Command -VMName $VMName -Credential $cred {$(Get-Process -Name sqlservr -ErrorAction SilentlyContinue ).ProcessName -ne "sqlservr"})) {Start-Sleep -Seconds $backOff} 
        $LoopCnt++
-       while ($( Invoke-Command -VMName $VMName -Credential $cred {$(Get-Process -Name sqlservr -ErrorAction SilentlyContinue ).ProcessName -ne "sqlservr"})) {Start-Sleep -Seconds 1} 
    }
    Until ($LoopCnt -eq 3)  
    while ($(Invoke-Command -VMName $VMName -Credential $cred {Invoke-Sqlcmd -ServerInstance $VMName -Username $($cred.UserName) -Password $($cred.Password) -Query "SELECT @@servername as SQLServer"} -ErrorAction SilentlyContinue).SQLServer -ne $SQLServer) {Start-Sleep -Seconds 3} 
@@ -32,14 +39,20 @@ function WaitForSQLConn
 function WaitForPSDirect
 {
    [CmdletBinding()]
-   Param([string]$VMName, $cred)
+   Param(
+       [Parameter(Mandatory, Position = 0)]
+       [string]$VMName, 
+       [Parameter(Mandatory, Position = 1)]
+       $cred
+   )
    Write-Output "[$($VMName)]:: Waiting for PowerShell Direct (using $($cred.username))"
    [Int]$LoopCnt = 0
+   $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
    Do {
-       $LoopCnt++
+       $retryDelay = [Math]::Ceiling(([Math]::pow( $LoopCnt, $backOff )))
        while ((Invoke-Command -VMName $VMName -Credential $cred {"Test"} -ErrorAction SilentlyContinue) -ne "Test") {Start-Sleep -Seconds 1}
-       #Write-Verbose "Checking for PSDirect attempt $LoopCnt of 3."
-       Start-Sleep -Seconds 1     
+       Start-Sleep -Seconds $backOff
+       $LoopCnt++     
    }
    Until ($LoopCnt -eq 3)  
 }
@@ -47,21 +60,24 @@ function WaitForPSDirect
 function WaitForDHCPPSDirect
 {
     [CmdletBinding()]
-   Param([string]$VMName, $cred)
-   Write-Output "[$($VMName)]:: Waiting for DHCP (using $($cred.username))"
-   #Start-Sleep -seconds 10
-   Invoke-Command -VMName $VMName -Credential $cred {while ((Get-NetIPAddress | ? AddressFamily -eq IPv4 | ? IPAddress -ne 127.0.0.1).SuffixOrigin -ne "Dhcp") {Start-Sleep -seconds 10}}
+    Param(
+        [Parameter(Mandatory, Position = 0)]
+        [string]$VMName, 
+        [Parameter(Mandatory, Position = 1)]
+        $cred
+    )
+    Write-Output "[$($VMName)]:: Waiting for DHCP (using $($cred.username))"
+    Invoke-Command -VMName $VMName -Credential $cred {while ((Get-NetIPAddress | ? AddressFamily -eq IPv4 | ? IPAddress -ne 127.0.0.1).SuffixOrigin -ne "Dhcp") {Start-Sleep -seconds 10}}
 }
 
 function New-VMsession
 {
     [CmdletBinding()]
     Param(
-    [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Mandatory, Position = 0)]
         [string] $MachineName,
-        [Parameter(Position = 1)]
+        [Parameter(Mandator, Position = 1)]
         [PScredential] $Cred
-
     )   
     $SleepTimer = 5
     do {
@@ -69,7 +85,7 @@ function New-VMsession
         If(!$s){Start-Sleep -Seconds $SleepTimer
                 Write-Verbose "Waiting to get pssession to $MachineName on $MachineIP sleeping for $SleepTimer sec"}
         $SleepTimer = [math]::floor(($SleepTimer *3)/2)
-       }
+    }
     until($s)
     
     Return $s
@@ -78,9 +94,11 @@ function New-VMsession
 function Complete-HostConfig
 {
     [CmdletBinding()]
-    param(        [PSCustomObject]
-                  $configuration
+    param(
+        [Parameter(Mandatory, Position = 0)]
+        [PSCustomObject]$configuration
     )
+
     .$(Join-Path -Path $configuration.ScriptLocation -ChildPath 'Configuration\LabHostResourcesConfig.ps1') -configuration $configuration
 }
 
@@ -91,6 +109,7 @@ function New-LabVM
           [string]$VMName,
           [Parameter(Mandatory)] 
           [string]$SysPrepImage,
+          [Parameter(Mandatory)] 
           [PSCustomObject] $configuration
     )
     .$(Join-Path -Path $configuration.ScriptLocation -ChildPath 'Configuration\LabHostCreateVMConfig.ps1') -VMName $VMName -configuration $configuration -SysPrepImage $SysPrepImage
@@ -100,9 +119,9 @@ function Add-LabVMtoDomain
 {
     [CmdletBinding()]
     param([Parameter(Mandatory)] 
-                  [string]$VMName,
-                  [PSCustomObject]
-                  $configuration
+          [string]$VMName,
+          [Parameter(Mandatory)] 
+          [PSCustomObject]$configuration
     )
     $localAdminCred = New-Cred -userPass $configuration.localAdminPass -userName 'administrator'
     $DomCred = New-Cred -userPass $configuration.domainAdminPass -UserName "$($Configuration.domainname)\Administrator"
@@ -110,23 +129,23 @@ function Add-LabVMtoDomain
     #Wait for DC to finalize DHCP configuration
     WaitForDHCPPSDirect -VMName $VMName -cred $localAdminCred
     WaitForPSDirect -VMName $configuration.DCMachineName -cred $DomCred
-    Invoke-Command -VMName $configuration.DCMachineName -Credential $DomCred  -ScriptBlock {djoin /provision /domain $using:configuration.domainname /machine $using:VMName /savefile c:\$using:VMName.txt} -ErrorAction Ignore
+    Invoke-Command -VMName $configuration.DCMachineName -Credential $DomCred  -ScriptBlock {djoin /provision /domain $using:configuration.domainname /machine $using:VMName /savefile c:\$using:VMName.txt}
     
     #Create offline domain join files so we can join Each VM later
     $DCSession= New-VMsession -MachineName $configuration.DCMachineName -Cred $DomCred
     Copy-Item -Path c:\$VMName.txt -Destination $configuration.DomainJoinPath -FromSession $DCSession
-    Remove-PSSession $DCSession -ErrorAction Ignore
+    Remove-PSSession $DCSession
     
     #Copy all the DSC resources we will leverage
     $ServerSession = New-VMsession -MachineName $VMName -Cred $localAdminCred
-    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'DCResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'DCResources.zip')"-ToSession $ServerSession
+    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'DCResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'DCResources.zip')" -ToSession $ServerSession
     Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'DCResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configuration.DSCResourceDest
     
-    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'PowerShell_6.0.0.14-alpha.14-win10-x64.msi')" -Destination "C:\PowerShell_6.0.0.14-alpha.14-win10-x64.msi"-ToSession $ServerSession
+    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'PowerShell_6.0.0.14-alpha.14-win10-x64.msi')" -Destination "C:\PowerShell_6.0.0.14-alpha.14-win10-x64.msi" -ToSession $ServerSession
     Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'OpenSSH.zip')" -Destination "C:\Program Files\OpenSSH.zip" -ToSession $ServerSession   
     Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "C:\Program Files\OpenSSH.zip" -DestinationPath "C:\Program Files\" -Force}
     
-    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'CertResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'CertResources.zip')"-ToSession $ServerSession
+    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'CertResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'CertResources.zip') " -ToSession $ServerSession
     Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'CertResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configuration.DSCResourceDest
     Copy-Item -Path "$(Join-Path -Path $configuration.ScriptLocation -ChildPath 'Configuration\LabGuestAddtoDomainDSCConfig.ps1')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'LabGuestAddtoDomainDSCConfig.ps1')" -ToSession $ServerSession
     Copy-Item -Path "$(Join-Path -Path $configuration.ScriptLocation -ChildPath 'Configuration\LabGuestPostDomainConfig.ps1')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'LabGuestPostDomainConfig.ps1')" -ToSession $ServerSession
@@ -144,8 +163,9 @@ function Add-LabVMtoDomain
 function New-Domain
 { 
     [CmdletBinding()]
-    param(        [PSCustomObject]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [PSCustomObject]$configuration
     )
     $localAdminCred = New-Cred -userPass $configuration.localAdminPass -userName 'administrator'
     $DomCred = New-Cred -userPass $configuration.domainAdminPass -UserName "$($configuration.domainname)\Administrator"
@@ -165,7 +185,7 @@ function New-Domain
     WaitForPSDirect -VMName $configuration.DCMachineName -cred $localAdminCred
     $DCSession = New-VMsession -MachineName $configuration.DCMachineName -Cred $localAdminCred
     Copy-Item -Path "$(Join-Path -Path $configuration.ScriptLocation -ChildPath 'Configuration\LabGuestPreDomainConfig.ps1')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'LabGuestPreDomainConfig.ps1')" -ToSession $DCSession
-    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'DCResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'DCResources.zip')"-ToSession $DCSession
+    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'DCResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'DCResources.zip') " -ToSession $DCSession
     Invoke-Command -VMName $configuration.DCMachineName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'DCResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configuration.DSCResourceDest
     Invoke-Command -VMName $configuration.DCMachineName -Credential $localAdminCred -ScriptBlock {Remove-Item -Path "$(Join-Path -Path $args -ChildPath 'DCResources.zip')" -Force} -ArgumentList $configuration.DSCResourceDest
     Invoke-Command -VMName $configuration.DCMachineName -Credential $localAdminCred -ScriptBlock {."$(Join-Path -Path $args[0] -ChildPath 'LabGuestPreDomainConfig.ps1')" -MachineName $Args[1] -configuration $Args[2] -domainCred $Args[3] -safemodeCred $Args[3]} -ArgumentList $configuration.DSCResourceDest,$configuration.DCMachineName,$configuration,$DomCred
@@ -174,31 +194,32 @@ function New-Domain
 function Stop-LabinaBox
 {
     [CmdletBinding()]
-    param(        [string]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [string]$configuration
     )
     $configurationJSON = Get-Content -Path $configuration -Raw
     $configurationData = $configurationJSON | ConvertFrom-Json
-    #$configurationData = Get-Content -Path $configuration -Raw | ConvertFrom-Json
     Stop-VM -Name $configurationData.DCMachineName -Save
     
     $Servers = $configurationData.DomainJoinServer
     $Servers | ForEach-Object -process {
-    stop-Vm -name $_ -save
+    Stop-VM -name $_ -save
     }
 
     if ($configurationJSON.Contains("Linux"))
     {$LinuxServers = $configurationData.LinuxServer
      $LinuxServers | ForEach-Object -process {
-        stop-Vm -name $_ -save} 
+        Stop-VM -name $_ -save} 
     }
 }
 
 function Start-LabinaBox
 {
     [CmdletBinding()]
-    param(        [string]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [string]$configuration
     )
     $configurationJSON = Get-Content -Path $configuration -Raw
     $configurationData = $configurationJSON | ConvertFrom-Json
@@ -210,15 +231,16 @@ function Start-LabinaBox
     if ($configurationJSON.Contains("Linux"))
     {$LinuxServers = $configurationData.LinuxServer
      $LinuxServers | ForEach-Object -process {
-        stop-Vm -name $_ -save} 
+        Start-VM -name $_ -save} 
     }
 }
 
 function Remove-LabinaBox
 {
     [CmdletBinding()]
-    param(        [string]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [string]$configuration
     )
     $configurationJSON = Get-Content -Path $configuration -Raw
     $configurationData = $configurationJSON | ConvertFrom-Json
@@ -241,8 +263,9 @@ function Remove-LabinaBox
 function CheckPoint-LabinaBox
 {
     [CmdletBinding()]
-    param(        [string]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [string]$configuration
     )
     $configurationJSON = Get-Content -Path $configuration -Raw
     $configurationData = $configurationJSON | ConvertFrom-Json
@@ -261,8 +284,9 @@ function CheckPoint-LabinaBox
 function Remove-LabinaBoxSnapshot
 {
     [CmdletBinding()]
-    param(        [PSCustomObject]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [PSCustomObject]$configuration
     )
     $configurationJSON = Get-Content -Path $configuration -Raw
     $configurationData = $configurationJSON | ConvertFrom-Json
@@ -282,8 +306,9 @@ function Remove-LabinaBoxSnapshot
 function New-LabinaBox
 {
     [CmdletBinding()]
-    param(        [PSCustomObject]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [PSCustomObject]$configuration
     )
 
     $configurationJSON = Get-Content -Path $configuration -Raw
@@ -332,8 +357,9 @@ function New-LabinaBox
 function Update-LabinaBox
 {
     [CmdletBinding()]
-    param(        [PSCustomObject]
-                  $configuration
+    param(
+        [Parameter(Mandatory)]
+        [PSCustomObject]$configuration
     )
     $configurationJSON = Get-Content -Path $configuration -Raw
     $configurationData = $configurationJSON | ConvertFrom-Json
@@ -354,9 +380,9 @@ function Add-DeveloperConfig
 {
     [CmdletBinding()]
     param([Parameter(Mandatory)] 
-                  [string]$VMName,
-                  [PSCustomObject]
-                  $configuration
+          [string]$VMName,
+          [Parameter(Mandatory)]
+          [PSCustomObject]$configuration
     )
     $DomCred = New-Cred -userPass $configuration.domainAdminPass -UserName "$($configuration.domainname)\Administrator"
     WaitForPSDirect -VMName $VMName -cred $DomCred
@@ -369,7 +395,9 @@ function New-DSCDataDrivenSQL
 {
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory)]
         [PSCustomObject] $configuration,
+        [Parameter(Mandatory)]
         [PSCustomObject] $SQLconfiguration
     )
 
@@ -379,8 +407,8 @@ function New-DSCDataDrivenSQL
     $DomCred = New-Cred -userPass $configurationData.domainAdminPass -UserName "$($configurationData.domainname)\Administrator"
     WaitForPSDirect -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -cred $DomCred -Verbose
     $Session = New-VMsession -MachineName $SQLconfigurationData.DSCDataDrivenSQLServer -Cred $DomCred
-    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'DSC-data-driven-deployment.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'DSC-data-driven-deployment.zip')"-ToSession $Session
-    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'SQLResources.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'SQLResources.zip')"-ToSession $Session
+    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'DSC-data-driven-deployment.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'DSC-data-driven-deployment.zip') " -ToSession $Session
+    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'SQLResources.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'SQLResources.zip') " -ToSession $Session
     Invoke-Command -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -Credential $DomCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'DSC-data-driven-deployment.zip')" -DestinationPath "$args" -Force} -ArgumentList $configurationData.DSCResourceDest
     Invoke-Command -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -Credential $DomCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'SQLResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configurationData.DSCResourceDest
     Copy-Item -Path "$(Join-Path -Path $configurationData.ScriptLocation -ChildPath 'Configuration\LabGuestDSCCentralConfig.ps1')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'LabGuestDSCCentralConfig.ps1')" -ToSession $Session
@@ -391,7 +419,9 @@ function New-DSCDataDrivenSQL
  {
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory)]
         [PSCustomObject] $configuration,
+        [Parameter(Mandatory)]
         [PSCustomObject] $SQLconfiguration
     )
     Try 
