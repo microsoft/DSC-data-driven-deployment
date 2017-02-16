@@ -76,7 +76,7 @@ function New-VMsession
     Param(
         [Parameter(Mandatory, Position = 0)]
         [string] $MachineName,
-        [Parameter(Mandator, Position = 1)]
+        [Parameter(Mandatory, Position = 1)]
         [PScredential] $Cred
     )   
     $SleepTimer = 5

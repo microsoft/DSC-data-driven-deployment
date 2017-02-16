@@ -138,7 +138,7 @@ Configuration SQLBuild
                       If ($CredTest){$true}
                       else {$False}
         }
-            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
+            DependsOn = ("[xDatabase]DeployDac")
             Credential = $DomCred
         }
 
@@ -157,7 +157,7 @@ Configuration SQLBuild
                       If ($ParentTest){$true}
                       else {$False}
                      }
-            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
+            DependsOn = ("[xDatabase]DeployDac")
             Credential = $DomCred
         }
         
@@ -176,7 +176,7 @@ Configuration SQLBuild
                       If ($NodeTest){$true}
                       else {$False}
         }
-            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
+            DependsOn = ("[xDatabase]DeployDac")
             Credential = $DomCred
         }
         
@@ -199,23 +199,24 @@ Configuration SQLBuild
                       If ($ParentTest){$true}
                       else {$False}
         }
-            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
+            DependsOn = ("[xDatabase]DeployDac")
             Credential = $DomCred
         }
 
 
        }
-       xScheduledTask DSCDDQueueChecker
-       {
-            TaskName = "DSCDDQueueChecker"
-            ActionExecutable = "C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe"
-            ActionArguments = "-File `"C:\Program Files\WindowsPowershell\Modules\DSC-data-driven-deployment\scripts\DSCExecutionTask.ps1`""
-            ScheduleType = "Minutes"
-            RepeatInterval = 5
-            StartTime = (Get-Date).AddMinutes(10)
-            ExecuteAsCredential = $DomCred
-            DependsOn = (DependsOn = ("[xDatabase]DeployDac"))
-       }
+       #Need to replace with a ScriptTask
+       #xScheduledTask DSCDDQueueChecker
+       #{
+       #     TaskName = "DSCDDQueueChecker"
+       #     ActionExecutable = "C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe"
+       #     ActionArguments = "-File `"C:\Program Files\WindowsPowershell\Modules\DSC-data-driven-deployment\scripts\DSCExecutionTask.ps1`""
+       #     ScheduleType = "Minutes"
+       #     RepeatInterval = 5
+       #     StartTime = (Get-Date).AddMinutes(10)
+       #     ExecuteAsCredential = $DomCred
+       #     DependsOn = ("[xDatabase]DeployDac")
+       #}
     } 
 }
 $ConfigurationData = @{
