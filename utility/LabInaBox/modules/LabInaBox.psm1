@@ -141,9 +141,9 @@ function Add-LabVMtoDomain
     Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'DCResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'DCResources.zip')" -ToSession $ServerSession
     Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'DCResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configuration.DSCResourceDest
     
-    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'PowerShell_6.0.0.14-alpha.14-win10-x64.msi')" -Destination "C:\PowerShell_6.0.0.14-alpha.14-win10-x64.msi" -ToSession $ServerSession
-    Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'OpenSSH.zip')" -Destination "C:\Program Files\OpenSSH.zip" -ToSession $ServerSession   
-    Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "C:\Program Files\OpenSSH.zip" -DestinationPath "C:\Program Files\" -Force}
+    #Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'PowerShell_6.0.0.14-alpha.14-win10-x64.msi')" -Destination "C:\PowerShell_6.0.0.14-alpha.14-win10-x64.msi" -ToSession $ServerSession
+    #Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'OpenSSH.zip')" -Destination "C:\Program Files\OpenSSH.zip" -ToSession $ServerSession   
+    #Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "C:\Program Files\OpenSSH.zip" -DestinationPath "C:\Program Files\" -Force}
     
     Copy-Item -Path "$(Join-Path -Path $configuration.DSCResourceSource -ChildPath 'CertResources.zip')" -Destination "$(Join-Path -Path $configuration.DSCResourceDest -ChildPath 'CertResources.zip') " -ToSession $ServerSession
     Invoke-Command -VMName $VMName -Credential $localAdminCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'CertResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configuration.DSCResourceDest
@@ -169,17 +169,17 @@ function New-Domain
     )
     $localAdminCred = New-Cred -userPass $configuration.localAdminPass -userName 'administrator'
     $DomCred = New-Cred -userPass $configuration.domainAdminPass -UserName "$($configuration.domainname)\Administrator"
-    if (Test-Path "$($configuration.ISOFolderPath)\en_sql_server_2016_enterprise_x64_dvd_8701793.iso")
+    if (Test-Path "$($configuration.ISOFolderPath)\$($configuration.SQLServerISO)")
     {
-        Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\en_sql_server_2016_enterprise_x64_dvd_8701793.iso"
+        Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\$($configuration.SQLServerISO)"
     }
-    if (Test-Path "$($configuration.ISOFolderPath)\en_windows_server_2016_x64_dvd_9327751.iso")
+    if (Test-Path "$($configuration.ISOFolderPath)\$($configuration.Windows2016ISO)")
     {
-        Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\en_windows_server_2016_x64_dvd_9327751.iso"
+        Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\$($configuration.Windows2016ISO)"
     }
-    if (Test-Path "$($configuration.ISOFolderPath)\SSMSInstall.iso")
+    if (Test-Path "$($configuration.ISOFolderPath)\$($configuration.SSMSISO)")
     {
-        Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\SSMSInstall.iso"
+        Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\$($configuration.SSMSISO)"
     }
 
     WaitForPSDirect -VMName $configuration.DCMachineName -cred $localAdminCred
@@ -407,11 +407,11 @@ function New-DSCDataDrivenSQL
     $DomCred = New-Cred -userPass $configurationData.domainAdminPass -UserName "$($configurationData.domainname)\Administrator"
     WaitForPSDirect -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -cred $DomCred -Verbose
     $Session = New-VMsession -MachineName $SQLconfigurationData.DSCDataDrivenSQLServer -Cred $DomCred
-    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'DSC-data-driven-deployment.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'DSC-data-driven-deployment.zip') " -ToSession $Session
-    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'SQLResources.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'SQLResources.zip') " -ToSession $Session
+    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'DSC-data-driven-deployment.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'DSC-data-driven-deployment.zip') " -ToSession $Session -Force
+    Copy-Item -Path "$(Join-Path -Path $configurationData.DSCResourceSource -ChildPath 'SQLResources.zip')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'SQLResources.zip') " -ToSession $Session -Force
     Invoke-Command -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -Credential $DomCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'DSC-data-driven-deployment.zip')" -DestinationPath "$args" -Force} -ArgumentList $configurationData.DSCResourceDest
     Invoke-Command -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -Credential $DomCred -ScriptBlock {Expand-Archive -Path "$(Join-Path -Path $args -ChildPath 'SQLResources.zip')" -DestinationPath "$args" -Force} -ArgumentList $configurationData.DSCResourceDest
-    Copy-Item -Path "$(Join-Path -Path $configurationData.ScriptLocation -ChildPath 'Configuration\LabGuestDSCCentralConfig.ps1')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'LabGuestDSCCentralConfig.ps1')" -ToSession $Session
+    Copy-Item -Path "$(Join-Path -Path $configurationData.ScriptLocation -ChildPath 'Configuration\LabGuestDSCCentralConfig.ps1')" -Destination "$(Join-Path -Path $configurationData.DSCResourceDest -ChildPath 'LabGuestDSCCentralConfig.ps1')" -ToSession $Session -Force
     Invoke-Command -VMName $SQLconfigurationData.DSCDataDrivenSQLServer -Credential $DomCred -ScriptBlock {."$(Join-Path -Path $args[0] -ChildPath 'LabGuestDSCCentralConfig.ps1')" -configuration $args[1] -DomCred $args[2]} -ArgumentList $configurationData.DSCResourceDest,$SQLconfigurationData, $DomCred
  }
 

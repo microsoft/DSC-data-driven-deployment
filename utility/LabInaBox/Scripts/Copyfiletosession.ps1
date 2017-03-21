@@ -1,5 +1,5 @@
 ﻿$Cred = Get-Credential
-$Session = New-PSSession -VMName DD-DC -Credential $Cred
+$Session = New-PSSession -VMName FCIDSC -Credential $Cred
 
-$Session
-Copy-Item -Path D:\Users\TroyAult\Downloads\SSMS-Setup-ENU.exe -Destination c:\ -ToSession $Session
+
+Copy-Item -Path D:\xSQLServer-fix-cluster-bugs.zip -Destination c:\ -ToSession $Session

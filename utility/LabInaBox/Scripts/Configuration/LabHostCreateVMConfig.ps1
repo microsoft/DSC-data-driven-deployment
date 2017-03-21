@@ -58,8 +58,8 @@ Configuration HyperV_CreateVM {
         Path = $Configuration.ChildFolderPath
         SecureBoot = $false
         ProcessorCount = 2
-        MaximumMemory = 6GB
-        MinimumMemory =4GB
+        MaximumMemory = 2GB
+        MinimumMemory = 2GB
         RestartIfNeeded = $true
         DependsOn = '[xVHD]DiffVHD'
         State = 'Running'

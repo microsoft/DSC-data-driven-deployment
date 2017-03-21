@@ -2,26 +2,29 @@
 $start = Get-Date
 Write-Output -Message "Lab Creation began at: $start"
 
-$DDConfig = 'D:\LabInaBox\Examples\DD-Config.json'
-$LDConfig = 'D:\LabInaBox\Examples\LD-Config.json'
-$DDSQLConfig = 'D:\LabInaBox\Examples\DD-SQLConfig.json'
+$Config = 'D:\LabInaBox\Examples\DD-Config.json'
+$SQLConfig = 'D:\LabInaBox\Examples\DD-SQLConfig.json'
 
 Import-Module -name D:\LabInaBox\modules\LabinaBox.psm1
 
-New-LabinaBox -configuration $DDConfig -Verbose
+New-LabinaBox -configuration $Config -Verbose
 #CheckPoint-LabinaBox -configuration $DDConfig
 
-New-DSCDataDrivenSQL -configuration $DDConfig -SQLconfiguration $DDSQLConfig -Verbose
-Add-ServerConfigtoQueue -configuration $DDConfig -SQLconfiguration $DDSQLConfig -Verbose
+New-DSCDataDrivenSQL -configuration $Config -SQLconfiguration $SQLConfig -Verbose
+Add-ServerConfigtoQueue -configuration $Config -SQLconfiguration $SQLConfig -Verbose
 
 
-#Update-LabinaBox -configuration $DDConfig -Verbose
-#Stop-LabinaBox -configuration $DDConfig
-#Start-LabinaBox -configuration $DDConfig
-#Remove-LabinaBoxSnapshot -configuration $DDConfig
-#Remove-LabinaBox -configuration $DDConfig
+#Update-LabinaBox -configuration $Config -Verbose
+#Stop-LabinaBox -configuration $Config
+#Start-LabinaBox -configuration $Config
+#Remove-LabinaBoxSnapshot -configuration $Config
+#Remove-LabinaBox -configuration $Config
 
 $end = Get-Date
 $diff = $end -$start
 Write-Output -Message "Completed lab build @ $($end.ToLongTimeString())"
 Write-Output -Message "Time to build lab: $("{0:N2}" -f ($diff.TotalMinutes)) minutes"
+
+
+
+psedit D:\LabInaBox\Examples\DD-Config.json

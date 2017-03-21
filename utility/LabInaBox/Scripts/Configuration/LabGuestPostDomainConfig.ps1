@@ -53,21 +53,22 @@ configuration PostDomainConfig
             AutoRenew                 = $true
             Credential                = $domainCred
         }
-        Package PowerShell6
-        {
-            Ensure = "Present"
-            Name = "PowerShell_6.0.0.14"
-            Path = "c:\PowerShell_6.0.0.14-alpha.14-win10-x64.msi"
-            ProductId ="929A9AD1-0D9E-4B40-A727-9FF96FF2DE60"
-            Credential = $domainCred
-        }
-        Environment UpdatePath 
-        {
-           Ensure = "Present"
-           Name = "Path"
-           Path = $true
-           Value = "$env:ProgramFiles\OpenSSH"
-        }
+        #Future Support for Linux if connecting to Linux machines
+        #Package PowerShell6
+        #{
+        #    Ensure = "Present"
+        #    Name = "PowerShell_6.0.0.14"
+        #    Path = "c:\PowerShell_6.0.0.14-alpha.14-win10-x64.msi"
+        #    ProductId ="929A9AD1-0D9E-4B40-A727-9FF96FF2DE60"
+        #    Credential = $domainCred
+        #}
+        #Environment UpdatePath 
+        #{
+        #   Ensure = "Present"
+        #   Name = "Path"
+        #   Path = $true
+        #   Value = "$env:ProgramFiles\OpenSSH"
+        #}
 
         Script DisableFirewall
         {
