@@ -30,7 +30,7 @@ Getting started with DSC can be difficult for developers because they don't have
 * Run this script and watch the output for progress as your lab is built.
 * LabInaBox will utilize your sysprep drive in as a parent differencing disk
 	* Reference: [https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx "Using differencing disks")
-* For the best performance parent and child disks should be on different disk drives
+	* For the best performance parent and child disks should be on different disk drives
 * If Hyper-V is not installed on the machine a reboot will be required and New-LabinBox will need to be executed again.
  
 ##Updates
