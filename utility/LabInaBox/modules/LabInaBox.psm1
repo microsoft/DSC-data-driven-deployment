@@ -169,15 +169,15 @@ function New-Domain
     )
     $localAdminCred = New-Cred -userPass $configuration.localAdminPass -userName 'administrator'
     $DomCred = New-Cred -userPass $configuration.domainAdminPass -UserName "$($configuration.domainname)\Administrator"
-    if (Test-Path "$($configuration.ISOFolderPath)\$($configuration.SQLServerISO)")
+    if (($configuration.SQLServerISO -ne $null)-and(Test-Path "$($configuration.ISOFolderPath)\$($configuration.SQLServerISO)"))
     {
         Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\$($configuration.SQLServerISO)"
     }
-    if (Test-Path "$($configuration.ISOFolderPath)\$($configuration.Windows2016ISO)")
+    if (($configuration.Windows2016ISO -ne $null) -and (Test-Path "$($configuration.ISOFolderPath)\$($configuration.Windows2016ISO)"))
     {
         Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\$($configuration.Windows2016ISO)"
     }
-    if (Test-Path "$($configuration.ISOFolderPath)\$($configuration.SSMSISO)")
+    if (($configuration.SSMSISO -ne $null) -and (Test-Path "$($configuration.ISOFolderPath)\$($configuration.SSMSISO)"))
     {
         Add-VMDvdDrive -VMName $configuration.DCMachineName -Path "$($configuration.ISOFolderPath)\$($configuration.SSMSISO)"
     }
