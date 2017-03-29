@@ -227,11 +227,18 @@ function Add-NewConfigurationToQueue
         [System.String]
         $SQLServer
     )
-
-        $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
-        Write-Verbose -Message "Connecting to $connString"
-        $JSONConfig =Convert-PSObjectToJson -InputObject $Configuration
-        $output = Invoke-StoredProcedure -storedProcName "dbo.EnqueueConfiguration" -parameters @{Configuration=$JSONConfig} -conn $connString
+        try
+        {
+            $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
+            Write-Verbose -Message "Connecting to $connString"
+            $JSONConfig =Convert-PSObjectToJson -InputObject $Configuration
+            $output = Invoke-StoredProcedure -storedProcName "dbo.EnqueueConfiguration" -parameters @{Configuration=$JSONConfig} -conn $connString
+            Return $true
+        }
+        catch
+        {
+            Return $false
+        }
 }
 
 Function Add-NewParentConfiguration
@@ -420,6 +427,23 @@ Function Get-ConfigurationToProcess
         RETURN @($ConfigurationDatafromDB)
 }
 
+Function Get-CredentialFromDB
+{ 
+[CmdletBinding()]
+   param (
+           [ValidateNotNull()] 
+           [System.String]
+           $CredentialName, 
+           [ValidateNotNull()] 
+           [System.String]
+           $SQLServer)
+        
+        $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
+        Write-Verbose -Message "Connecting to $connString"
+        $output = Invoke-StoredProcedure -storedProcName "dbo.GetCredential" -parameters @{CredentialName=$CredentialName;} -conn $connString
+}
+
+
 Function Get-CredentialsforParentConfiguration
 { 
    [CmdletBinding()]
@@ -507,6 +531,26 @@ Function Get-ParentConfigurationfromDB
         return @($JSONConfig)
 }
 
+Function Get-NodeConfigurationDefaultfromDB
+{ 
+[CmdletBinding()]
+   param (
+           [ValidateNotNull()] 
+           [System.String]
+           $NodeConfigurationName, 
+           
+           [ValidateNotNull()] 
+           [System.String]
+           $SQLServer)
+
+        $connString = "Data Source=$SQLServer;Initial Catalog=DSCCentral;Integrated Security=True"
+        Write-Verbose -Message "Connecting to $connString"
+        $output = Invoke-StoredProcedure -storedProcName "dbo.GetNodeConfigurationDefault" -parameters @{NodeConfigurationName=$NodeConfigurationName;} -conn $connString
+        if($output.data.tables.Payload)
+        {$JSONConfig =Convert-JsontoHash -InputObject $output.data.tables.Payload}
+        Else{$JSONConfig = $False}
+        return @($JSONConfig)
+}
 Function Get-ConfigurationScriptDetails
 { 
 [CmdletBinding()]

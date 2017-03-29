@@ -95,6 +95,15 @@ configuration DomainConfig
                 Description = 'Windows Server 2016 Installation Media'
             }
         }
+        if (Test-Path "F:\")
+        {
+            xSmbShare SSMSShare{
+                Ensure= 'Present'
+                Name = 'SSMSISO'
+                Path = 'F:\'
+                Description = 'SSMS Installer'
+            }
+        }
 
         WindowsFeature ADDSTools            
         {             

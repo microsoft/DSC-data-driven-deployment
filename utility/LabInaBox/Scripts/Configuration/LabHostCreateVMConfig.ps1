@@ -5,7 +5,26 @@
        [PSCustomObject]
        $configuration
 )
+[DSCLocalConfigurationManager()]
+Configuration LCM_Push
+{    
+    Param(
+        [string[]]$ComputerName
+    )
+    Node $ComputerName
+    {
+    Settings
+        {
+            AllowModuleOverwrite = $True
+            ConfigurationMode = 'ApplyOnly'
+            RefreshMode = 'Push'
+            RebootNodeIfNeeded = $True    
+        }
+    }
+}
+LCM_Push -ComputerName localhost -OutputPath C:\Mofs
 
+Set-DSCLocalConfigurationManager -cimsession localhost -Path C:\Mofs -Verbose
 Configuration HyperV_CreateVM { 
     param([Parameter(Mandatory)] 
           [string]$VMName, 
@@ -37,9 +56,10 @@ Configuration HyperV_CreateVM {
         SwitchName = $Configuration.SwitchName
         VhdPath = Join-Path -Path $Configuration.ChildFolderPath -ChildPath "\$VMName.vhdx" 
         Path = $Configuration.ChildFolderPath
+        SecureBoot = $false
         ProcessorCount = 2
-        MaximumMemory = 4GB
-        MinimumMemory =1GB
+        MaximumMemory = 2GB
+        MinimumMemory = 2GB
         RestartIfNeeded = $true
         DependsOn = '[xVHD]DiffVHD'
         State = 'Running'

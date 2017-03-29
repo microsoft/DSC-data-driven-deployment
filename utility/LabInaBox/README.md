@@ -14,26 +14,28 @@ Getting started with DSC can be difficult for developers because they don't have
 	* Should leverage an answer file  
 
 ##Installation
-* Download LabInaBox to a USB drive
-* Create folder under LabInaBox named ParentVMDisks
+* Download LabInaBox and place on one of your drives
+* Create folder under LabInaBox named ParentVMDisks 
 * Copy your sysprepped image of Windows 2016 to ParentDisks
 	* AnswerFile Reference: [https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx "Building a Simple Answer File")
 	* Sysprep Command Reference: [https://technet.microsoft.com/en-us/library/hh825033.aspx](https://technet.microsoft.com/en-us/library/hh825033.aspx "Sysprep Command Line")
-* Open PowerShell ISE as an administrator
-* Open Examples folder
-* Modify DemoConfig.json or rename it entirely and modify parameters within
-* Ensure you update the ParentFolderPath and ChildFolderPath variables to the drives for your machine
-* Modify localAdminPass and domainAdminPass to your liking 
-* Modify sysPrepDriveName and DCSysPrepDriveName to point to match your name
-	* I have provided two names here in-case you want to utilize Windows Core for your Domain Controller
-* Modify DCMachineName DomainJoinServers variables
-* Open Main.ps1 this gives an example of calling each of the functions available
+* Install LIABConfigUtility.msi
+* Launch LIABConfigUtility
+* Click File... New from Template
+* Change any values you would like and finish the remainder of the fields required.
+* Click Finish
+* Under the drive you selected as your resource drive you will find a folder in LabInaBox named LabConfig
+* Open the folder for the Prefix you provided in the Configuration tool
+* Open PowerShell ISE as and administrator and open the file which is named Create.ps1 it will be prefaced with your lab prefix name.
+* Run this script and watch the output for progress as your lab is built.
 * LabInaBox will utilize your sysprep drive in as a parent differencing disk
 	* Reference: [https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx "Using differencing disks")
-* For the best performance parent and child disks should be on different disk drives
+	* For the best performance parent and child disks should be on different disk drives
 * If Hyper-V is not installed on the machine a reboot will be required and New-LabinBox will need to be executed again.
-* 
+ 
 ##Updates
+* Added new GUI configuration utility to generate the JSON files
+* Added additional properties to JSON file to allow different ISO names to be leveraged. 
 * Simplified approach, functions added which take a JSON file as input with required variables.  
 * New functions added
 	* New-LabinaBox
@@ -42,6 +44,9 @@ Getting started with DSC can be difficult for developers because they don't have
 	* CheckPoint-LabinaBox
 	* Remove-LabinaBoxSnapshot
 	* Remove-LabinaBox
+	* Update-LabinaBox
+	* New-DSCDataDrivenSQL
+	* Add-ServerConfigtoQueue
 
 
 ##Assumptions
