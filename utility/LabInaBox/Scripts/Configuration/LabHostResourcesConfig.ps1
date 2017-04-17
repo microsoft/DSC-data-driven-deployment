@@ -9,23 +9,30 @@ Configuration ResourceSetup {
     )
     Import-DscResource –ModuleName PSDesiredStateConfiguration
 
-    File DSCResources
+    File xHyperV
     {
         Type = "Directory"
         Ensure = "Present"
         Recurse = $true
         Checksum = "modifiedDate"
-        SourcePath = $configuration.DSCResourceSource
-        DestinationPath = $configuration.DSCResourceDest
+        SourcePath = "$($configuration.DSCResourceSource)\xHyper-V"
+		DestinationPath = "C:\Program Files\WindowsPowerShell\Modules\xHyper-V"
         MatchSource = $true
-    }
-    File ParentFolder
+	}
+	File xComputerManagement
+	{
+		Type = "Directory"
+		Ensure = "Present"
+		Recurse = $true
+		Checksum = "modifiedDate"
+		SourcePath = "$($configuration.DSCResourceSource)\xComputerManagement"
+		DestinationPath = "C:\Program Files\WindowsPowerShell\Modules\xComputerManagement"
+		MatchSource = $true
+	}
+	File ParentFolder
     {
         Type = 'Directory' 
         Ensure = 'Present'
-        Recurse = $true
-        Checksum = "modifiedDate"
-        SourcePath = $configuration.ParentFolderPathSource
         DestinationPath =$configuration.ParentFolderPath
         Force = $true
     }
