@@ -54,13 +54,23 @@ configuration DomainConfig
         }
 
         xIPAddress SetIP{
-            IpAddress = $Configuration.DomainIpAddress
+			IpAddress = $Configuration.DomainIpAddress
+			
             InterfaceAlias = 'Ethernet'
             SubnetMask = '24'
             AddressFamily = 'IPv4'
-        }
-        xDNSServerAddress SetDNS{
-            Address = '127.0.0.1'
+		}
+
+		xDefaultGatewayAddress SetGateway
+		{
+			Address = $Configuration.DCGateway
+            InterfaceAlias = 'Ethernet'
+            AddressFamily = 'IPV4'
+
+		}
+
+		xDNSServerAddress SetDNS{
+            Address = $configuration.DNSIp
             InterfaceAlias = 'Ethernet'
             AddressFamily = 'Ipv4'
         }
@@ -144,9 +154,9 @@ configuration DomainConfig
             Ensure = 'Present' 
             ScopeID = $Configuration.DHCPScopeIpStart  
             DnsDomain = "$($configuration.domainname)$($configuration.domainExtention)"
-            DnsServerIPAddress = $Configuration.DomainIpAddress           
+            DnsServerIPAddress = $Configuration.DNSIp        
             AddressFamily = 'IPv4' 
-            Router = $Configuration.DomainIpAddress
+            Router = $Configuration.routerIpAddress
         
             DependsOn = '[xDhcpServerScope]Scope'
         } 
