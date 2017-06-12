@@ -1,0 +1,2195 @@
+﻿<File version="2.1">
+  <FileID>603246c9-fc79-4b80-b74d-d78bb1bae76b</FileID>
+  <Preview>iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAE9HSURBVHhe7b3nc1znne85Nbf27d6X98XcF56q
+Le8fMHXv7tbWzK2xp7xjj21plCXLtizTClawlXM0lTNFSqISJVEMYs45g2ACQGQwACAJRjCIFDNl
+mXr2fB7i0C24QYIk0GTj+XyqPoVG90ndkPj7nuecfn5/JyIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
+IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
+IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
+IiIiIiJJ897/9l/+S+X//X/9z8pHH32i8oknnq58/PEnVVVVtYx8+ulnKm+55ZbK//pf//fKrLbj
+mfn7v//7uhtu+EWYPGtRqGvrDC0d+0Pzln2qqqpaNn4ZWrbuD9XNW8Lrb74d/vs//EPoKvM98z//
+x/+onDRjYahp2xsWr20Pi2paVVVVtcxcmLmsoSPUt+8Of7zn3rMHAIb9G9r3hCV1m8LS2nZVVVUt
+U5dkckI/ffaCswcArhm07jwUV1qWhQBVVdWBZEX95lDZ2HH+NnWE5Q1b+m5bjae2tSzbFo95ruiy
+vTBuK9tO/l6XZtZu2hemzpx39gDw5JNPV7buOJhtYEt8g9+VN92TxZZXVVW9dKykQNZuCjOWNoTp
+5+uS+rBwzcawguKdFdtZFU3xuaLLnsVp2XrzVq7rKuBbwpwVLfG5Ysue1Wy92ZXN33m/FZn1m78M
+U2fM7V0AaNt5KFupW6poyJJJbWvmxuwNZx9g497MPaGiaW9Y3tQZKrPXC5dXVVW91KQofjFjZZgw
+e1WYNHfNeTk5c/SU5WFRVWuYPL8mjJux4m+XmVdV1O7LTZpbFcZMrYiFf+ayhjB22vL4XOEyk7Pf
+J8+rPr1+T9viuL6YXhmmLFgbVrZsO/V+Mxu27M8CQG9GAJ7IAsCuQ9lKW7N002Xz9lCxpj5UrFob
+KqpbQsXSWaFqxgNh9cxHQuWU+8OSaS+E5Wtb43IsvzL7iafXL3BlC69t+5vnV7Xs+JvnziTbWb2h
+M6xat7Po66qqqoVSe5ZmZ/+jplSENc1b4/B9PLk9R9es3x6L8vQlDWHM9BWhsq49e54z7lOvr8iK
+7pK1bWFOZVNW2JtPmT1eVN01alCwLY5pTkVDmDR/bRg/Z01YuLIlHmv+ehyxqN+Undk3xWv6q7Pa
+NzdbZv7q9XE/hdui4C/N9jFqamVYvf5UTa3MbOw40LsA8MQTT1a27zqcrbQtHlg0K87LqxrCyra9
+YdW2k2H5gg/DvuXXhT93vB2ON9wSln3yg7CsZmMsxhTyZVkYQB6f3kYmvy+pXh8PdFVXEEA+kMVV
+Ld9Z9kyuWndqOzMWVIZ5y9fG34stp6qqmkvdWVa3OYzNijbFc1FNe/y227lKUZ26oCY7Y28K42at
+DhVZYc5fW5ptf3ZW8F97+9Pw/kdjw8jRU6IfjvgivPrWx2HKouxEuj6reV3Lc7l97vKmMHVRXZg0
+ryYsWLku3oO3uKYtCxHtYWF1a3jzvVHhg4/Hhlff/iy8PHRUePeD0WHoeyPDyMmL42j9omzZRdVt
+2TrZelUbw9gZK8OaDTvje16R2bT1q94HgE27j8RivTorrLhmw+5QuXptWPrph2HRJyPDwvGvhX1r
+fhvCzsEhNP1/Yc7w/5UV/E1xuerWPWH2ktVhTiaPWb8qO1Ov2tgZ70ScOmdRWFqzIazNHq9ZvzO6
+Iks4k7KDq9qwK1Rv3B2XX7N+11/3nz3m+TXZ6/xe07o3TJ+7NMyYXxFmLiQE1MR9sY9T6+6M28p/
+5ttRVdV0pSZwzxqXAFZnhXFZ7eZQkRVsQkFl9vzKZs6aGb3mxBRPjWZz2ZvlcjkLn75wbZi1vDlM
+mL0mVMbnWWZLXGfc7JVh/IQZ4eRf/hI2rG8N69dtDMePHw+LFlWEj7+Ynx3Lzr8u37gtzK9sDtMW
+14fJC9aGRdmZfUW2v6XZsXFcHONLb40Ia9c2hM2bt4ZRoyeHo0eOhvc/HB0+n7IkjryzzKmb/jZn
+9bU1fDGT+tsZ3zMnyC3bD/XuJkACwJY9x04V4y5rNh8Iy+bMC/XX/EuouvxHYcKTvw7rJv0f4asF
+/z3snfR3YfxL/2eorN8WC3Nt+74wr6I6zM/kzsOqLIXMXLg8zF68Miv6e+LjaXMWh9mLVoSq7I9R
+w0E2b80K+pJsG+3x+RnzloYV2eOa1t1xnUWr6uM6lXVt8Tm2y3YWrKjNPri1YX4WANjW1GyZWYtW
+xnUXrqyP252/fG2oyYJB/l5UVTVNqQUrs8I+buaqsCYrjBX1DLVzaWBHvBFvyPtfhDeGjQxD3hsT
+fX3oyDD806lZYT1VqFkWOSmdvqg2zF2xLkycWx1Wcs9c9jyuatkZJs2vDpOmzA4LFy0Lt9z9TLjz
+gRfDF+OmhkWLK8JnkxZn9Yr75rqWz/a9YEVLmLG0MUxdWBeWZGfwhI/8Bj4CCGHggcdfDY2NzQHe
+HjYiDBkxOTup3hNHE07fjN+4NY5GjM9CSW37ntPve/3OI2FabwNAx97jobqNM/ZT1m09GBbNnhcq
+fva/wsL/9/8JYwY/HCZ9fkcY++6vwthhvwoTP34orGnaEtZmhbluy5exIC/ICnP9lv1Zsd4bllY1
+h9FfTMiSTUNWoCvDnKWrssJdE5djmTXrtoeZCyricuMmT88KfWuYPm9JqMu2x5tY3dIRJs2YGyZM
+mxW3V99xIG5n4rTZp8JCw6YwJwsYy6rXZdusjvteVrMuTJu7OKxq2hzWZtvI34uqqqbp2vbd2Rlx
+doY+a3U8aVzewI1y20JVdvL60RfzwsSJ08KX+/aGzs5d0S/37gnvDR8Zpi6ui4WdZePyGzqzAFAX
+5q3aECbOywJAVnjz11av25WdydeETz8bl535rw+fj54YPh8zOdTW1oXJk2eEkZOWZEV59+nl2S7D
+/jMrmsK0bD8M4TMCz2V4ggCPPxg1I3z6+fhQu7Y2LFiwJKxZUxVeeevjMLuyMY4msFxcPgsLFbWb
+4r0EDVv2nnrPmRt2Hc0CwPzeBYCt+07EoknxxfqtX4XllavDyF9eG96/7D/CqM8mhCHLT4bBs74J
+b03LCmxjaxYA2kLd5i9DQ7YshX1+RVW887B6w44wY/6yWLApzHOWrMoST0dYtDL78LJlGrcdzP4Q
+2TJZIV9S1RSfY59TZy+MX11oyIr97MUrwrxla8LkLMEQCpqydWYtXJ596Juyot8Siz6hgt8Xr6oP
+C1esDSvq2+I2alp3nQ4SqqqarnXZCSSXAcZnAYAz48pGhvu3ZwFgTxy2f+mVoWHs2Ilh5OdfREeP
+Hh+ef/mdMH/1hq5Ce2p5LknPyIr1/NUb47cAVnODIZcLMlev3xXmZgX9uZeGhi++mBRDBU6YMDW8
+8NLb2fLVMQDky6/JAsPCVevD7OXNYfri+rC0pu305W72yT14z744LIz8bGx4Y8hH4YnnhobPRn4R
+XnrprfDZhAXZe/oyO0neEYMC4aOyfkuYMCerrR1fnn7frbuP9z4AbNv/dVbM92UF+JQNHfvD6rqW
+UL0pK6Ztm8KEhTVh0NCt4eeD94dbX6wI9U1Nobq5PRbrpm1ZWKjdECZMnRVmZ0WfD3xZdXM8W6+s
+25gV6Ib4eE5W1Ne2dsZtr82KdCzaDW0xBLAORb0xey3uu3lLPJtnlIC7GZuzALBoVV3cDsGChFO9
+fnuYni3DdjnrJwisaekIC1fWxiCSvxdVVU3Thi1fZsW7M0xkiLw1K8LN3Li+MxZOfk6cVxVGTl4S
+Rk1dFv0sO1tnvoA16/nG2allkHvYZi1pCAurWuNX7qpatp9+jZvhCQHTl9TF9fNtsV2K/6ll/rqt
+qiwMLF6zMcypbAkzlzbGM/jq7NjWcD9bJmGDO/653j+rojFbZ0cYM315mDh3dbw8EO+by46PZauy
+x6saO8KkudVZnTxw+n237/06TJvVywCw48CfYzGnACNn3GsaNoSVNY1hdU1dWFhRHYaOrghvfLo0
+jJqyPKyuqglr13fE4h+X33pqXT7sU7//9flTr/F84eOuZU6//td14uNu2y32+K/Ln9oGNnetp6qq
+Sl3gvrLxs9aE9dsPxhrRnNUObMnq3MbOY/FsuVCGz/Nlcls7j4bZWbFeVNWWFfW1oT47y2b9wmU2
+Zut13xbbL1wGN+w6HJbVtMcAwH0Aqxo6wvodh06/3pTVtA07D4e2PRzLkbif1t3ZcXYeP7VPToqp
+d9my3OxXs25HmDCnOqzbcfD0+9785Tdhem8CAC0Ed371TfZBfffNxIK7ZV/m/thhaNOuA2Hz7uyD
+2JkV2ey5wmVVVVUvSbOiP3NJU5g8rybMWFR3Xk5fWJudZdeE2va9YdGa1jApK7gzFtX/zXK9deLs
+qlOXGBq2xcdsi3sMzlXWY/0l1e3fCREd+09mAaAXvQAef/yJyl1f/SVLFodOpYvMGAay388kowQ9
+mq2vqqoDWU4UL20bM6lpjR1fhRXNXNPfkf08dyubtoe17fviGTfvfVXLrvPeFutVb9wTmrNtUUv5
+Ov2FbGv1us74HjkuajhuPfDtOQSAgyfDuu2H45vbuPNw2LL7UHbGfzBs6jw/N3ce0oth9ne7mPLf
+zcWV/3a15O65eHbsOaIXy70Xz617j/bauPy+o2H7l8cuwONh275jp/ddfJnemm0r+5kfH495rviy
+RdyfLVtoPLaj2b/BR2INX5e57atw7gGgOUsQ2/YeCyeOHQlffXUgHDr41Xl5+NDBi+aRw4eS9eiR
+wxfVY0ePXFSPHzuapCeOZ//PXkS/PnH8ovnnr08k6zd//vqi+pdvvrloMuFOqn578uTfGMK34fCx
+r+NIwF8DQK/uAfhuANiaBQD+MT1w4EAWAr46Lw8ePHjRPHToULIePnz4onrkyJGL6tGjR5P02LHs
+/9mLKDOeXSxPnDiRrF9//fVF9c9//vNF85ssBKTqX7IQ0N1vvz0ZDh4tQQDgef6xzaHw8D8iz/GT
+14sV5lLZvSimZLGiXEoLi/HFsFhxTMFiRbmUFhbkUlusMKZisaJcSosV5lJZrDCm4kUNAPyD09bW
+Ft57773w/vvvh+3bt4cVK1bE52pqauLrxQpzqSxWGFOxWFEupcWKciktLIopWawol9JihblUFiuM
+qVisKJfSYoW5VBYrjKl4UQMAjBw5Mtx2221hyZIlobOzM3R0dISJEyeGZ599Nr7OQfIfaLEC3d8W
+K4ypWKwol9JiRbmUFiuOKVisKJfSYoW5VHYviilZrCiX0mKFuVR2L4opeVEDwLfffhtGjx4dnn76
+6dDa2hp27twZpk2bFqZPnx5ef/31WIQHDx4cwwH/g3Yv0P1tscKYisWKciktVpRLabHimILFinIp
+7V6US2mxwpiKxYpyKS1WmEtlscKYihc9AIwfPz5cccUV4a233gobNmwIDz74YJgxY0b46KOPwrBh
+w8Jll10WbrzxxtOFoVih7i+LFcZULCzGF8NiRbmUFiuOKVisKJfSYoW5VBYrjKlYrCiX0mKFuVQW
+K4ypeFEDAHz88cfhgw8+iI+3bdsW7r///jBlypTwzjvvhDfffDMMHTo0BgOKQrEi3Z8WK4yp2L0g
+l9piRbmUFiuOKVisKJfSYoW5VBYrjKlYrCiX0mKFuVQWK4ypeFEDAB/+3Llzw+TJk+PB7Nq1K4aB
+5cuXx5EBLgkwIkAQ4B8nClOxQt1fdi+KKVmsKJfSYkW5lHYvjKlYrCiX0mKFuVQWK4ypWKwol9Lu
+RbmUdi+KKXlRAwDP5//Y8piiyz8CeQHgeX52L8ylslhhTMXuBbnU5oX4YllYFFOye0EutcUKc6ks
+VhhTsVhRLqXFCnOpLFYYU/GiBoDemBekYgW6vy0siKlZrCiX0mJFuZQWK44pWKwol9JihblUFiuM
+qVisKJfSYoW5VBYrjKl4yQeAYoW5VBYrjKlYrCiX0mJFuZQWK44pWKwol9JihblUFiuMqVisKJfS
+YoW5VBYrjKloADiDxQpjKhYryqW0WFEupcWKYwoWK8qltFhhLpXFCmMqFivKpbRYYS6VxYpgKp48
+efJvpBfAhQeAbYdiV7lDhw4WLezlYLFQoDqQLRYGVfvbYicBenGkGdve/YdjW/8LCgC0AT54sHhx
+VVXVS0NGaVXx4FcHwu69Bw0AqqqqKUkb/t37DACqqqpJaQBQVVVNUAOAqqpqghoAVFVVE9QAoKqq
+mqAGAFVV1QQ1AKiqqiZovwYAZn1i6kmmIWQuYqYfLXz9UpUJEpglKZ9CkalDmTmt2LKqqqrlaL8F
+AIr9l19+GebNmxf7/n/++eehoaEhzgHevZhScAkKzMvO48LXeiPrMMc0gaP7a+yL17o/fyY59ra2
+tjBixIjw0UcfhWXLlp2ewjJfhn3mc5rnx8/r53L8LEu4YH88Zn2Olcc8x2vdt9d9ncLXVFVVe2u/
+BAAK+a5du2Lhnzx5cqivrw8rV64MH374YZgzZ04smoUHQfGsqakJW7du/U6R7a0U5xUrVoTdu3d/
+J1zweM+ePfG1YuGgJzn+9vb2uN7atWvD2LFjw8iRI8P+/ftPb4cCTKBpaWmJj6uqqsKWLVvO6fj5
+HFiPfbENjn/58uXx8caNG0NtbW18XLgOv3NMra2t8TgLX1NVVe2tfR4AKLoUqTFjxoSKiopQCJcB
+3n///Vg488LG8pzR3nPPPWHcuHFxyJ3X8u5NhIP8rJf1+Z3X+Yn5+rfffnssmvkoAsWVbkcdHR3h
+zjvvjPtn+e4fQDEp9CxbyLRp08KMGTNOhxd46623wqeffhofP/nkk2HhwoXxMcfAmXx+vKzDMfMc
+v+fvheMjFBGUgHD0pz/9KT7ms3juuefiY94PwSM/Jp6fOnVqfJy/3+7vQVVV9Uz2eQCgUO3YsSMM
+GTIkFvPurF69Ol4OoAByABS1JUuWhEceeSQWPwr6Z599Fh588MHwwgsvhC+++CIuw0jCa6+9Frfb
+1NQUlx09evTpbdx7772nz4r5nW089dRTMWz87Gc/i9ubPn366eBxJimoLFcIoYB9c3wIw4cPD888
+80yorq6OAWTx4sVh/Pjx8cydYMB7uv/++8PSpUvD5s2b4/F88sknobKyMh4vx8l+brvttrg9jnHN
+mjXx8aRJk8Krr74aHxMYNmzYEAYPHhz3QfC45pprwvPPPx8/6/MZNVFV1bTt8wBwOAsAnHVTpIrB
+5QDOegkHFFp44IEHYpF89tlnY6GnKL7++uuxAP7hD3+Iy7z00kvh2muvjUX8t7/9bSy4//Ef/xHq
+6urCt99+GwsqQ+n52fabb74Zlx80aFB4/PHHQ2dnZ9wWhfRsQ+fFAgBFmGPi9TwAcH8AhZhj+8lP
+fhKDzH333RcL/NVXXx0efvjhuN/HHnss3HzzzeGmm26Kx8RxvP3222H+/Plh1KhR8bOaMGFCDDUs
+z8gAAYDAA4wcEAz++Mc/hssvvzzcfffdcUSCZV555ZW4TPf3oKqqeib7ZQSAAsrZ8fbt22NxKoSi
+ReHLz34p2gzRP/HEE/Hne++9Fy8f8JOzborlpk2bwnXXXReLKGfALLdgwYLw8ccfx2F/wgSBIL+0
+QFHl7JgwccMNN8QzcUYcKJxcs+9NAKDgF0Jw4aye7bMMULg5VqB4cwlg2LBhMXAQFhgdoHg/9NBD
+sfhT5KdMmRKDDu9v586dcdSCbV9xxRUx3ADvh5EE1uc4CAUc+6pVq2IIuPHGG+NnyA2W+WWC7u9B
+VVX1TPbLTYAULW7qo8gx9A0UfM7yOfvPb6bjGj+FPC+iFGnWoWByRs/wP4WO37kcQFHljJ+b8x59
+9NHwzjvvhL1798b1KKp33HFHPANnSP6NN96Ij1mHoXUeczMfw+WcwXf/ILrLNxg4PiA0UNgJG3kA
+YJ+EmVmzZsXHhBHeK9fmKdKEiH/+53+O+549e3ZobGyMIx1cRqDQT5w4MW47v1+AEYH8Jsb8jP8X
+v/hFPG4uZyxatCi+53z04JZbbolBg28r5MekqqraW/slAGAeArjpjzNlCh8FnbPZvGBRJCnI/M5j
+nmMIP7/RLv89Dws8Znl+sjzr8TuP83V4TFHNz/I5jnz7LNOb4s9yFGzCA8fOUP+6devitvJlCvfD
+Y4btCTgUaEY+GNl4+eWXYzFne/m6HC+P8/UK95kfG8+zXOEyrJPvk8d8Jlj42amqqvbWfgsAmBet
+bdu2xeHuwoJduFx3KYS5+e+FPwuX6f57/lzh74XP91aOkRvsKOYU2jxg9CTbJ9xg/r677/dMx1Hs
++Xz5/LWeHquqqp6r/RoAkCKVn62WW8E61+PO32vh74Wvq6qqXir2ewBQVVXVS08DgKqqaoIaAFRV
+VRPUAFBiuYv/6NFMfl7KZsfIDZvF3oOqqpa/BoASu3Fje2hsWheamtdf0jY2tYSt2059A6LY+1BV
+1fLWAFAi+UbAnj17w8pV1WHXrt1hV+eeS9q2TVtCVXVtHLEo9n5UVbW8NQCUSALA7t17QkNjS5wB
+8FLn+ImvQ21do5cBVFUHqP0aACh6PX0Xvthr3Z/rad3c7suebXlkmd58v7+32+utbIsAUN/Q3FVi
+L20OHzlqAFBVHcD2ewDo6RpysQJcuPyZ1s0t3AZz99MXoPs2u8vru3btirMTMjNh930wgx+z/rE9
+5uYvfO1CZL8GAFVVvVTstwBAg5w5c+bE/vd561+KCc/DBx98EJv6AMuzDE2BaP7D4y1btsS5+JlL
+n0ZCrMdyhdsYOnRo7DcANOyhsRBz8rNOfu2aZVmf/bNdmgTRTpg+/TTZoccArxMEWBY5Ll6jiQ/7
+Q0LB2aYDPpMGAFVVvZTstwBAj36a/9ArPxaUrJBs3bo1zJ07NxZDev0//fTToaqqKhZsoP/9D37w
+g/iY7n70+4fVq1fHYEBx5uydXvh0FGTbdPgjBFDAadjDmT0tg5nHn+JOy1w6COb7oKMe3QLh1ltv
+jS18afzD9jg2RgWefPLJ2M6YfbFNRgMIGLTtLfzwzkUDgKqqXkr2WwDgTJz+95zFAwWYYnrbbbfF
+NrZPPfVUbJv7xBNPxJa6QNe9f/mXf4mtcn/zm9/EHv9AK94rr7wyjBgxInbne/PNN2P73Ycffjj8
++te/jr3/ObOnbfDVV18de/PTMpdlfvnLX4brrrsu9tKHxx57LNx8881x/59//nm46667YrF/8cUX
+4/4ICLQiZptsh33Q9pfjXL58+Xc+vHPRAKCqqpeS/RoAxo0bF959991YUDh7p38/RZc+94MGDYrD
+/LW1tbHoAgWbwEAhpugzSsDZOSMDPH/VVVeFRx55JC7LGT/99SnKy5YtCzfeeGMMABRs4Cz+5z//
+eXjllVfiaMKSJUvi8xRyLjVwRs8oBa+tXLky/OQnP4mXKwgCbKeysjKGBNb7h3/4h3icUPjhnYsG
+AFVVvZTs10sAU6ZMiWfkn376abyezhk1Z9MMvXMdnsI/ePDgeMYPnN3z+uTJk+MZO8WaHvsUYs7S
+f//738cgwEgAPvjgg3F4nxEERgIYUXjuuefitggHFH8CCDY0NMTn2SfFneMDtkGIYFmOg1ELQgSX
+AxipYHmCQX65ovDDOxcNAKqqeinZbwGAwsF1+PHjx4eRI0fGostd+owAzJw5MzQ1NcUzcYo3N+Fx
+097GjRtDe3t7vFmPZfNr94SAUaNGxdGAnTt3xm2wbGtra7xOz70F3AdAkefMnm1xvZ7r+qNHj47X
++enRz/Psl+NiBIFjZB2u8dP3n+1u2LAhtLW1xW2yLNvlWLhvYM2aNd/58M7FcgsAx46fCGtrGwwA
+qqoD1H4LAPld/5xpI0U+/50CT0HOH+fLcwMeRZrHFGiW4TE387Esv+fbYFnuys8LOdvndZ5jHR7z
+GsuyPs/lz+dFLf+d4sx+8+0iy/Baftz59vP3d66yD4LGipVVoa6+OQsCLZe0a6prs+Nsip9Lsfej
+qqrlbb8FAC3uvn1fhl2dnaHzknd32J8FpGLvQVVVy18DQIllJKCcLPYeVFW1/C37AFCqImUxVFXV
+gWS/BoDCM8n+kGvz3KDH5D/cHNhfctMgNxuyz8L3p6qqWq72awCgaHJ3PQW0v9y0aVO8UY15Bwrl
+hj7o/vz5yE2E7MsAoKqqA8V+DQB8lY4z9H379kW5Cz7/mT/urYXr5I+RgMGd//0J31RgJMAAoKqq
+A8V+DQAUZ37mQ/b51+jyr/gVvnYmWY7l86/vccZP0ec1CjNf2+sO39tnDoC+wACgqqoDzX4PAHzX
+nsLJSMCQIUNi8Weynffeey9OD5x/j58iznft8457FHl+Z11gGmEm/mEdJhWiW19emIsFAHoD3HHH
+HXE7e/bsiZMBMZ0vlyUY0mefrMvsfsCkQ1gMA4Cqqg40SxIAKPJ8t5yCDMy0d99998XiTM99XuNy
+AdP/Mtsf1+9Zl98p7lx/p6DTQhiYPpiCziyBxQIA3QOZfZApfpnat6OjI4YPGgMxzz+/M7sgUwsz
+ZfCiRYvi1MT0KGDK4u4YAFRVdaBZsgDAT5r50HyHOftp1sOc/8z9/+GHH8YugXTmY/5/pgrmJwWa
+kQJ6B9D7n3U4e7/zzjvj9f/8LL57AGDon26C9AWgsx8wtz9BgucIHRR6ij5thmk8RJdAegYYAFRV
+NQVLFgC4eY82vHTXY859zuIp1F988UVs8EPBpsgy3/61114b2/9SkGnCw1k7xZcWv4wc0FyIosxz
+3QMAoYAmPgznM7xPcae5z0033RSmTp0aexMwGkD3wFtuuSWMHTs2dhOkERHdCPOuf4UYAFRVdaBZ
+0ksAnOVTTGnYc//998dLADfccEMMAS+88EIMAshj5GycIXwuHXDtnssDv/rVr+Jj1i0WANg+DYVy
+uPeAew7mzZsXLxsAw/+0IkaOCwgmecvg7hgAVFV1oFmymwDpzMc1eR4zFE8P/rVr18biToFleP8P
+f/hDPEvPb/Rj2J9izjV9CjnbXLFixemGP8UCQH9gAFBV1YFmvwWAvNDnjxkFoLDzmILN4zfffDMO
+03MzHzfiUWSBZbjWDyzLY9Yv3AYy3M9oQKkCAPvL962qqnquUsf4mdfKi2m/BQCG1pmljxBA8Swm
+w/jczMcynNHzdb0zLd9dij/D+KWYCIhvKRQ7BlVV1d5KjeNG9MJCfLHslwDAcD9vksl7KM79KfvI
+p/3tT/I5ClRVVc9XRqy5PN69GF8M+yUAcFbP2byIiIh8F0YCuhfji2G/BQCGOEREROSvMGKddADg
+Zjq+ildTUxPle/jcDwD5vAB8V5/legv3AzD/f2/h/oT169d3/XbusK/XXnstHitfTzwfuLmRuQ2Y
+1pgbIZn5kMsn3aEjId+K4DNjCOlcYF4Fvv5YbLsXAt/o6OlYil2S2bx5c/wqZlNTU9cz34XPsPDr
+myIiA5HkAwCTAjEb4Pvvvx+GDx8e7rnnnrgOhY4Jgerr6+MMfUwWlFNYVFiuOxRQvirYWyi8zz//
+fNwuFtvmmWDdjz76KDQ0NIQHH3ywV/vuXhiZ3pivPTLzIXMjMEvixo0bu149Rb4OEyDdfvvtp+ct
+gLMdM6/z9UomQWL65RyKMQGrJ7ofJ3R/jns8eoIZHpl5EfL1Zs2aFa677rr4N4fC7fGYv8fEiRO7
+nhERGZjw713SAYAzRwodZ+HI4/xmPiYL4kyXIkKx4MyV4sBUvZwhLl68OBZc5vBnCmE+SM4qmTOA
+AsJrbI8phJkRkAZC06dPjzMKcic/bNu2LZ65cwbPc8xJ8NRTT8V1mQ2QmzSYb4DZAXmebxo888wz
+4dVXXz1dgCnezDLIsVK4CS2PPPJIXIZ1OU7k2MaNGxdnGKQYc8yMePB+aHDE/vKRCI6RQs+x8bmM
+GDEi7p+zeKYwZvIk7q3gc+KsnuPNZzdkemT6H7A8vQ6YRInX6W/A51BRURFefvnlKPv/yU9+EvfL
+hEuMunCTI/B58F4XLFgQZ2zkM+A98BwzMPIVFuCz5v1zzHyOTLbE34DRDP5ehBW2yXpsh78BUzvz
+OuGO5zkOggmfG8eTT9QkIjJQST4A9ARnrJytUrwppBQxigXFgTn9mdKXgsNcAJyBM1pAcWY4nnn9
+KXgUVdb76U9/GkcZKNQUH4oXYQAIFuyDaYDZD3CGSqFiHwQAfqd4cnbOMr/73e/Cr3/96zBnzpy4
+PNslhDCCQaBgmebm5jifAU2HKLQEA4rkn/70p/gcvQ44ZqY2pvDDqFGjYjDgUgg/p02bFvdJAb3s
+ssvie2J5tkcAYPSEwsp743Og8FLg+ZzYD4GEEEVg4HUKPMfBc8yiyHYfffTReFwcN++DoEIA4/Nn
+0iU+g6uvvjqGCsIRx8xxXHPNNTGYANu8/vrrYy+HKVOmxM+dz49LFczvMGPGjBiWKO68D/aJHBfT
+PLMP3gPb5b+ZTz75JP6dREQGMgaAHuD79swGCGyHs2SuG3MpgGvOnHVS7PjweI5LB5xt53P9c/ac
+N/QhIHDWS8HmJ4WHAk3xpHjxO7700kvxDJ3nKK5slxkK84JJECAssAwFKr/eT2EtvOeAAs1+mLqY
+osqxUxwphhwTZ+ZsC1955ZV4Jky/Au5dIATw3ggRTBDBWf2gQYPisVGQKbBsj+LNCADvgffK58Do
+AIWVs2nOqinY9Djg+Hid8ECRpZizT87sGVngGBgp4TIGxZtRGUIAnymTM7F9ejdwXwL7Zrt8BvkI
+CM2aCEX8nXifHDt/Kzo2cnmBIMM+CAR8tpz933333fFY+SzYB58n2yaYsSyjPiIiAxkDQA9wBspw
+NB8Q26AgUJQoKhQciiVnyoSAH/3oR7GAUXgo0KxHIeJMmGLGmTnrcK2aoWWWo8BzfJz553DGztkw
+hYiRAf4wL774YiyMFGaG7rlBkeLKcDgTFgHXuDn7zuF5ChvD95x5cxbPcbA+hZ6hc15nJILgQGHl
+vgEKIgWTZSmaBABeR94/6xBc2B7HzXb4fCig+Zk/RZ0iSrjgJ88RDHidEEGAYKidYMLvfI6873Xr
+1sWAQkjimPPtMspCEOLSAqMEXHrh/bN/jhM4w+eMn+PlPVLo+byQkMA2WY/iTwjhGFifQMOy7INj
+JNDwHgkehZ+niMhAxADQB1BI2Y+IiEi5kHwAYAib15EzQH5yFz9wjZkzRM4UzwW+MnimO9ML4aw1
+h2PN990bGJHgPZ4PjBLw3rjj/2xwpn2m/fAe8hvyegP/wRW+757gnoqzkfdE6A2MLDDyIiIiBoBY
+EPIb4Rhq5xo+6/DBcN2dYWmuzzME3VsohgyV9wbuUucaPzBE3ZuCnMPlBIb5z/YVvO4wLM59CazL
+PrnPoDsU1rwlMUP+XBrovh9uUOR6PEPwXJM/GwQqLjcwvM7Qf0/wvrgkwSWAs8FwPsP/vYFvFXBz
+ooiIGADi2SNFhBvXuGudm94o4BQ77qwHzua5Ps6HRXFiyB/4ihuFkWvNXENmWxQ2zqz5WhtfheOr
+gxRSbnpjfa51U7DyM33uD/inf/qn+Efg5jOuj1OgWZ6CRZAgpHBtm5+FxZpr6Ny9zvJ8n54b/Ngn
+RZn3wDY5Fo6Xs3jeGzJfANe9czhG7g1gn9xjQEEfM2ZMuPzyy2Mhzu/657PkfXEtnvfKcoQkghP3
+NXBDH/B5sS3mmM6/+sg9EdxLwN37vBcCBusTgBiF4b2yDu+FGwW5x4HPgpEKPmNGYXiNewp4P5zN
+A9sgoLFvbtzk82c77JfPmMf5Vxt5L//5n/8Zt5ePLvA69y3wt+EmTn7ns+NYuU+A53J4D9xvkU8g
+REBB7o8gJImIlBPJB4CeIAAwWQyjAxRZwgGFla+R8TU6bkSjYPO1Ne5q5y50ChbL8C0A1uNrZxSX
+K664Itx4443xO+rcREix5AZCIDxwVkrBpehR8BkR4O557rQnhHBXPj8ZheDredzUxvIECb4JQBGl
+cHMWzjcXKNYUQIo/BZq78ClS1157bbjhhhviDXkUwRwK9c9//vO4T477jjvuiMuzHIWNmxo5XvY5
+evToeIMf4efWW2+NxZfX2S7rcHMf67MtvmrIHfeMqlBYuRGS1/maHe+HwEI44FsVhBLW4bPkGNgm
+75XPhs+Y4+XmPN4PrxGcgGPh86U4c+MkhZ3tsByfFzf1EfD4D53/Dvg7sT3+dvwN+VvyNUN+56uE
+gwYNivvl64EcJ8vwWQJf7+QzyMMTP1mOvyvrEyJFRMoFA0APcDbJ18+AM1ruxqdY8RyjABRyCjxw
+5z9fU6OQUugoQBQ9zsa5m55ix5krhYhCx+UGCihw1z8FkODwve99Lw6PExYIHBQgzq4pfFyKIIhQ
+gDkLZfie/eTfzafwsT/OphkZYESA9ZkvgCLO8VKoOB6KKcsA9xHwHKGFfRIqKJqccVOsKeoURUIF
+RY7CS7Dgzn2Ok7NxjoeQQgghvFAo2RafBZ8Dnx9n0gQqjoUAw0gA4QgY1cjnDSA8IEGIQkwIArZF
+gebrjZzlEyaA/fKZMJUxnw+fC9thvgCOkxDAZ89/6HzmXPIACjuBiLN8JJTx1UBGa/gcOW7guBgd
+AQIRlzC4fMIIBp9//t8InzWflYhIuWAA6AECQH69mA+IYkgBYTicApAPEVOkOAOlCLI8BYsCSoGl
+KFCY83Uoqpy9UjTy7/BT2DhzpHAz2Q8hgqJGIaOwceysC5xt836As3rW4To82yQEcDbLaABhggKX
+T7RDYeJriqxPEed1CjnHzrFyRkzQYJ8UZZbhhkj2wRl8vh9mDqSg8t7YNiMW+TA+37tniJ1tcJmB
+n7xG2OBz4z2yT14j9DBHAdvhuCnYFF3WYVSBoMXICNtlGxwnIYtjpEBzuYB9A/Ms8HlxSYIizvGx
+HUILfxO+UklI4T90lqHos718eJ/PhP0QLDgutsFnQOAD9sNlG2BZLkOwHJ8rE0LxGRGi2F4eaERE
+ygEDwBnIr9PzIVEEgWvShXenc6ZNIWA/nJkSHDgbZd18fa6x52f8XLumuOawbH49uxC2mz+f7zvf
+HuTPAcvxO2faXJ8HChWXMfJjAY6PPzbwHPvIj4Uixu/AOvnPfK4ByPdJoc8fs4/8ngk+J34C2yp8
+Ln8vbJPlofBzYTnWyQMOy+THwfP5d/7ZDsvm74nf8+f47IHlOUbgPRfC9vP3Cey/cJ/5a/n2+Zm/
+p/w981nl3ybgMXAM+f5FRMoB/t00AFwg7CcvcCIiIuWAAUBERCRBDAAiIiIJYgAQERFJEAOAiIhI
+ghgAREREEsQAICIikiAGAOkX+A+LOQT4Pr6Wp8zTkM+BICIDDwOA9AtMlsS0wkybrOUpfz9mkBSR
+gYkBQPoFps/NGx5JeULfivr6+q7fRGSgYQDogjn4zxfmyedDPBtMbXumMyrm02f++nwa2mIwHS1n
+1/ykYQ7T/54PTAHMHx947/m0u30FTY1okSzlC02a8p4VIjLwMABk8DptdPO53s8V+tvTfKc3cFZV
+DBrt0K2P5jk0likGLW+5rt7S0hLeeeed2JCosC9Bd/gHnH71xaCZDe8Z6CiY9xDoKwwA5Y8BQGRg
+k3wA4AOgEx1d7zj7Zk5/Ov/R5Y1OdOvXr49nx3Sso988Z/B09aM7HTdKAe1i886BQKOYfH22R7c+
+OvrRdpdl6WhHZzvO+POzcIpx3kyGVrM082Ef/CPc1NQUO9rR7Y/rsgSOq666Km6HAMDv7I9gwDZY
+j+Olqx4texmh4NhpR5z3LKBD4b/+67/GP/7gwYPj58R7Y12eo90vx8y1YFoJ8xkQJnidBjt00qP9
+b08YAMoDmixxs18Oo0/8twAGAJGBTfIBgDfP2TBD6bSm5a5nChc9+GklS7teiuZdd90V+83T1van
+P/1pbFtLj3zgOilFNIcwQEigzSzbpNgTLui5z2uXX355DAU8ZhgfWC7vMAcEEvbxq1/9KrYPJqTQ
+y54izu+08eUxPewZOWA0gMBBRzvWvfLKK0+3wn333Xdjq+HLLrssHgdQ1Gn7O2bMmFjoWY9tsE96
++vNeR4wYEVvn5vtmG7xOK2A+rzNdNjAAlAdcCiLU8ffkHwP+e8lHjQwAIgOb5AMA/9hdf/314fHH
+Hw+//vWvYzEfN25cPPPn7JcAwD+CnH0zMkDf+N/97nehsrIyFnHgH0oKZA5FGXj96quvjn3iubzA
+WT6Fm8AB9JfP/7HltbxNLmfyHAt9+rkc8PTTT8czes7y2RfFmb71hIzf/OY3sf89MBpAMefsnXXY
+BoGF50aPHh175ec3deUjBowS/OM//mNcl2LP+6LAE4BYluXy/fAcrzMKcTYMAOXDpk2b4iWloUOH
+xlGlHAOAyMAm+QDw1ltvxX8AGTpnKJ1Czpn6E088EX+nuHKmT0FlGJ0zJv6xpHhTlGHr1q1xSD4/
+21+5cmW8rv7mm2/GIsoZ+AMPPBC3O3z48BgkgO1RhIFif++998Z9ETwo3OyDADBq1Ki4zVWrVoVP
+PvkkHvPHH38cz9j5naDBvqdOnRoLNOvdcsst8ZLDhAkTYiEmeHDGz7ECx8mlhYMHD8aCzzAwYYd1
+CRi8b/7xZ6SA9RkNYFu8TqAhZHCpoicMAOUFAZDLOoUYAEQGNskHgGITnXDNPL++f/z48dND3fmy
+XBLIX8/hejjPsU/gMddTuV7+yCOPxKFzCjsfOEL+M4dLAIXb5XF+X0C+LMcDhduBwvXYTn4c+TV/
+PgfeVw7rFnvvbCffBxTuh5/5frh2fKZJYgwA5Y8BQGRgw7/pSQeA/oazZC4nbN68ueuZNDAAlD8G
+AJGBjQFA+gUmAuKShZQvXGLK7xkRkYGHAUD6Be4q5xsGc+bM0TKVG0fPNM+EiJQ3BgDpN7h/gW8/
+aHma3z8iIgMTA4CIiEiCGAAShj++ak+KyMCG/88NAIlx4sTXoaq6LtQ3NIeGxhbVoq5eszb7/+dA
+1381IjLQMAAkyFdfHQyNTevi9/hVe7J905awddv5dZsUkUsfA0AXfdEOtzfb4B9W5gYonJSnJzj+
+s92IxR+QZdgukw7h2Th48FBoWddzW2IR2NKxLWzbfvY21yJSnhgAMpjFjyluLwRmyHvxxRe7fuuZ
+yZMnx6mE8ymAi9Ha2hq/Rse0vkzVeyba2tritMBMzZtPYdxTC+AcA4D0BgOAyMDGAJDBnPk33HBD
+bHrDB0KRZl59JrNh7n++zsZMfsz9z+8dHR1h5syZp6fpBRoI0TCIiVN4nvV5jjNzWgDzmGJNQx56
+ADACwHeseZ4RAaYNZpvsh7n9H3744ThvP8dDlz/2zXbb29vD7NmzT7fi5RiZt595+nkfQN8C5vlH
+1u+OAUB6gwFAZGCTfACg7z698SnONMvh+88Uafro0/2OZjw8RwteugDStOe3v/1tfEw7XyAQ0JKX
+bdBRjRBwzTXXxOY6tFqlMQ+PhwwZEhsB0S2Q0QKa+vA8IYD599kmjXno3ke3P15nu2yTxkKs/7Of
+/Sw26OE1YMpdnie0sB3g/dDYheBhAJDzxQAgMrBJPgBQtH/+85/H4k8PfZZnDvSGhoZ4ps1saHTK
+o5kP/f0prHT+42ybQgwUWgoz26BtLiEhb5lLb36G5YG++myH5kAUekYCgBDCY7Z51113xTa+NTU1
+MRzQqphwQD+B6667Ll4+ADr2AQGAMDBx4sR4vEDnP46pJwwA0hsMACIDm+QDAGfa9EDfuHFjHGp/
+7LHHYtGl2C9fvjy89NJLsU3voEGD4rIsx1n5p59+GqdLBe4foPENr3EmTmtersdz1k6AIATwmDN5
+Cji9/3k8bNiw+DzD91zHZ5sEBF5jFIL9fPjhh7EnP8dBW2FGFIB9QD4CwLEzgkAIIQhwY2BFRYUj
+AHLeGABEBjbJBwBe4zo9cB2es3HO/imeFNFNmzZF2RbX/4Eb9OjXn6/HOjmcrRMMbrvttrgMEAC4
+vs++uI7P+nxjgLa9LJPfS8Bj7kMAluUPA4QLrucD60D+njhmRii4p4DmO4Ud+DhuA4CcLwYAkYFN
+8gGgP+AGvbx4AzfuXUoQANatb+36TaQ4zAFgABAZuBgAEoQAUFVTFw58dTD7jFSLy2RRTgQkMnAx
+ACTIN9/8Jazf0BovAzASoFrMpub14ciRs09YJSLliQFAREQkQQwAIiIiCWIASBTuA9j35f7s81Et
+7v4DX4WTfzn1TRcRGXgYABKE67qVK6rC+g1tYcPGdtWirlxVHXbu8v8dkYGKASBBuMOb4i9yJvgK
+oN8CEBm4GAC6YEa98+XYsWNxKl5mAVywYEHXsxcGE/7Q2pc+A8wK2FfbBScCkt7gREAiAxsDQMa2
+bdvizH105TsfCADDhw8PP/7xj8P8+fO7nj13aDyUHyvT+TI1MFMH0ziIaYDpFVDYgfB8MQBIbzAA
+iAxskg8AFNQRI0aE+++/P0yfPj1O0Us3Phr2MI8/nf3yVr30AmBKXnrv04KXs/McpuJ99tln42OW
+nzt3blyGlr6sy5z/tPllemG2SwMfPvgxY8bE7TL9cN4jAAgSNA/66KOPQktLS3zugQceiO1/aTZ0
+IRgApDcYAEQGNskHAN48zX4o1BRgaG5uDo8//nhs90tHPub8p0sfDXhoEPSjH/0o3HHHHbFFcA7D
+9TQSAkLCD3/4w7gM69xwww3x7J1GPdXV1bHREJ39KOhXXHFFnMOfZj/sI+8FQACgoyABIH/uwQcf
+jKHjwIED8ffzxQAgvcEAIDKwST4A0ICHFr607KVvP02AaPPLWffChQvj6EBlZWUs4pyp8/qdd94Z
+i/KkSZO6tnIqSDCKALzGJQV+cm9A3rmPlr8UeULFlClTYttftgnsn3XoKAhcAmDfdP9jO1ymePrp
+py+4+IMBQHqDAUBkYJN8AODaet7Nj577L7/8cizEnM0zEsDZ+qOPPhqH8yncFGBa9NJzf+XKlXE9
+4KY9tgUHDx6M7X1ZZsWKFTFQAIGBm/nYJmfzXNvncgCwDJcWuAwBdPWbN29evLGQwMG2eB9sO29D
+fL4YAKQ3GABEBjbeBNgDJ06c6HpUnLO9Dj0tw4fOvQbF4LXusGzeepjXuY/gQjAASG8wAIgMbAwA
+CeI8ANIbtu9wHgCRgYwBIEEOHz4aKldWhbb2zaF90xbVoq5aUxN27NjV9V+NiAw0DAAJwh993779
+YVfn7tDZuUe1qLt3773gy00iculiABAREUkQA4CIiEiCGAAShNkP29q3xI5vG1s36QXIZ9jattmh
+chEpOwwACXLo0OGwes3asGfPvrBnr16Q2We4prouHDiQ/dcqIlJGGAAShHkA/Bpg38FIgAFARMoN
+A0AGk+wUTut7rjBNLw1/zpUjR47ExkEX0kHwfHAioL6FMGUAEJFywwCQQYMemvNs2bIl/s7UwKxH
+MCicgY+Cze9c782nDwbWZ7rgQmgOdPz48fiYNsP5MTA7YL7ua6+9FnsLsC9gHQJBTv78+bYp7gkD
+QN9iABCRciT5AMDc+sOGDYutej/55JNYtF944YXY/IcGPbT1pd8/xfr3v/997AY4ZMiQ2MmPDn9Q
+V1cXBg8eHB8Dc/rTTviNN96Inf6ee+652HGwtrY2tLW1xXVpEvTwww/HjoM0/WE/9B8YPnx4GD9+
+fOxHQPOfpUuXxv4BfYkBoG8xAIhIOZJ8AODNX3vttbHI8hM4E58wYUL49NNPY09+uPvuu2PnPgr6
+D37wg9i+lwINBAB+z6HjH4wbNy5cddVVp5v30GyIZj8sy75oJ9zY2Bi3c/vtt8dlaAF8/fXXx1Cy
+Y8eO8OSTT8bn+xIDQN9iABCRciT5AMDZN4Wd7n0U5qFDh8Y+/nTiox3wm2++Gc/4r7zyyngmT5c+
+OvMxdD9jxoy4jfr6+tjal3Cwbt26OIKQjxRwaeCdd96JowKMGHCWz7oUfB6zjccffzxuk/XpFMj+
+2ffWrVvjaAFBoC8xAPQtBgARKUeSDwCc+efX3ffv3x9mzZoVCzZD/nv27Iln7LTsXbZsWaisrIwf
+GOu88sorsUAD1+hZnlbCnPUfOnQoPqanP/cMcHmBcME9BPT7Z136/LO/xYsXx8K/d+/euM6SJUtC
+e3t7XI7lCSK83pcYAPoWA4CIlCPJB4AUMQD0LQYAESlHDAAJQjvg5pYNXb/JhbJufWvYv/9A128i
+IuWBASBBjh8/EVatWRvqG1pCQ+M6vQD5DFetrglHjx7r+nRFRMoDA0CicG/Cn//858xv9ALN54oQ
+ESknDAAiIiIJYgAQERFJEAOAiIhIghgAEoRr/9y81ti0LjQ1r9cLkM+wrr75Oz0cRETKAQNAgjAP
+QG1dYzh27Lj2gXUNzeHAAb8GKCLlhQGgi5qamq5H5w7TA3NWDeyL2f1oEZzT0NAQuwDmTJ06NXz0
+0UexqyD9AfIZBUsFAYDvrkvfsGFjuxMBiUjZYQDIYOrdm2++OU7Nez4wzW8+Xe+YMWPCQw89FJsH
+Afunj0De0nfKlCmxvwB9AQgKTDdMR8JS4kyAfYszAYpIOZJ8AODa7QcffBCeeeaZ2KKX33l85513
+xvn6Obvn7H3s2LGxYc/atWtjf4Dnn38+NDc3x23QDTDvDPjggw/G5//bf/tvcRSA9b7//e/HDxro
+C0DDH878YeXKlWHSpEmx9TBdBFtbW8Nbb70VQwKNhQgJfY0BoG8xAIhIOZJ8AODN0+ef5ju33npr
+fI4RAc7qadpDS2CgOFOkaQhEO2D6+99///3xNRr5sCyNgD777LPQ1NQU7rnnntg9kAY/jzzyyHfO
+8gkaPLdixYp4KWDu3LnxEgTBgE6Cv/jFL2J3QbZ1/PjxrrX6DgNA32IAEJFyJPkAQK9+zvafffbZ
+8Ic//CHMnDkzFnPO6mnJy+gAHQKvueaaGApo80vxr6qqitfyc+bPnx9uuOGG2LqXUQKKOeGB52n7
+m98kxlk91/xpIcxZ/vjx4+NPWhLv27cvDBs2LLz//vvxuAgI/XF3uQGgbzEAiEg5knwA+OSTT04X
+5y1btoShQ4eG++67L/boZzieADB48OB4pk6xpkXvyJEj42hA4Y2DPP/555/HxxR5rvFz1n/s2LG4
+PK9DZ2dnDBsPP/xwvOeAewco+oxC8DyXDV588cU4EsDNg14CuPQxAIhIOZJ8AEgRA0DfYgAQkXLE
+AJAgBAC/Bth3+DVAESlHDAAJQgCorW+KbYGPn9ALMvsMmVVx/34nAhKR8sIAkCBMWsT0tQ2Np6YD
+1vO3oXFdqK1r+s5ETyIi5YABQEREJEEMACIiIgliAEgU5hc4evSY9oEnTtgJUETKDwNAgtDBbsXK
+6ngNu1iLW+29jU3rs8+y6vQ8DyIi5YIBIEG++ir7kJ0HoM/ga4B+C0BEyg0DQAYzAS5dujQcPXq0
+65m/wrq07T1X/vKXv8ROf4XwXOGx0EOgP+b6PxtOBNS3OBGQiJQjyQcAijRT7zIFMNP9UqQLYR5/
+pvM9G/QNKCz4GzZsCI8++uh3wgPb5rmc119/PbS0tHT9VjoMAH2LAUBEypHkAwCF+oEHHogfBCMA
+NOTJe/vTCpgOgbQBXrJkSZzHf/bs2bFZz8mTJ+O8/R9//HFs7kNvAJoI5QwfPjzcfvvtp7dFQGCu
+f7oK0gPgtddeC1dffXUYPXp0bBFMyGBbtAdmVIA2wjQD4nmCCX0JVq9e3SfXmg0AfYsBQETKkeQD
+AGfl8+bNi+15Ke6ckXPWDzQEuuOOO2Lxf+edd2KToOuvvz5Mnz49FnAa+Nxyyy2x0D/00ENhypQp
+cb3m5ubYzIcPlg6CtbW1sfjTSZA2wYw4VFRUhCeffDL89re/DaNGjQp/+tOfwu9+97tw5ZVXxlBA
+AyL2Q8dBwsWMGTNCR0dHn3QHNAD0LQYAESlHkg8AnG3v2rUrPqY4U5gp2twXMGjQoDg6ABMmTAjX
+XXddDAucld92223xdZangBMAKPywYMGC2D6Ywk2LYc7wGTUAQgT7AdoFEwCqq6tjS2JaAH/22Wfx
+TJ+CTwCgIyDbnzt3blynLzAA9C0GABEpR5IPALTs5fo/xZpCzXX8IUOGxBEBrtfTtpefjADQ7pdR
+Arb5xhtvxCLNsP/EiRPj2T3rA2f/7JNwMXPmzDi0TwBgRIFtESJ4fPPNN8czfdoKM9z/8ssvx+F+
+QgUjBqzDdgkXbJvWwIcPH477uBAMAH2LAUBEypHkAwBwGYDr+TnM684IAHC2z2v5jYDc1MeHhsBr
++Y2D+fV55trPyV8jDLBsPmc8jzk2Xi/cVv5NBF7Lt5PfXHjo0KHT27sQDAB9iwFARMoRA0CCEAAo
+WtI3bGzdZAAQkbLDAJAghw4dDitX1YTtO3aGHTt26QW4PXPV6prsv7WDXZ+uiEh5YABIkPgVxu07
+w+YtW8OWjm16AfIZbt22o08uzYiIlBIDgIiISIIYAERERBLEAJAgJ09+G3bs7AwdHdtCx9bteiF2
+bI/3AXBZRUSknDAAJMjhw0fCilXVsYBx/VrP346tO+INld4EKCLlhgEgQfwaYN/S2ubXAEWk/Eg+
+ADC7HhPsAMtNmzYtzswHbW1toa6uLj7O4QPDQpitr3tbX2b2yyfwoVkQ0/1eKjgRUN/iREAiUo4k
+HwDefffdOF0vjBkzJk7t+73vfS92BWTaX6YFhvwaL4Hgww8/jI+Bzn7M50/Bz2G2QHoI0FiID5jt
+F3YKhLNdM+4eMvoSA0DfYgAQkXIk+QCwZcuWON8/PPjgg6GpqSlcccUVsSkPZ/b8pA0wvQIIAxTz
+n/70p6en/Z00aVJ4++23Yz8B+gosXbo0buff//3fYytgGgv98pe/jOsTCmjrSx8Bfl+3bl0YP358
+7AdQX18fw8h7770XWwLze39hAOhbDAAiUo4kHwBorvP666+HDz74IHzyySdx2J+zdS4F0Lhn1qxZ
+sfUvbX9p10uToMIRAJ5nVIDWwFw6oPgDxZxmPzxHqLj11lvjepMnT44Bg46ANBhiPzT6YTkaAdH+
+N7900F8YAPoWA4CIlCPJBwDg+jytfmnGwxk6ffrh+9//fhgxYkQs3GPHjo1hgMJOYGDmN87wae9L
+YOCMnuX4yTV/tnHHHXeE+fPnxza/jAIQMmjxy/rce8DzixYtCi+++GIcOZgyZUocMWhvbz/dFKg/
+MAD0LQYAESlHDAAZXI+npS9s3749tvkF2vJWVlbGYkx7Xob6OTvnMgCXAJYtWxYaGxvjssA21q9f
+Hx577LF4WWHXrl1xHdr50kp4yZIl8WZBLhc888wz8XVCAJcW2O/IkSPjaAAjCoXb7WsMAH2LAUBE
+yhEDQIIYAPoWA4CIlCMGgARh0pp161u7fpMLZcPG9rB//4Gu30REygMDQIIcPXosrFhZFZqa14fm
+lg16ATY1bwiV2WeZfytERKRcMAAkCvciHDp8JE4LrOcvn+GxY9+dBEpEpBwwAIiIiCSIAUBERCRB
+kg0ATNPL9/T5Hv+9996rqqpatlLL7rzzzlBbW9tV5c5OsgGAGfkuv/zyODnPW2+9paqqWrZSy666
+6qo450xvSTYAMNkP0/fOmzcvzuevqqpars6dOzfcfffdYdy4cV1V7uwkHQBuu+22OL0vDXlUVVXL
+VWao5RKAAcAAoKqqCWkAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACq
+qpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqC
+GgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagAw
+AKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCq
+qglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4Cqqiao
+AcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgAD
+gKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAMAKqq
+mqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIa
+AAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAA
+qKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqq
+CWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgB
+wACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOA
+qqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqa
+oAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoA
+DACqqpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACo
+qmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJ
+agAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHA
+AKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4Cq
+qiaoAcAAoKqqCWoAMACoqmqCGgAMAKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqg
+BgADgKqqJqgBwACgqqoJagAwAKiqaoIaAAwAqqqaoAYAA4CqqiaoAcAAoKqqCWoAMACoqmqCGgAM
+AKqqmqAGAAOAqqomqAHAAKCqqglqADAAqKpqghoADACqqpqgBgADgKqqJqgBwACgqqoJagA4hwAw
+derUcOutt4b58+eHyZMnq6qqlq3z5s2LAWDMmDFdVe7sJBsAli1bFn74wx+Gm266Kdx4442qqqpl
+K7Xs3/7t38KcOXO6qtzZSTYA8Mb3798fOjs74+uqqqrlLDXt5MmTXVXu7CQbAERERFLGACAiIpIg
+BgAREZEEMQCIiIgkiAFAREQkQQwAIiIiCWIAEBERSRADgIiISIIYAERERBLEACAi0gOHDx8Omzdv
+Dh0dHZekHJv/vsn5YgAQEemB1tbWsHTp0lBfXx9qa2svOaurq0NlZWXX0YqcGwYAEZEeaG9vD42N
+jfEfye3bt/dKluXfHNy1a9ffrMvvO3bs6PH3c3Hr1q2hpqam62hFzg0DgIhIDxAAOPvftm1b0SH4
+7lKQWWfNmjXxzLyhoSG0tLScXp+fTU1Noa2tLS6LPN6yZcvfbKs3cgmAUQCR88EAICLSA+caAPg3
+5+WXXw7XXXdduOeee8Knn34a+7TTpW3fvn3x3yN6tzN8z7IHDx4Mjz76aKiqqoqPzzUIGADkQjAA
+iIj0wLkGAIr4E088EaZPnx6++eabuH5FRUVYvXp1GDVqVByur6uri/cWjB07NjQ3N4dHHnkkvP/+
++3GdPXv2nFMIMADIhWAAEBHpgXMNAIcOHQrPPPNMuOyyy8Krr74aFi5cGAYNGhR+/OMfh+effz4M
+Hjw4/PGPfwwvvfRSuOuuu+IIwc033xxuu+228NBDD4UZM2bEEFBs28U0AMiFYAAQEemB8xkBeOqp
+p8LHH38c/2FdsGBBuOmmm8K9994bTpw4EYs8v48fPz58+OGHYe7cueHuu++O9woMHz48DBkyJBw4
+cKDototpAJALwQAgItID5xMAnn766TBhwoRw5MiRGAB+85vfhMceeyy+xvV+zvaHDRsW7rvvvni/
+AD/5psHQoUNjCOB+gWLbLqYBQC4EA4CISA+cawDgq3mcza9fvz4+5lo/1/3zbfCTgs2yc+bMictR
+/Ddt2hTvByj8xkBvNADIhWAAEBHpAQIABZ3v6VOYzyZf6+O7/yzPY0JAZ2dnfC5/jd95fu/evfEf
+X55jXR4jy3Xfbk8SAgwAcr4YAEREemDjxo3x+/zr1q2LZ+iXmoQTZwKU88UAICLSA1yPZ+IeAsCl
+KCGAywAi54MBQEREJEEMACIiIgliABAREUkQA4CIiEiCGABEREQSxAAgIiKSIAYAERGRBDEAiIiI
+JIgBQEREJEEMACIiIgliABAREUkQA4CIiEiCGABEREQSxAAgIiKSIEkEgD179nS9XREREckZ8AGA
+N3j8+HFVVVXt8tixY2H79u1/U4wvhv0SALCzszPs2LEjBgFVVVXdGesil8gLC/HFst8CwMGD/K6q
+qqq5hw4dij8LC/HFst8CgKqqql66GgBUVVUT1ACgqqqaoAYAVVXVBDUAqKqqJqgBQFVVNUENAKqq
+qglqAFBVVU1QA4CqqmqCGgBUVVUT1ACgqqqaoAYAVVXVBDUAqKqqJqgBQFVVNUENAKqqqglqAFBV
+VU1QA4CqqmqCGgBUVVUT1ACgqqqaoAYAVVXVBDUAqKqqJmifBoDDh05tUFVVVS9tj2Q1e8+XFxgA
+WLlt58GwO9tQZ5YmVFVV9dKW4r9tzwUGAFZERgJUVVW1PGzpqt8XHABUVVW1PO11AHjqqadXHPk2
+hG0HM7OVVFVVtXz96mQI8xctP3sA+P3v76iev6giSwsLYmJQVVXV8nVeVtOHDht+9gAgIiIiIiIi
+IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
+IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
+IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIDhb/7u/8fkVNVIJ80legAAAAASUVORK5CYII=</Preview>
+  <Object type="System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="formLabInABox" children="Controls">
+    <Property name="AccessibleRole">MenuBar</Property>
+    <Property name="AutoScaleDimensions">6, 13</Property>
+    <Property name="AutoScaleMode">Font</Property>
+    <Property name="ClientSize">877, 739</Property>
+    <Property name="Name">formLabInABox</Property>
+    <Property name="StartPosition">CenterScreen</Property>
+    <Property name="Text">Lab In a Box</Property>
+    <Event name="Load">formLabInABox_Load</Event>
+    <Object type="System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Lab" children="Controls">
+      <Property name="Location">6, 95</Property>
+      <Property name="Name">Lab</Property>
+      <Property name="SelectedIndex">0</Property>
+      <Property name="Size">811, 602</Property>
+      <Property name="TabIndex">69</Property>
+      <Object type="System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="HyperV" children="Controls">
+        <Property name="BackColor">White</Property>
+        <Property name="Location">4, 22</Property>
+        <Property name="Name">HyperV</Property>
+        <Property name="Padding">3, 3, 3, 3</Property>
+        <Property name="Size">803, 576</Property>
+        <Property name="TabIndex">1</Property>
+        <Property name="Text">HyperV</Property>
+        <Object type="System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="BrowseISOFolder" children="Controls">
+          <Property name="Location">387, 199</Property>
+          <Property name="Name">BrowseISOFolder</Property>
+          <Property name="Size">75, 23</Property>
+          <Property name="TabIndex">144</Property>
+          <Property name="Text">Browse</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+          <Event name="Click">BrowseISOFolder_Click</Event>
+        </Object>
+        <Object type="System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="BrowseChildDiskPath" children="Controls">
+          <Property name="Location">387, 173</Property>
+          <Property name="Name">BrowseChildDiskPath</Property>
+          <Property name="Size">75, 23</Property>
+          <Property name="TabIndex">143</Property>
+          <Property name="Text">Browse</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+          <Event name="Click">BrowseChildDiskPath_Click</Event>
+        </Object>
+        <Object type="System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="BrowseSysPrepDrive" children="Controls">
+          <Property name="Location">387, 146</Property>
+          <Property name="Name">BrowseSysPrepDrive</Property>
+          <Property name="Size">75, 23</Property>
+          <Property name="TabIndex">142</Property>
+          <Property name="Text">Browse</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+          <Event name="Click">BrowseSysPrepDrive_Click</Event>
+        </Object>
+        <Object type="System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="BrowseParentDriveFolder" children="Controls">
+          <Property name="Location">387, 121</Property>
+          <Property name="Name">BrowseParentDriveFolder</Property>
+          <Property name="Size">75, 23</Property>
+          <Property name="TabIndex">141</Property>
+          <Property name="Text">Browse</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+          <Event name="Click">BrowseParentDriveFolder_Click</Event>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelChildDiskPath" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 178</Property>
+          <Property name="Name">labelChildDiskPath</Property>
+          <Property name="Size">82, 13</Property>
+          <Property name="TabIndex">73</Property>
+          <Property name="Text">Child Disk Path:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_ChildDiskPath" children="Controls">
+          <Property name="Location">143, 175</Property>
+          <Property name="Name">tb_ChildDiskPath</Property>
+          <Property name="Size">238, 20</Property>
+          <Property name="TabIndex">20</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_ISOFolderPath" children="Controls">
+          <Property name="Location">143, 201</Property>
+          <Property name="Name">tb_ISOFolderPath</Property>
+          <Property name="Size">238, 20</Property>
+          <Property name="TabIndex">30</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Tb_ParentDriveFolder" children="Controls">
+          <Property name="Location">143, 123</Property>
+          <Property name="Name">Tb_ParentDriveFolder</Property>
+          <Property name="Size">238, 20</Property>
+          <Property name="TabIndex">8</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_ServerstoConfig" children="Controls">
+          <Property name="Location">143, 253</Property>
+          <Property name="Name">tb_ServerstoConfig</Property>
+          <Property name="Size">238, 20</Property>
+          <Property name="TabIndex">50</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_NetworkIpRange" children="Controls">
+          <Property name="Enabled">False</Property>
+          <Property name="Location">143, 227</Property>
+          <Property name="Name">tb_NetworkIpRange</Property>
+          <Property name="Size">100, 20</Property>
+          <Property name="TabIndex">40</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_LocalAdminPass" children="Controls">
+          <Property name="Location">143, 69</Property>
+          <Property name="Name">tb_LocalAdminPass</Property>
+          <Property name="Size">100, 20</Property>
+          <Property name="TabIndex">6</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_DomainAdminPass" children="Controls">
+          <Property name="Location">143, 96</Property>
+          <Property name="Name">tb_DomainAdminPass</Property>
+          <Property name="Size">100, 20</Property>
+          <Property name="TabIndex">7</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_SysPrepDriveName" children="Controls">
+          <Property name="Location">143, 149</Property>
+          <Property name="Name">tb_SysPrepDriveName</Property>
+          <Property name="Size">238, 20</Property>
+          <Property name="TabIndex">12</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_SwitchName" children="Controls">
+          <Property name="Enabled">False</Property>
+          <Property name="Location">143, 45</Property>
+          <Property name="Name">tb_SwitchName</Property>
+          <Property name="Size">100, 20</Property>
+          <Property name="TabIndex">5</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_SQLServerFeatures" children="Controls">
+          <Property name="Enabled">False</Property>
+          <Property name="Location">143, 450</Property>
+          <Property name="Name">tb_SQLServerFeatures</Property>
+          <Property name="Size">175, 20</Property>
+          <Property name="TabIndex">120</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelISOFolderPath" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 204</Property>
+          <Property name="Name">labelISOFolderPath</Property>
+          <Property name="Size">85, 13</Property>
+          <Property name="TabIndex">71</Property>
+          <Property name="Text">ISO Folder Path:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelParentDriveFolder" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 126</Property>
+          <Property name="Name">labelParentDriveFolder</Property>
+          <Property name="Size">101, 13</Property>
+          <Property name="TabIndex">69</Property>
+          <Property name="Text">Parent Drive Folder:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelISOsWillBeMountedToD" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">143, 282</Property>
+          <Property name="Name">labelISOsWillBeMountedToD</Property>
+          <Property name="Size">150, 13</Property>
+          <Property name="TabIndex">63</Property>
+          <Property name="Text">**ISO's will be mounted To DC</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="button_HyperVFinish" children="Controls">
+          <Property name="Location">468, 521</Property>
+          <Property name="Name">button_HyperVFinish</Property>
+          <Property name="Size">75, 23</Property>
+          <Property name="TabIndex">140</Property>
+          <Property name="Text">Finish</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+          <Event name="Click">button_HyperVFinish_Click</Event>
+        </Object>
+        <Object type="System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_AzureAutomation" children="Controls">
+          <Property name="Location">352, 418</Property>
+          <Property name="Name">cb_AzureAutomation</Property>
+          <Property name="Size">127, 24</Property>
+          <Property name="TabIndex">110</Property>
+          <Property name="Text">Azure Automation</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelServers" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 256</Property>
+          <Property name="Name">labelServers</Property>
+          <Property name="Size">46, 13</Property>
+          <Property name="TabIndex">17</Property>
+          <Property name="Text">Servers:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelOnlyOneNatSwitchCanE" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">249, 21</Property>
+          <Property name="Name">labelOnlyOneNatSwitchCanE</Property>
+          <Property name="Size">157, 13</Property>
+          <Property name="TabIndex">66</Property>
+          <Property name="Text">**Only one Nat Switch can exist</Property>
+        </Object>
+        <Object type="System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_DevMachine" children="Controls">
+          <Property name="Location">6, 388</Property>
+          <Property name="Name">cb_DevMachine</Property>
+          <Property name="Size">127, 24</Property>
+          <Property name="TabIndex">90</Property>
+          <Property name="Text">Developer Machine</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelNetworkIpRange" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 230</Property>
+          <Property name="Name">labelNetworkIpRange</Property>
+          <Property name="Size">97, 13</Property>
+          <Property name="TabIndex">29</Property>
+          <Property name="Text">Network Ip Range:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelLocalAdminPass" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 72</Property>
+          <Property name="Name">labelLocalAdminPass</Property>
+          <Property name="Size">94, 13</Property>
+          <Property name="TabIndex">20</Property>
+          <Property name="Text">Local Admin Pass:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelWindows2016ISO" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 361</Property>
+          <Property name="Name">labelWindows2016ISO</Property>
+          <Property name="Size">102, 13</Property>
+          <Property name="TabIndex">40</Property>
+          <Property name="Text">Windows 2016 ISO:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelDomainAdminPass" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 99</Property>
+          <Property name="Name">labelDomainAdminPass</Property>
+          <Property name="Size">104, 13</Property>
+          <Property name="TabIndex">22</Property>
+          <Property name="Text">Domain Admin Pass:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="SwitchType" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 21</Property>
+          <Property name="Name">SwitchType</Property>
+          <Property name="Size">69, 13</Property>
+          <Property name="TabIndex">65</Property>
+          <Property name="Text">Switch Type:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_SwitchType" children="Controls">
+          <Property name="FormattingEnabled">True</Property>
+          <Property name="Location">143, 18</Property>
+          <Property name="Name">cb_SwitchType</Property>
+          <Property name="Size">100, 21</Property>
+          <Property name="TabIndex">4</Property>
+          <Event name="SelectedIndexChanged">cb_SwitchType_SelectedIndexChanged</Event>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelSysPrepDrive" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 151</Property>
+          <Property name="Name">labelSysPrepDrive</Property>
+          <Property name="Size">77, 13</Property>
+          <Property name="TabIndex">24</Property>
+          <Property name="Text">SysPrep Drive:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_Windows2016ISO" children="Controls">
+          <Property name="FormattingEnabled">True</Property>
+          <Property name="Location">143, 358</Property>
+          <Property name="Name">cb_Windows2016ISO</Property>
+          <Property name="Size">400, 21</Property>
+          <Property name="TabIndex">80</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelSwitchName" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 48</Property>
+          <Property name="Name">labelSwitchName</Property>
+          <Property name="Size">73, 13</Property>
+          <Property name="TabIndex">26</Property>
+          <Property name="Text">Switch Name:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_ConfigtoApply" children="Controls">
+          <Property name="Enabled">False</Property>
+          <Property name="FormattingEnabled">True</Property>
+          <Property name="Location">143, 476</Property>
+          <Property name="Name">cb_ConfigtoApply</Property>
+          <Property name="Size">175, 21</Property>
+          <Property name="TabIndex">130</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelSSMSISO" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 305</Property>
+          <Property name="Name">labelSSMSISO</Property>
+          <Property name="Size">61, 13</Property>
+          <Property name="TabIndex">30</Property>
+          <Property name="Text">SSMS ISO:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelSQLServerISO" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 332</Property>
+          <Property name="Name">labelSQLServerISO</Property>
+          <Property name="Size">86, 13</Property>
+          <Property name="TabIndex">32</Property>
+          <Property name="Text">SQL Server ISO:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelConfigToApply" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Enabled">False</Property>
+          <Property name="Location">6, 479</Property>
+          <Property name="Name">labelConfigToApply</Property>
+          <Property name="Size">81, 13</Property>
+          <Property name="TabIndex">18</Property>
+          <Property name="Text">Config to Apply:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_SSMSISO" children="Controls">
+          <Property name="FormattingEnabled">True</Property>
+          <Property name="Location">143, 302</Property>
+          <Property name="Name">cb_SSMSISO</Property>
+          <Property name="Size">400, 21</Property>
+          <Property name="TabIndex">60</Property>
+        </Object>
+        <Object type="System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_DSCCentralHub" children="Controls">
+          <Property name="Location">6, 418</Property>
+          <Property name="Name">cb_DSCCentralHub</Property>
+          <Property name="Size">99, 24</Property>
+          <Property name="TabIndex">100</Property>
+          <Property name="Text">DSC Central</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+        </Object>
+        <Object type="System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_SQLServerISO" children="Controls">
+          <Property name="FormattingEnabled">True</Property>
+          <Property name="Location">143, 330</Property>
+          <Property name="Name">cb_SQLServerISO</Property>
+          <Property name="Size">400, 21</Property>
+          <Property name="TabIndex">70</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelSQLServerFeatures" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Enabled">False</Property>
+          <Property name="Location">6, 453</Property>
+          <Property name="Name">labelSQLServerFeatures</Property>
+          <Property name="Size">109, 13</Property>
+          <Property name="TabIndex">37</Property>
+          <Property name="Text">SQL Server Features:</Property>
+        </Object>
+      </Object>
+      <Object type="System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Azure" children="Controls">
+        <Property name="Location">4, 22</Property>
+        <Property name="Name">Azure</Property>
+        <Property name="Padding">3, 3, 3, 3</Property>
+        <Property name="Size">803, 576</Property>
+        <Property name="TabIndex">2</Property>
+        <Property name="Text">Azure</Property>
+        <Property name="UseVisualStyleBackColor">True</Property>
+        <Object type="System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="Serverdatagridview1" children="Controls">
+          <Property name="AutoSizeColumnsMode">AllCells</Property>
+          <Property name="AutoSizeRowsMode">AllHeaders</Property>
+          <Property name="ColumnHeadersHeightSizeMode">AutoSize</Property>
+          <Property name="Location">6, 228</Property>
+          <Property name="Name">Serverdatagridview1</Property>
+          <Property name="Size">777, 281</Property>
+          <Property name="TabIndex">21</Property>
+          <Event name="CellContentClick">Serverdatagridview1_CellContentClick</Event>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_AzureVMSize" children="Controls">
+          <Property name="Location">118, 150</Property>
+          <Property name="Name">tb_AzureVMSize</Property>
+          <Property name="Size">149, 20</Property>
+          <Property name="TabIndex">20</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_AzureLocation" children="Controls">
+          <Property name="Location">118, 122</Property>
+          <Property name="Name">tb_AzureLocation</Property>
+          <Property name="Size">149, 20</Property>
+          <Property name="TabIndex">19</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_VnetAddress" children="Controls">
+          <Property name="Location">118, 202</Property>
+          <Property name="Name">tb_VnetAddress</Property>
+          <Property name="Size">149, 20</Property>
+          <Property name="TabIndex">13</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_SubnetAddress" children="Controls">
+          <Property name="Location">118, 176</Property>
+          <Property name="Name">tb_SubnetAddress</Property>
+          <Property name="Size">149, 20</Property>
+          <Property name="TabIndex">12</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_TenantId" children="Controls">
+          <Property name="Location">118, 96</Property>
+          <Property name="Name">tb_TenantId</Property>
+          <Property name="Size">245, 20</Property>
+          <Property name="TabIndex">5</Property>
+        </Object>
+        <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_ApplicationID" children="Controls">
+          <Property name="Location">118, 70</Property>
+          <Property name="Name">tb_ApplicationID</Property>
+          <Property name="Size">245, 20</Property>
+          <Property name="TabIndex">3</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="button_Azure_Finish" children="Controls">
+          <Property name="Location">476, 527</Property>
+          <Property name="Name">button_Azure_Finish</Property>
+          <Property name="Size">75, 23</Property>
+          <Property name="TabIndex">18</Property>
+          <Property name="Text">Finish</Property>
+          <Property name="UseVisualStyleBackColor">True</Property>
+          <Event name="Click">button_Azure_Finish_Click</Event>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelSubnetAddress" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 179</Property>
+          <Property name="Name">labelSubnetAddress</Property>
+          <Property name="Size">85, 13</Property>
+          <Property name="TabIndex">15</Property>
+          <Property name="Text">Subnet Address:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelVNetAddress" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 205</Property>
+          <Property name="Name">labelVNetAddress</Property>
+          <Property name="Size">75, 13</Property>
+          <Property name="TabIndex">14</Property>
+          <Property name="Text">VNet Address:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelAzureVMSize" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 152</Property>
+          <Property name="Name">labelAzureVMSize</Property>
+          <Property name="Size">79, 13</Property>
+          <Property name="TabIndex">11</Property>
+          <Property name="Text">Azure VM Size:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelAzureLocation" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 125</Property>
+          <Property name="Name">labelAzureLocation</Property>
+          <Property name="Size">81, 13</Property>
+          <Property name="TabIndex">9</Property>
+          <Property name="Text">Azure Location:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelRequiresNewAzureCert" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 16</Property>
+          <Property name="Name">labelRequiresNewAzureCert</Property>
+          <Property name="Size">267, 13</Property>
+          <Property name="TabIndex">7</Property>
+          <Property name="Text">** Requires New-AzureCertAuthentication has been run</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelAzureTenantID" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 99</Property>
+          <Property name="Name">labelAzureTenantID</Property>
+          <Property name="Size">88, 13</Property>
+          <Property name="TabIndex">6</Property>
+          <Property name="Text">Azure Tenant ID:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelAzureApplicationID" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 73</Property>
+          <Property name="Name">labelAzureApplicationID</Property>
+          <Property name="Size">106, 13</Property>
+          <Property name="TabIndex">4</Property>
+          <Property name="Text">Azure Application ID:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelRequiresAzurePowerSh" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 3</Property>
+          <Property name="Name">labelRequiresAzurePowerSh</Property>
+          <Property name="Size">244, 13</Property>
+          <Property name="TabIndex">2</Property>
+          <Property name="Text">** Requires Azure PowerShell cmdlets are installed</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="labelAzureLoginCertificat" children="Controls">
+          <Property name="AutoSize">True</Property>
+          <Property name="Location">6, 46</Property>
+          <Property name="Name">labelAzureLoginCertificat</Property>
+          <Property name="Size">147, 13</Property>
+          <Property name="TabIndex">1</Property>
+          <Property name="Text">Azure Login Certificate Name:</Property>
+        </Object>
+        <Object type="System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="cb_CertificateList" children="Controls">
+          <Property name="FormattingEnabled">True</Property>
+          <Property name="Location">162, 43</Property>
+          <Property name="Name">cb_CertificateList</Property>
+          <Property name="Size">201, 21</Property>
+          <Property name="TabIndex">0</Property>
+        </Object>
+      </Object>
+    </Object>
+    <Object type="System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="radiobuttonHyperVLab" children="Controls">
+      <Property name="Location">88, 39</Property>
+      <Property name="Name">radiobuttonHyperVLab</Property>
+      <Property name="Size">86, 24</Property>
+      <Property name="TabIndex">62</Property>
+      <Property name="TabStop">True</Property>
+      <Property name="Tag">HyperV</Property>
+      <Property name="Text">Hyper-V Lab</Property>
+      <Property name="UseVisualStyleBackColor">True</Property>
+      <Event name="CheckedChanged">radiobuttonHyperVLab_CheckedChanged</Event>
+    </Object>
+    <Object type="System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="radiobuttonAzureLab" children="Controls">
+      <Property name="Location">6, 39</Property>
+      <Property name="Name">radiobuttonAzureLab</Property>
+      <Property name="Size">86, 24</Property>
+      <Property name="TabIndex">63</Property>
+      <Property name="TabStop">True</Property>
+      <Property name="Tag">Azure</Property>
+      <Property name="Text">Azure Lab</Property>
+      <Property name="UseVisualStyleBackColor">True</Property>
+      <Event name="CheckedChanged">radiobuttonAzureLab_CheckedChanged</Event>
+    </Object>
+    <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="lb_DCMachineName" children="Controls">
+      <Property name="AutoSize">True</Property>
+      <Property name="Location">5, 75</Property>
+      <Property name="Name">lb_DCMachineName</Property>
+      <Property name="Size">101, 13</Property>
+      <Property name="TabIndex">65</Property>
+      <Property name="Text">Lab Machine Prefix:</Property>
+    </Object>
+    <Object type="System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="tb_LabMachinePrefix" children="Controls">
+      <Property name="Location">130, 69</Property>
+      <Property name="Name">tb_LabMachinePrefix</Property>
+      <Property name="Size">77, 20</Property>
+      <Property name="TabIndex">64</Property>
+    </Object>
+    <Object type="System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="menustrip1" children="Controls">
+      <Property name="Items">
+        <Item type="System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <Reference name="fileToolStripMenuItem" />
+        </Item>
+      </Property>
+      <Property name="Location">0, 0</Property>
+      <Property name="Name">menustrip1</Property>
+      <Property name="Size">877, 24</Property>
+      <Property name="TabIndex">61</Property>
+      <Property name="Text">menustrip1</Property>
+    </Object>
+  </Object>
+  <Object type="System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="fileToolStripMenuItem">
+    <Property name="DropDownItems">
+      <Item type="System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <Reference name="openToolStripMenuItem" />
+      </Item>
+      <Item type="System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <Reference name="exitToolStripMenuItem" />
+      </Item>
+    </Property>
+    <Property name="Name">fileToolStripMenuItem</Property>
+    <Property name="Size">37, 20</Property>
+    <Property name="Text">File</Property>
+  </Object>
+  <Object type="System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="openToolStripMenuItem">
+    <Property name="Name">openToolStripMenuItem</Property>
+    <Property name="Size">103, 22</Property>
+    <Property name="Text">Open</Property>
+    <Event name="Click">openToolStripMenuItem_Click</Event>
+  </Object>
+  <Object type="System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="exitToolStripMenuItem">
+    <Property name="Name">exitToolStripMenuItem</Property>
+    <Property name="Size">152, 22</Property>
+    <Property name="Text">Exit</Property>
+  </Object>
+  <Object type="System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="SysPrepFileDialog">
+    <Property name="FileName">openfiledialog1</Property>
+  </Object>
+  <Object type="System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ParentFolderBrowser" />
+  <Object type="System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ChildDiskBrowser" />
+  <Object type="System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ISOFolderBrowser" />
+  <Object type="System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="errorprovider1">
+    <Property name="ContainerControl">
+      <Reference name="formLabInABox" />
+    </Property>
+  </Object>
+  <Object type="System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="openfiledialog">
+    <Property name="FileName">openfiledialog2</Property>
+  </Object>
+  <Code><![CDATA[#region Form Load
+$InstallLocation = Get-Location
+
+if ($InstallLocation.ToString() -eq "D:\Git\DSC-data-driven-deployment\utility\LabInaBox\ConfigurationUtility\LabinaBoxMultiForm")
+{
+	$modulepath = 'D:\Git\DSC-data-driven-deployment\utility\LabInaBox\modules\LabInaBox.psm1'
+}
+else { $modulepath = Join-Path -Path $InstallLocation -ChildPath "modules\LabInaBox.psm1"}
+
+import-module $modulepath
+
+$formLabInABox_Load = {
+	$InstallLocation = Get-Location
+	
+	if ($InstallLocation.ToString() -eq "D:\Git\DSC-data-driven-deployment\utility\LabInaBox\ConfigurationUtility\LabinaBoxMultiForm")
+	{
+		$modulepath = 'D:\Git\DSC-data-driven-deployment\utility\LabInaBox\modules\LabInaBox.psm1'
+	}
+	else { $modulepath = Join-Path -Path $InstallLocation -ChildPath "modules\LabInaBox.psm1" }
+	
+	import-module $modulepath	# remove all pages
+	$script:savedPages = @{ }
+	
+	
+	$Lab.TabPages | %{ $script:savedPages.Add($_.Name, $_) }
+	$Lab.TabPages | %{ $Lab.TabPages.Remove($_) }
+	
+	Update-ComboBox $cb_SwitchType 'Private' -Append
+	Update-ComboBox $cb_SwitchType 'NAT' -Append
+	
+	Set-Location Cert:\CurrentUser\My
+	$MyCerts = Get-ChildItem | Where-Object { $_.FriendlyName -NE "" } | select FriendlyName
+	
+	foreach ($Cert in $MyCerts.friendlyname)
+	{
+		Update-ComboBox $cb_CertificateList $Cert -Append
+	}
+	
+	$MyDataTable = New-Object System.Data.DataTable
+	$MyDataTable.Columns.Add('Server')
+	$MyDataTable.Columns.Add('AzurePublisher')
+	$MyDataTable.Columns.Add('AzureOffer')
+	$MyDataTable.Columns.Add('AzureSku')
+	$MyDataTable.Columns.Add('OS')
+	$MyDataTable.Columns.Add('VMUserName')
+	$MyDataTable.Columns.Add('VMPassword')
+	
+	$row = $MyDataTable.NewRow()
+	$row["Server"] = $Server
+	$row["AzurePublisher"] =""
+	$row["AzureOffer"] = ""
+	$row["AzureSku"] = ""
+	$row["OS"] =""
+	$row["VMUserName"] = ""
+	$row["VMPassword"] = ""
+	$MyDataTable.Rows.Add($row)
+	
+	Load-DataGridView -DataGridView $Serverdatagridview1 -Item $MyDataTable -Verbose
+}
+$buttonInsertNewServer_Click = {
+	#TODO: Place custom script here
+	if ((Show-ChildForm_psf) -eq 'OK')
+	{
+		
+	}
+}
+#endregion
+#region Control Helper Functions
+function Update-DataGridView
+{
+	<#
+	.SYNOPSIS
+		This functions helps you load items into a DataGridView.
+
+	.DESCRIPTION
+		Use this function to dynamically load items into the DataGridView control.
+
+	.PARAMETER  DataGridView
+		The DataGridView control you want to add items to.
+
+	.PARAMETER  Item
+		The object or objects you wish to load into the DataGridView's items collection.
+	
+	.PARAMETER  DataMember
+		Sets the name of the list or table in the data source for which the DataGridView is displaying data.
+
+	.PARAMETER AutoSizeColumns
+	    Resizes DataGridView control's columns after loading the items.
+	#>
+	Param (
+		[ValidateNotNull()]
+		[Parameter(Mandatory=$true)]
+		[System.Windows.Forms.DataGridView]$DataGridView,
+		[ValidateNotNull()]
+		[Parameter(Mandatory=$true)]
+		$Item,
+	    [Parameter(Mandatory=$false)]
+		[string]$DataMember,
+		[System.Windows.Forms.DataGridViewAutoSizeColumnMode]$AutoSizeColumns = 'None'
+	)
+	$DataGridView.SuspendLayout()
+	$DataGridView.DataMember = $DataMember
+	
+	if ($Item -is [System.Data.DataSet] -and $Item.Tables.Count -gt 0)
+	{
+		$DataGridView.DataSource = $Item.Tables[0]
+	}
+	elseif ($Item -is [System.ComponentModel.IListSource]`
+	-or $Item -is [System.ComponentModel.IBindingList] -or $Item -is [System.ComponentModel.IBindingListView] )
+	{
+		$DataGridView.DataSource = $Item
+	}
+	else
+	{
+		$array = New-Object System.Collections.ArrayList
+		
+		if ($Item -is [System.Collections.IList])
+		{
+			$array.AddRange($Item)
+		}
+		else
+		{
+			$array.Add($Item)
+		}
+		$DataGridView.DataSource = $array
+	}
+	
+	if ($AutoSizeColumns -ne 'None')
+	{
+		$DataGridView.AutoResizeColumns($AutoSizeColumns)
+	}
+	
+	$DataGridView.ResumeLayout()
+}
+function Load-DataGridView
+{
+	<#
+	.SYNOPSIS
+		This functions helps you load items into a DataGridView.
+
+	.DESCRIPTION
+		Use this function to dynamically load items into the DataGridView control.
+
+	.PARAMETER  DataGridView
+		The DataGridView control you want to add items to.
+
+	.PARAMETER  Item
+		The object or objects you wish to load into the DataGridView's items collection.
+	
+	.PARAMETER  DataMember
+		Sets the name of the list or table in the data source for which the DataGridView is displaying data.
+
+	.PARAMETER AutoSizeColumns
+	    Resizes DataGridView control's columns after loading the items.
+	#>
+	Param (
+		[ValidateNotNull()]
+		[Parameter(Mandatory = $true)]
+		[System.Windows.Forms.DataGridView]$DataGridView,
+		[ValidateNotNull()]
+		[Parameter(Mandatory = $true)]
+		$Item,
+		[System.Windows.Forms.DataGridViewAutoSizeColumnMode]$AutoSizeColumns = 'None'
+	)
+	$DataGridView.SuspendLayout()
+	
+	if ($Item -is [System.Data.Datatable] -and $Item.Rows.Count -gt 0)
+	{
+		$DataGridView.DataSource = $Item	
+	}
+	
+	if ($AutoSizeColumns -ne 'None')
+	{
+		$DataGridView.AutoResizeColumns($AutoSizeColumns)
+	}
+	
+	$DataGridView.ResumeLayout()
+}
+function ConvertTo-DataTable
+{
+	<#
+		.SYNOPSIS
+			Converts objects into a DataTable.
+	
+		.DESCRIPTION
+			Converts objects into a DataTable, which are used for DataBinding.
+	
+		.PARAMETER  InputObject
+			The input to convert into a DataTable.
+	
+		.PARAMETER  Table
+			The DataTable you wish to load the input into.
+	
+		.PARAMETER RetainColumns
+			This switch tells the function to keep the DataTable's existing columns.
+		
+		.PARAMETER FilterWMIProperties
+			This switch removes WMI properties that start with an underline.
+	
+		.EXAMPLE
+			$DataTable = ConvertTo-DataTable -InputObject (Get-Process)
+	#>
+	[OutputType([System.Data.DataTable])]
+	param(
+	[ValidateNotNull()]
+	$InputObject, 
+	[ValidateNotNull()]
+	[System.Data.DataTable]$Table,
+	[switch]$RetainColumns,
+	[switch]$FilterWMIProperties)
+	
+	if($null -eq $Table)
+	{
+		$Table = New-Object System.Data.DataTable
+	}
+	
+	if ($InputObject -is [System.Data.DataTable])
+	{
+		$Table = $InputObject
+	}
+	elseif ($InputObject -is [System.Data.DataSet] -and $InputObject.Tables.Count -gt 0)
+	{
+		$Table = $InputObject.Tables[0]
+	}
+	else
+	{
+		if (-not $RetainColumns -or $Table.Columns.Count -eq 0)
+		{
+			#Clear out the Table Contents
+			$Table.Clear()
+			
+			if ($null -eq $InputObject) { return } #Empty Data
+			
+			$object = $null
+			#find the first non null value
+			foreach ($item in $InputObject)
+			{
+				if ($null -ne $item)
+				{
+					$object = $item
+					break
+				}
+			}
+			
+			if ($null -eq $object) { return } #All null then empty
+			
+			#Get all the properties in order to create the columns
+			foreach ($prop in $object.PSObject.Get_Properties())
+			{
+				if (-not $FilterWMIProperties -or -not $prop.Name.StartsWith('__')) #filter out WMI properties
+				{
+					#Get the type from the Definition string
+					$type = $null
+					
+					if ($null -ne $prop.Value)
+					{
+						try { $type = $prop.Value.GetType() }
+						catch { Out-Null }
+					}
+					
+					if ($null -ne $type) # -and [System.Type]::GetTypeCode($type) -ne 'Object')
+					{
+						[void]$table.Columns.Add($prop.Name, $type)
+					}
+					else #Type info not found
+					{
+						[void]$table.Columns.Add($prop.Name)
+					}
+				}
+			}
+			
+			if ($object -is [System.Data.DataRow])
+			{
+				foreach ($item in $InputObject)
+				{
+					$Table.Rows.Add($item)
+				}
+				return @( ,$Table)
+			}
+		}
+		else
+		{
+			$Table.Rows.Clear()
+		}
+		
+		foreach ($item in $InputObject)
+		{
+			$row = $table.NewRow()
+			
+			if ($item)
+			{
+				foreach ($prop in $item.PSObject.Get_Properties())
+				{
+					if ($table.Columns.Contains($prop.Name))
+					{
+						$row.Item($prop.Name) = $prop.Value
+					}
+				}
+			}
+			[void]$table.Rows.Add($row)
+		}
+	}
+	
+	return @(,$Table)	
+}
+
+function Update-ComboBox
+{
+<#
+	.SYNOPSIS
+		This functions helps you load items into a ComboBox.
+	
+	.DESCRIPTION
+		Use this function to dynamically load items into the ComboBox control.
+	
+	.PARAMETER ComboBox
+		The ComboBox control you want to add items to.
+	
+	.PARAMETER Items
+		The object or objects you wish to load into the ComboBox's Items collection.
+	
+	.PARAMETER DisplayMember
+		Indicates the property to display for the items in this control.
+	
+	.PARAMETER Append
+		Adds the item(s) to the ComboBox without clearing the Items collection.
+	
+	.EXAMPLE
+		Update-ComboBox $combobox1 "Red", "White", "Blue"
+	
+	.EXAMPLE
+		Update-ComboBox $combobox1 "Red" -Append
+		Update-ComboBox $combobox1 "White" -Append
+		Update-ComboBox $combobox1 "Blue" -Append
+	
+	.EXAMPLE
+		Update-ComboBox $combobox1 (Get-Process) "ProcessName"
+	
+	.NOTES
+		Additional information about the function.
+#>
+	
+	param
+	(
+		[Parameter(Mandatory = $true)]
+		[ValidateNotNull()]
+		[System.Windows.Forms.ComboBox]
+		$ComboBox,
+		[Parameter(Mandatory = $true)]
+		[ValidateNotNull()]
+		$Items,
+		[Parameter(Mandatory = $false)]
+		[string]
+		$DisplayMember,
+		[switch]
+		$Append
+	)
+	
+	if (-not $Append)
+	{
+		$ComboBox.Items.Clear()
+	}
+	
+	if ($Items -is [Object[]])
+	{
+		$ComboBox.Items.AddRange($Items)
+	}
+	elseif ($Items -is [System.Collections.IEnumerable])
+	{
+		$ComboBox.BeginUpdate()
+		foreach ($obj in $Items)
+		{
+			$ComboBox.Items.Add($obj)
+		}
+		$ComboBox.EndUpdate()
+	}
+	else
+	{
+		$ComboBox.Items.Add($Items)
+	}
+	
+	$ComboBox.DisplayMember = $DisplayMember
+}
+#endregion
+#region Validation Functions
+function Validate-IsIP ([string]$IP)
+{
+	return $IP -match "\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\." +`
+	"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\." +`
+	"(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\." +`
+	"x\b"
+}
+function Validate-IsEmptyTrim ([string]$Text)
+{
+	if ($text -eq $null -or $text.Trim().Length -eq 0)
+	{
+		return $true
+	}
+	
+	return $false
+}
+function Validate-IsEmpty ([string]$Text)
+{
+	return [string]::IsNullOrEmpty($Text)
+}
+function Validate-ValidString
+{
+	param
+	(
+		[parameter(Mandatory = $true)]
+		#[ValidateNotNullOrEmpty]
+		[string[]]$Item
+	)
+	Process { RETURN $true }
+}
+#Endregion
+#region Control Helper Functions
+function Show-Msbox
+{
+	param ([string]$message,
+		[string]$button = "okonly",
+		[string]$icon = "information",
+		[string]$title = "Message Box"
+		
+	)
+	[reflection.assembly]::loadwithpartialname("microsoft.visualbasic") | Out-Null
+	[microsoft.visualbasic.interaction]::Msgbox($message, "$button,$icon", $title)
+}
+function Show-NotifyIcon
+{
+<#
+	.SYNOPSIS
+		Displays a NotifyIcon's balloon tip message in the taskbar's notification area.
+	
+	.DESCRIPTION
+		Displays a NotifyIcon's a balloon tip message in the taskbar's notification area.
+		
+	.PARAMETER NotifyIcon
+     	The NotifyIcon control that will be displayed.
+	
+	.PARAMETER BalloonTipText
+     	Sets the text to display in the balloon tip.
+	
+	.PARAMETER BalloonTipTitle
+		Sets the Title to display in the balloon tip.
+	
+	.PARAMETER BalloonTipIcon	
+		The icon to display in the ballon tip.
+	
+	.PARAMETER Timeout	
+		The time the ToolTip Balloon will remain visible in milliseconds. 
+		Default: 0 - Uses windows default.
+#>
+	param (
+		[Parameter(Mandatory = $true, Position = 0)]
+		[ValidateNotNull()]
+		[System.Windows.Forms.NotifyIcon]$NotifyIcon,
+		[Parameter(Mandatory = $true, Position = 1)]
+		[ValidateNotNullOrEmpty()]
+		[String]$BalloonTipText,
+		[Parameter(Position = 2)]
+		[String]$BalloonTipTitle = '',
+		[Parameter(Position = 3)]
+		[System.Windows.Forms.ToolTipIcon]$BalloonTipIcon = 'None',
+		[Parameter(Position = 4)]
+		[int]$Timeout = 0
+	)
+	
+	if ($null -eq $NotifyIcon.Icon)
+	{
+		#Set a Default Icon otherwise the balloon will not show
+		$NotifyIcon.Icon = [System.Drawing.Icon]::ExtractAssociatedIcon([System.Windows.Forms.Application]::ExecutablePath)
+	}
+	
+	$NotifyIcon.ShowBalloonTip($Timeout, $BalloonTipTitle, $BalloonTipText, $BalloonTipIcon)
+}
+function Update-ListBox
+{
+<#
+	.SYNOPSIS
+		This functions helps you load items into a ListBox or CheckedListBox.
+	
+	.DESCRIPTION
+		Use this function to dynamically load items into the ListBox control.
+	
+	.PARAMETER ListBox
+		The ListBox control you want to add items to.
+	
+	.PARAMETER Items
+		The object or objects you wish to load into the ListBox's Items collection.
+	
+	.PARAMETER DisplayMember
+		Indicates the property to display for the items in this control.
+	
+	.PARAMETER Append
+		Adds the item(s) to the ListBox without clearing the Items collection.
+	
+	.EXAMPLE
+		Update-ListBox $ListBox1 "Red", "White", "Blue"
+	
+	.EXAMPLE
+		Update-ListBox $listBox1 "Red" -Append
+		Update-ListBox $listBox1 "White" -Append
+		Update-ListBox $listBox1 "Blue" -Append
+	
+	.EXAMPLE
+		Update-ListBox $listBox1 (Get-Process) "ProcessName"
+	
+	.NOTES
+		Additional information about the function.
+#>
+	
+	param
+	(
+		[Parameter(Mandatory = $true)]
+		[ValidateNotNull()]
+		[System.Windows.Forms.ListBox]$ListBox,
+		[Parameter(Mandatory = $true)]
+		[ValidateNotNull()]
+		$Items,
+		[Parameter(Mandatory = $false)]
+		[string]$DisplayMember,
+		[switch]$Append
+	)
+	
+	if (-not $Append)
+	{
+		$listBox.Items.Clear()
+	}
+	
+	if ($Items -is [System.Windows.Forms.ListBox+ObjectCollection] -or $Items -is [System.Collections.ICollection])
+	{
+		$listBox.Items.AddRange($Items)
+	}
+	elseif ($Items -is [System.Collections.IEnumerable])
+	{
+		$listBox.BeginUpdate()
+		foreach ($obj in $Items)
+		{
+			$listBox.Items.Add($obj)
+		}
+		$listBox.EndUpdate()
+	}
+	else
+	{
+		$listBox.Items.Add($Items)
+	}
+	
+	$listBox.DisplayMember = $DisplayMember
+}
+function Update-ComboBox
+{
+<#
+	.SYNOPSIS
+		This functions helps you load items into a ComboBox.
+	
+	.DESCRIPTION
+		Use this function to dynamically load items into the ComboBox control.
+	
+	.PARAMETER ComboBox
+		The ComboBox control you want to add items to.
+	
+	.PARAMETER Items
+		The object or objects you wish to load into the ComboBox's Items collection.
+	
+	.PARAMETER DisplayMember
+		Indicates the property to display for the items in this control.
+	
+	.PARAMETER Append
+		Adds the item(s) to the ComboBox without clearing the Items collection.
+	
+	.EXAMPLE
+		Update-ComboBox $combobox1 "Red", "White", "Blue"
+	
+	.EXAMPLE
+		Update-ComboBox $combobox1 "Red" -Append
+		Update-ComboBox $combobox1 "White" -Append
+		Update-ComboBox $combobox1 "Blue" -Append
+	
+	.EXAMPLE
+		Update-ComboBox $combobox1 (Get-Process) "ProcessName"
+	
+	.NOTES
+		Additional information about the function.
+#>
+	
+	param
+	(
+		[Parameter(Mandatory = $true)]
+		[ValidateNotNull()]
+		[System.Windows.Forms.ComboBox]$ComboBox,
+		[Parameter(Mandatory = $true)]
+		[ValidateNotNull()]
+		$Items,
+		[Parameter(Mandatory = $false)]
+		[string]$DisplayMember,
+		[switch]$Append
+	)
+	
+	if (-not $Append)
+	{
+		$ComboBox.Items.Clear()
+	}
+	
+	if ($Items -is [Object[]])
+	{
+		$ComboBox.Items.AddRange($Items)
+	}
+	elseif ($Items -is [System.Collections.IEnumerable])
+	{
+		$ComboBox.BeginUpdate()
+		foreach ($obj in $Items)
+		{
+			$ComboBox.Items.Add($obj)
+		}
+		$ComboBox.EndUpdate()
+	}
+	else
+	{
+		$ComboBox.Items.Add($Items)
+	}
+	
+	$ComboBox.DisplayMember = $DisplayMember
+}
+$radiobuttonHyperVLab_CheckedChanged = {
+	if ($this.Checked)
+	{
+		$Lab.TabPages.Add($script:savedPages[$this.Tag])
+		$Lab.SelectedTab = $Lab.TabPages[$this.Tag]
+	}
+	else
+	{
+		$Lab.TabPages.Remove($script:savedPages[$this.Tag])
+	}
+}
+
+$radiobuttonHyperVLab_CheckedChanged = {
+	if ($this.Checked)
+	{
+		$Lab.TabPages.Add($script:savedPages[$this.Tag])
+		$Lab.SelectedTab = $Lab.TabPages[$this.Tag]
+	}
+	else
+	{
+		$Lab.TabPages.Remove($script:savedPages[$this.Tag])
+	}
+}
+
+#endregion
+#region Form Clicks
+$cb_DSCCentralHub_CheckedChanged = {
+	if ($tb_SQLServerFeatures.Enabled -eq $false)
+	{
+		$DSCCentralNewVal = $true
+		$tb_SQLServerFeatures.Text = "SQLENGINE,IS"
+	}
+	else
+	{
+		$DSCCentralNewVal = $false
+		$tb_SQLServerFeatures.Text = ""
+		$cb_ConfigtoApply.ResetText()
+		
+	}
+	
+	$labelSQLServerFeatures.Enabled = $DSCCentralNewVal
+	$tb_SQLServerFeatures.Enabled = $DSCCentralNewVal
+	$cb_ConfigtoApply.Enabled = $DSCCentralNewVal
+	$labelConfigToApply.Enabled = $DSCCentralNewVal
+}
+$button_HyperVFinish_Click = {
+	
+	$Network = $tb_NetworkIpRange.Text.Substring(0, $($tb_NetworkIpRange.Text.Length - 2))
+	
+	if ($cb_SwitchType.SelectedItem -eq 'NAT')
+	{
+		$myDomainIp = "$Network.2"
+		$myRouterIp = "$Network.1"
+		$myDNSIp = "$Network.2"
+	}
+	else
+	{
+		$myDomainIp = "$Network.1"
+		$myRouterIp = "$Network.1"
+		$myDNSIp = "$Network.1"
+	}
+	$myGateway = "$Network.1"
+	[array]$Servers = $($tb_ServerstoConfig.Text).split(",")
+	$liabConfig = [PsCustomobject]@{
+		'LabType'			    = 'HyperVLab';
+		'Scriptlocation'		 = "$($InstallLocation)\Scripts";
+		'DSCResourceDest'	    = 'C:\Program Files\WindowsPowerShell\Modules';
+		'DSCResourceSource'	  = "$($InstallLocation)\DSCResources";
+		'ParentFolderPath'	   = "$($Tb_ParentDriveFolder.Text)";
+		'ParentFolderPathSource' = "$($Tb_ParentDriveFolder.Text)";
+		'ChildRootFolder'	    = $tb_ChildDiskPath.Text;
+		'ChildFolderPath'	    = "$($tb_ChildDiskPath.Text)\$($tb_LabMachinePrefix.Text)";
+		'ISOFolderPath'		  = "$($tb_ISOFolderPath.Text)";
+		'DomainJoinPath'		 = "$($tb_ChildDiskPath.Text)\$($tb_LabMachinePrefix.Text)\DomainJoin";
+		'DCMachineName'		  = "$($tb_LabMachinePrefix.Text)-DC";
+		'localAdminPass'		 = $tb_LocalAdminPass.Text;
+		'domainAdminPass'	    = $tb_DomainAdminPass.Text;
+		'sysPrepDriveName'	   = $tb_SysPrepDriveName.Text;
+		'DCsysPrepDriveName'	 = $tb_SysPrepDriveName.Text;
+		'SwitchName'			 = $tb_SwitchName.Text;
+		'SwitchType'			 = $cb_SwitchType.SelectedItem;
+		'NetworkIPRange'		 = $tb_NetworkIpRange.Text;
+		'DomainName'			 = $tb_LabMachinePrefix.Text;
+		'DomainExtention'	    = '.com';
+		'domainIpAddress'	    = $myDomainIp;
+		'routerIpAddress'	    = $myRouterIp;
+		'DCGateway'			  = $myGateway;
+		'DNSIp'				  = $myDNSIp;
+		'DHCPScopeIpStart'	   = $($tb_NetworkIpRange.Text).Substring(0, $($tb_NetworkIpRange.Text).LastIndexOf('.')) + ".20";
+		'DHCPScopeIpEnd'		 = $($tb_NetworkIpRange.Text).Substring(0, $($tb_NetworkIpRange.Text).LastIndexOf('.')) + ".200";
+	}
+	if ($cb_DevMachine.Checked)
+	{
+		Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'DeveloperMachine' -Value "$($tb_LabMachinePrefix.Text)-Dev";
+	}
+	$LabServers = @{ }
+	foreach ($Server in $servers)
+	{
+		$LabServers.Add($($tb_LabMachinePrefix.Text) + "-" + $Server, "")
+	}
+	
+	$ServersAddtoDomain = $LabServers
+	$PSMainscript = "Import-module -name `"$($InstallLocation)\modules\LabinaBox.psm1`"`r"
+	$PSCreatescript = $PSMainscript + "New-LabinaBox -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSStopScript = $PSMainscript + "Stop-LabinaBox -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSStartScript = $PSMainscript + "Start-LabinaBox -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSUpdateScript = $PSMainscript + "Update-LabinaBox -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSRemoveScript = $PSMainscript + "Remove-LabinaBox -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSCheckPointScript = $PSMainscript + "CheckPoint-LabinaBox -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSRemoveCheckPointScript = $PSMainscript + "Remove-LabinaBoxSnapshot -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	
+	if ($cb_Windows2016ISO.SelectedItem)
+	{
+		Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'Windows2016ISO' -Value $cb_Windows2016ISO.SelectedItem;
+	}
+	if ($cb_SQLServerISO.SelectedItem)
+	{
+		Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'SQLServerISO' -Value $cb_SQLServerISO.SelectedItem;
+	}
+	if ($cb_SSMSISO.SelectedItem)
+	{
+		Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'SSMSISO' -Value $cb_SSMSISO.SelectedItem;
+	}
+	
+	
+	if ($cb_DSCCentralHub.Checked -or $cb_AzureAutomation.Checked)
+	{
+		$sqlConfig = [PsCustomobject]@{
+			'SQLServerBitsLocation'			 = "\\$($tb_LabMachinePrefix.Text)-DC\";
+			'SQLAdminAccount'				   = "$($tb_LabMachinePrefix.Text)\Administrator";
+			'WindowsBitsLocation'			   = "\\$($tb_LabMachinePrefix.Text)-DC\Windows2016ISO\Sources\sxs";
+			'OutputPath'					    = 'C:\DSC_Mof';
+			'DefaultSQLConfigurationName'	   = 'SQLStandAloneNode';
+			'StandaloneParentConfigurationName' = 'SQLStandAlone';
+			'PSDscAllowDomainUser'			  = '$true';
+			'PSDscAllowPlainTextPassword'	   = '$true';
+			'SQLInstanceName'				   = 'MSSQLSERVER';
+			'SQLInstallShareDir'			    = 'C:\Program Files\Microsoft SQL Server';
+			'SQLUserDBDir'					  = 'C:\Program Files\Microsoft SQL Server';
+			'SQLTempDBLogDir'				   = 'C:\Program Files\Microsoft SQL Server';
+			'SQLTempDBDir'					  = 'C:\Program Files\Microsoft SQL Server';
+			'InstallSQLDataDir'				 = 'C:\Program Files\Microsoft SQL Server';
+			'SQLUserDBLogDir'				   = 'C:\Program Files\Microsoft SQL Server';
+			'InstallSharedWOWDir'			   = 'C:\Program Files (x86)\Microsoft SQL Server'
+			'Features'						  = "$($tb_SQLServerFeatures.Text)";
+			'SQLBackupDir'					  = 'C:\Program Files\Microsoft SQL Server\Backup';
+			'InstanceDir'					   = 'C:\Program Files\Microsoft SQL Server';
+			'DMaxDop'						   = '$true';
+			'DMemory'						   = '$true';
+			'NodetoConfigure'				   = '$env:computername';
+		}
+		
+		if ($cb_DSCCentralHub.Checked)
+		{
+			Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'ServertoQueue' -Value $LabServers;
+			Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'ServerConfig' -Value $cb_ConfigtoApply.SelectedItem;
+			Add-Member -InputObject $sqlConfig -MemberType NoteProperty -Name 'DSCDataDrivenSQLServer' -Value "$($tb_LabMachinePrefix.Text)-DSC"
+			
+			$PSCreatescript = $PSCreatescript + "New-DSCDataDrivenSQL -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" -SQLConfiguration `"$InstallLocation\LabinaBox\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_SQLConfig.json`" -verbose `r"
+			$PSCreatescript = $PSCreatescript + "Add-ServerConfigtoQueue -configuration `"$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" -SQLConfiguration `"$InstallLocation\LabinaBox\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_SQLConfig.json`" -verbose"
+			$ServersAddtoDomain = $ServersAddtoDomain + "$($tb_LabMachinePrefix.Text)-DSC"
+		}
+		
+		if ($cb_AzureAutomation.Checked)
+		{
+			Add-Member -InputObject $sqlConfig -MemberType NoteProperty -Name "AzureCred" -Value "$($tb_LabMachinePrefix.Text)Administrator"
+		}
+		
+		If (!(Test-Path -Path "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)"))
+		{
+			New-Item -ItemType Directory -Path "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)"
+		}
+		
+		
+		ConvertTo-Json -InputObject $sqlConfig | Out-File -FilePath "$($InstallLocation)\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_SQLConfig.json"
+		
+	}
+	if ($cb_DevMachine.Checked -eq $true)
+	{
+		$ServersAddtoDomain = $ServersAddtoDomain + "$($tb_LabMachinePrefix.Text)-Dev"
+	}
+	Add-Member -InputObject $liabConfig -MemberType NoteProperty -Name 'DomainJoinServer' -Value $ServersAddtoDomain;
+	$BailTest = !$formLabInABox.ValidateChildren()
+	#$_.Cancel = !$formLabInABoxConfigurato.ValidateChildren()
+	IF ($BailTest)
+	{
+		Show-Msbox -message "Validation Error Please fix." -icon "Critical"
+	}
+	else
+	{
+		New-Item -ItemType Directory -Force -Path "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)"
+		ConvertTo-Json -InputObject $liabConfig | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json"
+		$PSCreatescript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Create.ps1"
+		$PSUpdatescript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Update.ps1"
+		$PSStartScript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Start.ps1"
+		$PSStopScript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Stop.ps1"
+		$PSRemoveScript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Remove.ps1"
+		$PSCheckPointScript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_CheckPoint.ps1"
+		$PSRemoveCheckPointScript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_RemoveCheckPoint.ps1"
+		
+		if ($($openfiledialog.FileNames[0]) -eq "openfiledialog1") { $FinishText = "New Configuration Created" }
+		else { $FinishText = "Configuration Updated" }
+		$rc = Show-Msbox -message $FinishText
+	}
+	
+	Invoke-Item "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\"
+	$formLabInABox.Close()
+}
+$button_Azure_Finish_Click = {
+	$LabServers = $Serverdatagridview1.Rows | Select-Object -expand DataBoundItem | Select-Object Server
+	$GridviewTable = $Serverdatagridview1.Rows | Select-Object -expand DataBoundItem | Select-Object Server,Azureoffer, AzureSku, VMUsername, VMPassword
+	$domainJoinServer = [hashtable]@{ }
+	foreach ($Server in $GridviewTable.server)
+	{
+		$domainJoinServer.Add($Server, @{ })
+		$MyServerData = $Serverdatagridview1.rows | Select-Object -expand DataBoundItem | Where-Object { $_.Server -EQ $Server }
+		$domainJoinServer.$($Server).Add("AzurePublisher", $MyServerData.AzurePublisher)
+		$domainJoinServer.$($Server).Add("AzureOffer", $MyServerData.AzureOffer)
+		$domainJoinServer.$($Server).Add("AzureSku", $MyServerData.AzureSku)
+		$domainJoinServer.$($Server).Add("OS", $MyServerData.OS)
+		$domainJoinServer.$($Server).Add("VMUsername", $MyServerData.VMUsername)
+		$domainJoinServer.$($Server).Add("VMPassword", $MyServerData.VMPassword)
+	}
+	
+	
+	$AzureConfig = [PSCustomObject]@{
+		'LabType'		  = 'AzureLab';
+		'LabPrefix'	    = $tb_LabMachinePrefix.Text;
+		'CertSubject'	  = $cb_CertificateList.SelectedItem;
+		'ApplicationID'    = $tb_ApplicationID.Text;
+		'TenantID'		 = $tb_TenantId.Text;
+		'Size'			 = $tb_AzureVMSize.Text;
+		'SubnetAddress'    = $tb_SubnetAddress.Text;
+		'VNetAddress'	  = $tb_VnetAddress.Text;
+		'Location'		 = $tb_AzureLocation.Text;
+		'DomainJoinServer' = $domainJoinServer;
+	}
+	$PSMainscript = "Import-module -name `"$InstallLocation\modules\LabinaBox.psm1`"`r"
+	$PSCreatescript = $PSMainscript + "New-AzureLab -configuration `"$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	$PSRemoveScript = $PSMainscript + "Remove-AzureLab -configuration `"$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json`" `r"
+	
+	If (!(Test-Path -Path "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)"))
+	{
+		Set-Location c:\
+		New-Item -ItemType Directory -Path "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)"
+	}
+	ConvertTo-Json -InputObject $AzureConfig | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Config.json"
+	$PSCreatescript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Create.ps1"
+	$PSRemoveScript | Out-File -FilePath "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\$($tb_LabMachinePrefix.Text)_Remove.ps1"
+	
+	Invoke-Item "$InstallLocation\LabConfig\$($tb_LabMachinePrefix.Text)\"
+	$formLabInABox.Close()
+	
+}
+$exitToolStripMenuItem_Click = {
+	$formLabInABox.Close()
+}
+$openToolStripMenuItem_Click = {
+	$openfiledialog.InitialDirectory = "$InstallLocation\LabConfig"
+	$openfiledialog.FileName = "*.json"
+	$openfiledialog.ShowDialog()
+	
+	$MyMainConfig = Get-Content $($openfiledialog.FileName) | ConvertFrom-Json | Convert-PSObjectToHashtable
+
+	$LabType = $($MyMainConfig.LabType)
+
+	If ($LabType -eq "AzureLab")
+	{
+		$MyDataTable = New-Object System.Data.DataTable
+		$MyDataTable.Columns.Add('Server')
+		$MyDataTable.Columns.Add('AzurePublisher')
+		$MyDataTable.Columns.Add('AzureOffer')
+		$MyDataTable.Columns.Add('AzureSku')
+		$MyDataTable.Columns.Add('OS')
+		$MyDataTable.Columns.Add('VMUserName')
+		$MyDataTable.Columns.Add('VMPassword')
+		
+		$radiobuttonAzureLab.Checked = $true
+		if (!$MyMainConfig.CertSubject)
+		{
+			Set-Location Cert:\CurrentUser\My
+			$MyCerts = Get-ChildItem | Where-Object { $_.FriendlyName -NE "" } | select FriendlyName
+			
+			foreach ($Cert in $MyCerts.friendlyname)
+			{
+				Update-ComboBox $cb_CertificateList $Cert -Append
+			}
+		}
+		else{$cb_CertificateList.SelectedItem = $MyMainConfig.CertSubject}
+		$cb_CertificateList.SelectedItem = $MyMainConfig.CertSubject
+		$tb_LabMachinePrefix.Text = $MyMainConfig.LabPrefix
+		$tb_ApplicationID.Text = $MyMainConfig.ApplicationID
+		$tb_tenantId.Text = $MyMainConfig.tenantId
+		$tb_AzureLocation.Text = $MyMainConfig.Location
+		$tb_AzureVMSize.Text = $MyMainConfig.Size
+		$tb_SubnetAddress.Text = $MyMainConfig.SubnetAddress
+		$tb_VnetAddress.Text = $MyMainConfig.VnetAddress
+
+		$ServersToLoop = $MyMainConfig.DomainJoinServer.keys
+		foreach ($server in $ServersToLoop)
+		{
+			$row = $MyDataTable.NewRow()
+			$row["Server"] = $Server
+			$row["AzurePublisher"]= $MyMainConfig.DomainJoinServer.$($server).AzurePublisher
+			$row["AzureOffer"] = $MyMainConfig.DomainJoinServer.$($server).AzureOffer
+			$row["AzureSku"] = $MyMainConfig.DomainJoinServer.$($server).AzureSku
+			$row["OS"] = $MyMainConfig.DomainJoinServer.$($server).OS
+			$row["VMUserName"] = $MyMainConfig.DomainJoinServer.$($server).VMUserName
+			$row["VMPassword"] = $MyMainConfig.DomainJoinServer.$($server).VMPassword
+			$MyDataTable.Rows.Add($row)
+		}
+		
+		Load-DataGridView -DataGridView $Serverdatagridview1 -Item $MyDataTable -Verbose
+	}
+	
+	if (($LabType -eq "HyperVLab") -or ($LabType -eq $null))
+	{
+		$radiobuttonHyperVLab.Checked = $true
+		$tb_LabMachinePrefix.Text = $MyMainConfig.DomainName
+		$tb_LocalAdminPass.Text = $MyMainConfig.LocalAdminPass
+		$tb_DomainAdminPass.Text = $MyMainConfig.DomainAdminPass
+		$tb_SysPrepDriveName.Text = $MyMainConfig.SysPrepDriveName
+		$cb_SwitchType.SelectedItem = $MyMainConfig.SwitchType
+		$tb_NetworkIpRange.Text = $MyMainConfig.NetworkIPRange
+		$tb_SwitchName.Text = $MyMainConfig.SwitchName
+		$tb_ParentDriveFolder.Text = $MyMainConfig.ParentFolderPath
+		$tb_ChildDiskPath.Text = $MyMainConfig.ChildRootFolder
+		$tb_ISOFolderPath.Text = $MyMainConfig.ISOFolderPath
+		
+		if ($MyMainConfig.SSMSISO)
+		{
+			$cb_SSMSISO.Text = $MyMainConfig.SSMSISO
+		}
+		if ($MyMainConfig.DeveloperMachine)
+		{
+			$cb_DevMachine.Checked = $true
+		}
+		if ($MyMainConfig.ServerConfig)
+		{
+			$cb_DSCCentralHub.Checked = $true
+			$tb_SQLServerFeatures.Text = $MySQLConfig.Features
+		}
+		
+		if ($MyMainConfig.SQLServerISO)
+		{
+			
+			$cb_SQLServerISO.Text = $MyMainConfig.SQLServerISO
+		}
+		
+		if ($MyMainConfig.Windows2016ISO)
+		{
+			$cb_Windows2016ISO.Text = $MyMainConfig.Windows2016ISO
+		}
+		
+		$ServersToLoop = @()
+		$ServersToLoop = $MyMainConfig.ServerToQueue
+		if (!$ServersToLoop)
+		{
+			$ServersToLoop = $MyMainConfig.DomainJoinServer.keys
+		}
+		$loopCnt = 0
+		foreach ($server in $ServersToLoop)
+		{
+			
+			if ($tb_ServerstoConfig.text)
+			{
+				$tb_ServerstoConfig.text = $tb_ServerstoConfig.text + ',' + $Server.Split("-", 2)[1]
+			}
+			else
+			{ $tb_ServerstoConfig.text = $Server.Split("-", 2)[1] }
+		}
+		$cb_ConfigtoApply.SelectedItem = $MyMainConfig.ServerConfig
+	}
+}
+$cb_SwitchType_SelectedIndexChanged = {
+	if ($cb_SwitchType.SelectedItem -eq 'NAT')
+	{
+		$NatNet = $(get-netnat).InternalIPInterfaceAddressPrefix
+		if ($NatNet)
+		{
+			$NatIp = "$($NatNet.Substring(0, $($NatNet.Length - 5))).1"
+		}
+		if ($NatIp)
+		{
+			$Natinterface = $(Get-NetIPAddress -IPAddress $NatIp).InterfaceAlias
+		}
+		
+		$mySwitchName = $($Natinterface.Split("(")[1]).substring(0, $($($Natinterface.Split("(")[1]).length - 1))
+		if ($NatNet -and $mySwitchName)
+		{
+			$tb_SwitchName.Text = $mySwitchName
+			$newNetworkIPRange = "$($($mySwitchName.Substring(4, $($mySwitchName.Length - 6)))).x"
+			$tb_NetworkIpRange.Text = $newNetworkIPRange
+		}
+		else
+		{
+			$tb_SwitchName.Enabled = $true
+			$tb_NetworkIpRange.Enabled = $true
+		}
+		
+	}
+	if ($cb_SwitchType.SelectedItem -eq 'Private')
+	{
+		$tb_SwitchName.Enabled = $true
+		$tb_NetworkIpRange.Enabled = $true
+	}
+}
+$radiobuttonAzureLab_CheckedChanged = {
+	if ($this.Checked)
+	{
+		$Lab.TabPages.Add($script:savedPages[$this.Tag])
+		$Lab.SelectedTab = $Lab.TabPages[$this.Tag]
+	}
+	else
+	{
+		$Lab.TabPages.Remove($script:savedPages[$this.Tag])
+	}
+}
+$BrowseParentDriveFolder_Click = {
+	$ParentFolderBrowser.ShowDialog()
+	$Tb_ParentDriveFolder.Text = $ParentFolderBrowser.SelectedPath
+	
+}
+
+$BrowseSysPrepDrive_Click = {
+	$SysPrepFileDialog.InitialDirectory = $ParentFolderBrowser.SelectedPath
+	$SysPrepFileDialog.FileNames = "*.vhdx"
+	$SysPrepFileDialog.ShowDialog()
+	$tb_SysPrepDriveName.Text = $SysPrepFileDialog.SafeFileName
+	
+}
+
+$BrowseChildDiskPath_Click = {
+	$ChildDiskBrowser.RootFolder = "$InstallLocation"
+	$ChildDiskBrowser.ShowDialog()
+	$tb_ChildDiskPath.Text = $ChildDiskBrowser.SelectedPath
+	
+}
+
+$BrowseISOFolder_Click = {
+	$ISOFolderBrowser.ShowDialog()
+	$tb_ISOFolderPath.Text = $ISOFolderBrowser.SelectedPath
+	$ISOFiles = $(get-childitem "$($tb_ISOFolderPath.Text)").Name
+	foreach ($ISO in $ISOFiles)
+	{
+		Update-ComboBox $cb_SQLServerISO $ISO -Append
+		Update-ComboBox $cb_Windows2016ISO $ISO -Append
+		Update-ComboBox $cb_SSMSISO $ISO -Append
+	}
+}
+
+$Serverdatagridview1_CellContentClick = [System.Windows.Forms.DataGridViewCellEventHandler]{
+	#Event Argument: $_ = [System.Windows.Forms.DataGridViewCellEventArgs]
+	#TODO: Place custom script here
+	
+}
+
+
+#endregion
+#region Form Validation
+$tb_LabMachinePrefix_Validating = [System.ComponentModel.CancelEventHandler]{
+	##Check if the Name field is empty
+	#$_.Cancel = Validate-IsEmpty  $tb_LabMachinePrefix.Text.ToString()
+	#if ($_.Cancel)
+	#{
+	#	#Display an error message
+	#	$errorprovider1.SetError($tb_LabMachinePrefix, "Please enter a valid lab prefix.");	
+	#}
+}
+$tb_LabMachinePrefix_Validated = {
+	#TODO: Place custom script here
+	$errorprovider1.SetError($this, "");
+}
+$tb_LocalAdminPass_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = Validate-IsEmpty  $tb_LocalAdminPass.Text.ToString()
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($tb_LocalAdminPass, "Please enter a valid password.");
+	}
+	
+}
+$tb_LocalAdminPass_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+$tb_DomainAdminPass_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = Validate-IsEmpty  $tb_DomainAdminPass.Text.ToString()
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($tb_DomainAdminPass, "Please enter a valid password.");
+	}
+	
+}
+$tb_DomainAdminPass_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+$tb_SysPrepDriveName_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$SysPrepDrive = $tb_SysPrepDriveName.Text.ToString()
+	#$_.Cancel = (Validate-IsEmpty $SysPrepDrive) -or $($SysPrepDrive.Split(".",2))[1] -ne "vhdx"
+	#if ($_.Cancel)
+	#{
+	#	#Display an error message
+	#	$errorprovider1.SetError($tb_SysPrepDriveName, "Please enter a valid sysPrepDrive. (Must end in vhdx)");
+	#}
+	#
+}
+$tb_SysPrepDriveName_Validated = {
+	#$errorprovider1.SetError($this, "");
+	
+}
+$tb_SwitchName_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = Validate-IsEmpty  $tb_SwitchName.Text.ToString()
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($tb_SwitchName, "Please enter a valid Switch.");
+	}
+	
+}
+$tb_SwitchName_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+$tb_NetworkIpRange_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = !(Validate-IsIP  $tb_NetworkIpRange.Text.ToString())
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($tb_NetworkIpRange, "Please enter a valid Ip.");
+	}
+	
+}
+$tb_NetworkIpRange_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+
+$cb_SSMSISO_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	#$_.Cancel = ($cb_SSMSISO.SelectedIndex -eq -1) -and ($cb_SSMSISO.Enabled)
+	#if ($_.Cancel)
+	#{
+	#	#Display an error message
+	#	$errorprovider1.SetError($cb_SSMSISO, "Please select a ISO");
+	#}
+}
+$cb_SSMSISO_Validated = {
+	#$errorprovider1.SetError($this, "");
+	
+}
+$cb_SQLServerISO_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	#	$_.Cancel = ($cb_SQLServerISO.SelectedIndex -eq -1) -and ($cb_SQLServerISO.Enabled)
+	#	if ($_.Cancel)
+	#	{
+	#		#Display an error message
+	#		$errorprovider1.SetError($cb_SQLServerISO, "Please select a ISO");
+	#	}
+	
+}
+$cb_SQLServerISO_Validated = {
+	#	$errorprovider1.SetError($this, "");
+	
+}
+$cb_Windows2016ISO_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	#	$_.Cancel = ($cb_Windows2016ISO.SelectedIndex -eq -1) -and ($cb_Windows2016ISO.Enabled)
+	#	if ($_.Cancel)
+	#	{
+	#		#Display an error message
+	#		$errorprovider1.SetError($cb_Windows2016ISO, "Please select a ISO");
+	#	}
+	
+}
+$cb_Windows2016ISO_Validated = {
+	#	$errorprovider1.SetError($this, "");
+	
+}
+$cb_ConfigtoApply_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = ($cb_ConfigtoApply.SelectedIndex -eq -1) -and ($cb_ConfigtoApply.Enabled)
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($cb_ConfigtoApply, "Please select a Configuration to Apply");
+	}
+	
+}
+$cb_ConfigtoApply_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+$tb_SQLServerFeatures_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = (Validate-IsEmpty  $tb_SQLServerFeatures.Text.ToString()) -and ($tb_SQLServerFeatures.Enabled)
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($tb_SQLServerFeatures, "Please enter valid SQL Server Features");
+	}
+	
+}
+$tb_SQLServerFeatures_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+$tb_ServerstoConfig_Validating = [System.ComponentModel.CancelEventHandler]{
+	#Event Argument: $_ = [System.ComponentModel.CancelEventArgs]
+	$_.Cancel = (Validate-IsEmpty  $tb_ServerstoConfig.Text.ToString()) -and ($tb_ServerstoConfig.Enabled)
+	if ($_.Cancel)
+	{
+		#Display an error message
+		$errorprovider1.SetError($tb_ServerstoConfig, "Please enter Servers to config");
+	}
+	
+}
+$tb_ServerstoConfig_Validated = {
+	$errorprovider1.SetError($this, "");
+	
+}
+#endregion
+
+]]></Code>
+  <Bookmarks />
+  <BreakPoints>
+    <Line Disabled="False">38</Line>
+    <Line Disabled="False">892</Line>
+  </BreakPoints>
+  <TracePoints />
+  <Mode>1</Mode>
+  <Assemblies>
+    <Assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    <Assembly>System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    <Assembly>System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    <Assembly>System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    <Assembly>System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <Assembly>System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    <Assembly>System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    <Assembly>System.DirectoryServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+  </Assemblies>
+</File>
