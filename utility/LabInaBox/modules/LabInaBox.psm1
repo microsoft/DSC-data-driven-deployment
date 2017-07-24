@@ -1,5 +1,7 @@
 ﻿#Function to create our Credentials to be passed in plain text for simplicity.  
 #Do not leverage this for production use
+import-module AzureRM
+
 function Get-ScriptDirectory
 {
     $Invocation = (Get-Variable MyInvocation -Scope 1).Value;
@@ -48,7 +50,7 @@ function Convert-PSObjectToHashtable
                 foreach ($object in $InputObject) {  Convert-PSObjectToHashtable $object }
             )
  
-            Write-Output -NoEnumerate $collection
+            Write-Verbose -NoEnumerate $collection
         }
         elseif ($InputObject -is [psobject])
         {
@@ -75,7 +77,7 @@ function WaitForSQLConn
        [Parameter(Mandatory, Position = 1)]
        $cred
    )
-   Write-Output "[$($VMName)]:: Waiting for SQL Server Connection (using $($cred.username))"
+   Write-Verbose "[$($VMName)]:: Waiting for SQL Server Connection (using $($cred.username))"
    [Int]$LoopCnt = 0
    $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
    Do {
@@ -96,7 +98,7 @@ function WaitForPSDirect
        [Parameter(Mandatory, Position = 1)]
        $cred
    )
-   Write-Output "[$($VMName)]:: Waiting for PowerShell Direct (using $($cred.username))"
+   Write-Verbose "[$($VMName)]:: Waiting for PowerShell Direct (using $($cred.username))"
    [Int]$LoopCnt = 0
    $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
    Do {
@@ -117,7 +119,7 @@ function WaitForDHCPPSDirect
         [Parameter(Mandatory, Position = 1)]
         $cred
     )
-    Write-Output "[$($VMName)]:: Waiting for DHCP (using $($cred.username))"
+    Write-Verbose "[$($VMName)]:: Waiting for DHCP (using $($cred.username))"
     Invoke-Command -VMName $VMName -Credential $cred {while ((Get-NetIPAddress | ? AddressFamily -eq IPv4 | ? IPAddress -ne 127.0.0.1).SuffixOrigin -ne "Dhcp") {Start-Sleep -seconds 10}}
 }
 
@@ -528,6 +530,7 @@ function New-DSCDataDrivenSQL
     }
 
  }
+
  Function New-AzureCertAuthentication
 {
     Param (
@@ -572,10 +575,8 @@ function New-DSCDataDrivenSQL
      $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     
      # Use Key credentials
-     $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    
+     $Application = New-AzureRmADApplication -DisplayName $ApplicationDisplayName -HomePage ("http://" + $ApplicationDisplayName) -IdentifierUris ("http://" + $ApplicationDisplayName) -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore   
      $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId 
-     Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
     
      $NewRole = $null
      $Retries = 0;
@@ -587,8 +588,6 @@ function New-DSCDataDrivenSQL
         $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
         $Retries++;
      }
-    
-     $TenantId = (Get-AzureRmSubscription -SubscriptionName $Subject).TenantId
      $AppID=(Get-AzureRmADApplication -DisplayNameStartWith $ApplicationDisplayName).ApplicationId
     
      New-AzureRmADAppCredential -ApplicationId $Application.ApplicationId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -634,11 +633,18 @@ function New-LIABAzureNetwork {
     $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix "$SubnetAddress/24"
     
     # Create a virtual network
-    $VNetTest = Get-AzureRmVirtualNetwork -ResourceGroupName $VMResourceGroup -Name $VNetName -ErrorAction SilentlyContinue
-    if(!$VNetTest){$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $VMResourceGroup -Location $Location `
-    -Name $VNetName -AddressPrefix "$VNetAddress/16" -Subnet $subnetConfig}
+    $VNetTest = Get-AzureRmVirtualNetwork -ResourceGroupName $VMResourceGroup -Name $VNetName -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+    if(!$VNetTest)
+    {
+        $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $VMResourceGroup -Location $Location -WarningAction SilentlyContinue `
+            -Name $VNetName -AddressPrefix "$VNetAddress/16" -Subnet $subnetConfig
+        Write-verbose -message "Virtual Network $VNetName created successfully."
+    }
+    else
+    {
+        Write-verbose -message "Virtual Network $VNetName already exists skipping creation...."       
+    }
 }
-
 
 function New-LIABAzureVM {
 
@@ -649,9 +655,11 @@ function New-LIABAzureVM {
        [Parameter(Mandatory)]
        [string] $LabPrefix,
        [Parameter(Mandatory)]
-       [string] $Name,
+       [string] $VMName,
        [Parameter(Mandatory)]
-       [string] $Size,
+       [string] $VMSize,
+       [Parameter(Mandatory = $false)]
+       [string] $StorageType = "Standard_GRS",
        [Parameter(Mandatory)]
        [string] $SubnetAddress,
        [Parameter(Mandatory)]
@@ -667,54 +675,89 @@ function New-LIABAzureVM {
        [Parameter(Mandatory)]
        [string] $OS )
    
-    $ResourceGroup = "$($LabPrefix)_RG"
+    $ResourceGroupName = "$($LabPrefix)_RG"
+    $StorageName = "$($VMName.ToLower().Replace('-',''))storage$(get-random)"
+    if ($StorageName.Length > 24)
+    {$StorageName.Substring(0,24)}
+
     $SubnetName = "$($LabPrefix)_$($SubnetAddress)"
     $VNetName ="$($LabPrefix)vNET"
+    $OSDiskName = $VMName + "OSDisk"
 
-    # Create a public IP address and specify a DNS name  
-    $pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroup -Location $Location `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "$Name-Dns-$(Get-Random)"
 
-    # Create an inbound network security group rule for port 3389
-    $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "$Name-SecurityGroupRuleRDP"  -Protocol Tcp `
-    -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 -Access Allow
-    
-    # Create a network security group
-    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Location $Location `
-    -Name "$Name-NetworkSecurityGroup" -SecurityRules $nsgRuleRDP
-
-    # Create a virtual network card and associate with public IP address and NSG
-    $vnet=Get-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroup -Name $VNetName
-    $subnet = ($vnet.Subnets).Where({$_.Name -eq $SubnetName})
-    $nic = New-AzureRmNetworkInterface -Name "$Name-Nic" -ResourceGroupName $ResourceGroup -Location $Location `
-    -SubnetId $subnet.id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-    
-    # Define a credential object
-    $User = $VMUserName 
-    $Password = ConvertTo-SecureString $VMPassword -AsPlainText -Force #Domain Admin Password for LIAB Lab
-    $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $Password #Credential for LIAB Domain Admin
-    
-    # Create a virtual machine configuration
-    If($OS -eq "Windows")
+    $VMStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -ErrorAction SilentlyContinue
+    If(!$VMStorageAccount)
     {
-        $vmConfig = New-AzureRmVMConfig -VMName $Name -VMSize $Size | `
-        Set-AzureRmVMOperatingSystem -Windows -ComputerName $Name -Credential $Credential | `
-        Set-AzureRmVMSourceImage -PublisherName $AzurePublisher -Offer $AzureOffer -Skus $Azuresku -Version latest | `
-        Add-AzureRmVMNetworkInterface -Id $nic.Id
+        $VMStorageAccount =  New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
+        Write-Verbose "Created Storage Account $StorageName"
     }
-    elseif ($OS -eq "Linux"){
-        $vmConfig = New-AzureRmVMConfig -VMName $Name -VMSize $Size | `
-        Set-AzureRmVMOperatingSystem -Linux -ComputerName $Name -Credential $Credential | `
-        Set-AzureRmVMSourceImage -PublisherName $AzurePublisher -Offer $AzureOffer -Skus $Azuresku -Version latest | `
-        Add-AzureRmVMNetworkInterface -Id $nic.Id
-    }
-    else {
-        Write-Error -message "Unsupported OS $OS"
+    else
+    {
+        Write-Verbose "Storage Account $StorageName exists...."
     }
 
+    $vnet=Get-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName  -Name $VNetName
+
+    # Network
+    $PIp = Get-AzureRmPublicIpAddress -Name "$($VMName)-PIp" -ResourceGroupName $ResourceGroupName -WarningAction SilentlyContinue -ErrorAction SilentlyContinue    
+    If(!$PIp)
+    {
+        $PIp = New-AzureRmPublicIpAddress -Name "$($VMName)-PIp" -ResourceGroupName $ResourceGroupName -Location $Location -AllocationMethod Dynamic -WarningAction SilentlyContinue
+        Write-Verbose "Created Public IP Address $($VMName)-PIp"
+    }
+    else
+    {
+        Write-Verbose "Public IP Address $($VMName)-PIp exists..."
+    }
+
+    $SubnetConfig = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vnet -ErrorAction SilentlyContinue
+    If(!$SubnetConfig){$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $SubnetAddress}
+    $Interface = Get-AzureRmNetworkInterface -Name "$($VMName)-Interface" -ResourceGroupName $ResourceGroupName -WarningAction SilentlyContinue -ErrorAction SilentlyContinue
+    if(!$Interface)
+    {
+        $Interface = New-AzureRmNetworkInterface -Name "$($VMName)-Interface" -ResourceGroupName $ResourceGroupName -Location $Location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $PIp.Id -WarningAction SilentlyContinue
+        Write-Verbose "Created NetworkInterface $($VMName)-Interface"
+    }
+    else
+    {
+        Write-Verbose "NetworkInterface $($VMName)Interface exists..."
+    }
     
-    New-AzureRmVM -ResourceGroupName $ResourceGroup -Location $Location -VM $vmConfig 
+    $VMTest = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+    if (!$VMTest)
+    {
+        ## Setup local VM object
+        $User = $VMUserName 
+        $Password = ConvertTo-SecureString $VMPassword -AsPlainText -Force #Domain Admin Password for LIAB Lab
+        $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $Password #Credential for LIAB Domain Admin
+        $VirtualMachine = New-AzureRmVMConfig -VMName $VMName -VMSize $VMSize
+        If($OS -eq "Windows")
+        {
+            $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $VMName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate
+        }
+        elseif ($OS -eq "Linux")
+        {
+            $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Linux -ComputerName $VMName -Credential $Credential
+        }
+        else 
+        {
+            Write-Error -message "Unsupported OS $OS"
+        }
+
+        $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName $AzurePublisher -Offer $AzureOffer -Skus $Azuresku -Version "latest"
+        $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
+        $OSDiskUri = $VMStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
+        $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $OSDiskName -VhdUri $OSDiskUri -CreateOption FromImage
+
+        ## Create the VM in Azure
+        New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
+        Write-Verbose "Created Virtual Machine $VMName"
+    }
+    else
+    {
+        Write-Verbose "Virtual Machine $VMName already exists...."
+    }
+    
 }
 
 
@@ -724,20 +767,27 @@ function New-AzureLab
     param ([Parameter(Mandatory)]
            [PSCustomObject] $configuration
            )
-
+    
     $configurationData = Get-Content -Path $configuration -Raw| ConvertFrom-Json | Convert-PSObjectToHashtable
+    $ResourceGroup = "$($configurationData.LabPrefix)_RG"
     Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
     New-LIABAzureNetwork -LabPrefix $configurationData.LabPrefix -Location $configurationData.Location -SubnetAddress $configurationData.SubnetAddress -VNetAddress $configurationData.VNetAddress
     foreach ($Server in $configurationData.DomainJoinServer.keys)
     {     
+        $VMTest = Get-AzureRmVM -ResourceGroupName $ResourceGroup -Name $Server -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
         Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
-        New-LIABAzureVM -Location $configurationData.Location -LabPrefix $configurationData.LabPrefix -Name $Server -Size $configurationData.Size `
-            -SubnetAddress $configurationData.SubnetAddress -VMUserName $configurationData.DomainJoinServer.$($Server).VMUserName `
-            -VMPassword $configurationData.DomainJoinServer.$($Server).VMPassword  `
-            -AzurePublisher $configurationData.DomainJoinServer.$($Server).AzurePublisher `
-            -AzureOffer $configurationData.DomainJoinServer.$($Server).AzureOffer `
-            -AzureSku $configurationData.DomainJoinServer.$($Server).AzureSku `
-            -OS $configurationData.DomainJoinServer.$($Server).OS
+        If(!$VMTest)
+        {
+            New-LIABAzureVM -Location $configurationData.Location -LabPrefix $configurationData.LabPrefix -VMName $Server -VMSize $configurationData.Size `
+                -SubnetAddress $configurationData.SubnetAddress -VMUserName $configurationData.DomainJoinServer.$($Server).VMUserName `
+                -VMPassword $configurationData.DomainJoinServer.$($Server).VMPassword  `
+                -AzurePublisher $configurationData.DomainJoinServer.$($Server).AzurePublisher `
+                -AzureOffer $configurationData.DomainJoinServer.$($Server).AzureOffer `
+                -AzureSku $configurationData.DomainJoinServer.$($Server).AzureSku `
+                -OS $configurationData.DomainJoinServer.$($Server).OS
+        }    
+        else
+        {Write-verbose "$Server Exists skipping creation."}
     }
 }
 
@@ -750,9 +800,59 @@ function Remove-AzureLab
     $configurationData = Get-Content -Path $configuration -Raw| ConvertFrom-Json
     Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
     Remove-AzureRmResourceGroup -Name "$($configurationData.LabPrefix)_RG" -Force
+    Write-Verbose -Message "Removed Azure Lab in resource group $($configurationData.LabPrefix)_RG"
 }
 
-function Set-AzureDSCConfigurations
+function Remove-AzureDSCNodeConfigurations
+{
+   [CmdletBinding()]
+   param ([ValidateNotNull()] 
+          [PSCustomObject]$configuration)
+    
+   $configurationData = Get-Content -Path $configuration -Raw|ConvertFrom-Json | Convert-PSObjectToHashtable
+
+   Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
+   $Servers = $configurationData.DomainJoinServer.Keys 
+   foreach ($Server in $Servers)
+    {
+        $MyRegistration = Get-AzureRmAutomationDscNode -Name $server -ResourceGroupName $configurationData.AzureAutomationRG `
+             -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
+        if ($MyRegistration)
+        {
+            If($configurationData.LabType -eq 'AzureLab' -and $configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+            {          
+                Unregister-AzureRmAutomationDscNode -ResourceGroupName $configurationData.AzureAutomationRG `
+                    -AutomationAccountName $configurationData.AzureAutomationAccount -Id $myRegistration.Id -Force
+
+                Write-Verbose "Removed $server from DSC configuration."
+            }
+            elseif($configurationData.LabType -eq 'HyperVLab')
+            {
+                $ConfigExists = Get-AzureRmAutomationDscConfiguration -Name $configurationData.DomainJoinServer.$server `
+                    -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
+                if ($ConfigExists)
+                {
+                    $NodeId=Get-AzureRmAutomationDscNode -ResourceGroupName "$($configurationData.LabPrefix)_RG" `
+                            -AutomationAccountName $configurationData.AzureAutomationAccount | Where-Object NAME -EQ $Server | Select-Object Id
+                    Unregister-AzureRmAutomationDscNode -ResourceGroupName $configurationData.AzureAutomationRG `
+                        -AutomationAccountName $configurationData.AzureAutomationAccount -Id $myRegistration.Id -Force
+                }
+                else
+                {
+                    Write-Error "Configuration $($configurationData.DomainJoinServer.$server) does not Exist"
+                }
+            }
+        }
+        else
+        {
+            Write-verbose "$Server does not have a DSC Configuration Applied."
+        }
+    }
+} 
+
+
+
+function Set-AzureDSCNodeConfigurations
 {
    [CmdletBinding()]
    param ([ValidateNotNull()] 
@@ -760,47 +860,26 @@ function Set-AzureDSCConfigurations
    
     $configurationData = Get-Content -Path $configuration -Raw|ConvertFrom-Json | Convert-PSObjectToHashtable
 
-    $User = "$($configurationData.DomainName)\Administrator" # Domain admin for our LIAB Lab
-    $Password = ConvertTo-SecureString $configurationData.domainAdminPass -AsPlainText -Force #Domain Admin Password for LIAB Lab
-    $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $Password #Credential for LIAB Domain Admin
-
-
-    Login-AzurebyCert -CertSubject $configurationData.AzureAutomationAccount -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID |out-null
-    
-    $MyRG = Get-AzureRmResourceGroup -Name "$($configurationData.LabPrefix)_RG" -Location $configurationData.Location -ErrorAction SilentlyContinue
-    if (!$MyRG)
-    {
-        Write-verbose "Creating Resource Group $($configurationData.LabPrefix)_RG"
-        New-AzureRmResourceGroup -Name "$($configurationData.LabPrefix)_RG" -Location $configurationData.Location
-    }
-    else 
-    {
-         Write-verbose "$($configurationData.LabPrefix)_RG exists skipping creation."
-    }
-    
-    
-    #$AzureAutoAcct=Get-AzureRmAutomationAccount -Name $configurationData.AzureAutomationAccount -ResourceGroupName "$($configurationData.LabPrefix)_RG" -ErrorAction SilentlyContinue
-    #if(!$AzureAutoAcct)
-    #{
-    #    Write-verbose "Creating AzureAutomation Account $($configurationData.AzureAutomationAccount)"
-    #    New-AzureRmAutomationAccount -ResourceGroupName "$($configurationData.LabPrefix)_RG" -Name $configurationData.AzureAutomationAccount -Location $configurationData.Location 
-    #}
-    #else
-    #{
-    #    Write-verbose "$($configurationData.AzureAutomationAccount) exists skipping creation."
-    #}
-
+    Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
+  
     $Servers = $configurationData.DomainJoinServer.Keys 
     
     foreach ($Server in $Servers)
     {
-        $MyRegistration = Get-AzureRmAutomationDscNode -Name $server -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount 
+        $MyRegistration = Get-AzureRmAutomationDscNode -Name $server -ResourceGroupName $configurationData.AzureAutomationRG `
+             -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
         if (!$MyRegistration)
         {
-            If($configurationData.LabType -eq 'AzureLab')
+            If($configurationData.LabType -eq 'AzureLab' -and $configurationData.DomainJoinServer.$($Server).DSCConfiguration)
             {          
-                Register-AzureRmAutomationDscNode -AutomationAccountName $configurationData.AzureAutomationAccount 
-                    -AzureVMName $server -ResourceGroupName "$($configurationData.LabPrefix)_RG" -NodeConfigurationName $configurationData.DomainJoinServer.$server
+                Register-AzureRmAutomationDscNode -AutomationAccountName $configurationData.AzureAutomationAccount `
+                    -ResourceGroupName $configurationData.AzureAutomationRG `
+                    -AzureVMName $server -AzureVMResourceGroup "$($configurationData.LabPrefix)_RG" `
+                    -NodeConfigurationName "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration).$($Server)" `
+                    -ActionAfterReboot ContinueConfiguration `
+                    -AllowModuleOverwrite $true `
+                    -ConfigurationMode ApplyAndAutocorrect `
+                    -RebootNodeIfNeeded $true
             }
             elseif($configurationData.LabType -eq 'HyperVLab')
             {
@@ -813,8 +892,8 @@ function Set-AzureDSCConfigurations
                 }
             
                 Get-AzureRmAutomationDscOnboardingMetaconfig @Params -Force
-                $path = "C:\DscMetaConfigs\$Server.meta.mof"
-                Set-DscLocalConfigurationManager -Path "C:\DscMetaConfigs\" -Credential $Credential -Force -ComputerName $Server 
+                #$path = "C:\DscMetaConfigs\$Server.meta.mof"
+                #Set-DscLocalConfigurationManager -Path "C:\DscMetaConfigs\" -Credential $Credential -Force -ComputerName $Server 
                 $ConfigExists = Get-AzureRmAutomationDscConfiguration -Name $configurationData.DomainJoinServer.$server `
                     -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
                 if ($ConfigExists)
@@ -833,16 +912,127 @@ function Set-AzureDSCConfigurations
         else
         {
             Write-verbose "$($MyRegistration.Name) is registered skipping registration."
-            if ($MyRegistration.NodeConfigurationName -eq $null)
+            if (!$MyRegistration.NodeConfigurationName -and $configurationData.DomainJoinServer.$($Server).DSCConfiguration)
             {
                 Write-verbose "Applying $($configurationData.DomainJoinServer.$server) to $($MyRegistration.Name)"
                 $NodeId=Get-AzureRmAutomationDscNode -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount | Where-Object NAME -EQ $Server| Select-Object Id
-                Set-AzureRmAutomationDscNode -NodeConfigurationName $configurationData.DomainJoinServer.$server -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -Id $NodeId.Id -Force
+                Set-AzureRmAutomationDscNode -NodeConfigurationName $configurationData.DomainJoinServer.$($Server).DSCConfiguration -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -Id $NodeId.Id  -Force
             }
             else
             {
-                Write-verbose "$($MyRegistration.Name) has $($configurationData.DomainJoinServer.$server) applied skipping."
+                Write-verbose "$($MyRegistration.Name) has $($configurationData.DomainJoinServer.$($Server).DSCConfiguration) applied skipping."
             }
+        }
+    }
+}
+
+function Compile-AzureDSCConfiguration
+{
+   [CmdletBinding()]
+   param ([ValidateNotNull()] 
+          [PSCustomObject]$configuration)
+ 
+    $configurationData = Get-Content -Path $configuration -Raw|ConvertFrom-Json | Convert-PSObjectToHashtable
+    $DCName = $configurationData.DomainJoinServer
+    
+    foreach ($Server in $configurationData.DomainJoinServer.Keys)
+    {
+      If ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -eq "DomainConfig")
+      {
+          $MYDCIP = $(Get-AzureRmNetworkInterface -ResourceGroupName "$($configurationData.LabPrefix)_RG" | Where-Object {$_.Name -like "$Server*" }| Get-AzureRmNetworkInterfaceIpConfig | Select PrivateIPAddress).PrivateIPAddress
+      }
+    
+    }
+
+    foreach ($Server in $configurationData.domainJoinServer.Keys)
+    {
+        if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -like "*SQL*")
+        {
+            #Write-Verbose "Its SQL Config"
+            $ConfigData =@{
+                AllNodes = @(
+  		            @{
+  			          NodeName = $Server
+                      PSDscAllowPlainTextPassword = $true
+                      PSDscAllowDomainUser =$true
+                      SQLInstanceName = "MSSQLSERVER"
+                      WindowsBitsLocation = if ($configurationData.WindowsBitsLocation){$configurationData.WindowsBitsLocation} else{"\\$($configurationdata.LabPrefix)-DC\Sources\sxs"}
+                      SQLServerBitsLocation = if ($configurationData.SQLServerBitsLocation){$configurationData.SQLServerBitsLocation} else {"\\$($configurationData.LabPrefix)-DC\"}
+                      Features = if ($configurationData.Features) {$configurationData.Features} else {"SQLENGINE,IS"  }
+                      SQLAdminAccount = if($configurationData.SQLAdminAccount){$configurationData.SQLAdminAccount} else{"$($configurationData.LabPrefix)\Administrator"}
+                      SQLInstallSharedDir = if($configurationData.SQLInstallSharedDir) {$configurationData.SQLInstallSharedDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      InstallSharedWowDir = if($configurationData.InstallSharedWowDir) {$configurationData.InstallSharedWowDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      InstanceDir = if($configurationData.InstanceDir) {$configurationData.InstanceDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      InstallSQLDataDir = if($configurationData.InstallSQLDataDir) {$configurationData.InstallSQLDataDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      SQLUserDBDir = if ($configurationData.SQLUserDBDir) {$configurationData.SQLUserDBDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      SQLUserDBLogDir = if($configurationData.SQLUserDBLogDir) {$configurationData.SQLUserDBLogDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      SQLTempDBDir = if($configurationData.SQLTempDBLogDir) {$configurationData.SQLTempDBLogDir} else {"C:\Program Files\Microsoft SQL Server"}
+                      SQLBackupDir = if($configurationData.SQLBackupDir) {$configurationData.SQLBackupDir} else {"C:\Program Files\Microsoft SQL Server\Backup"}
+                      AzureCred = $configurationData.AzureCred
+                      DomainName = $configurationData.DomainName
+                      DomainExtention = $configurationData.DomainExtention
+                      DNSIp = $MYDCIP
+  		            }
+  	            )
+            }
+        }
+        if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -like "*Domain*")
+        {
+            #Write-Verbose "Its Domain Config"
+              $ConfigData = @{
+                AllNodes = @(
+                        @{
+                            NodeName = $Server
+                            PSDscAllowPlainTextPassword = $true
+                            PSDscAllowDomainUser =$true
+                            DomainName = $configurationData.DomainName
+                            DomainExtention = $configurationData.DomainExtention
+                            AutomationRG = $configurationData.AzureAutomationRG
+                            AutomationAcct = $configurationData.AzureAutomationAccount
+                         }
+                    )
+              }
+        }
+   
+        if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+        {        
+            Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID 
+            
+            $MyDSCConfig = Get-AzureRmAutomationDscConfiguration -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -Name $configurationData.DomainJoinServer.$($Server).DSCConfiguration -ErrorAction SilentlyContinue
+      
+            if ($MyDSCConfig)
+              {
+                $MyDSCConfigCompile = Get-AzureRmAutomationDscCompilationJob -ConfigurationName $MyDSCConfig.Name -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount |select -Last 1 -ErrorAction SilentlyContinue
+              }
+            
+              if($MyDSCConfigCompile.Status -ne "Completed")
+              {
+                  Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID 
+            
+                  $CompilationJob =  Start-AzureRmAutomationDscCompilationJob -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -ConfigurationName $configurationData.DomainJoinServer.$($Server).DSCConfiguration -ConfigurationData $ConfigData
+                  
+                  $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
+                  [Int]$LoopCnt = 1
+                  
+                  #Check status of DSC Complication and continue looping till done
+                  $JobResult = ""
+                  DO{
+                      $retryDelay = [Math]::Ceiling(([Math]::pow( $LoopCnt, $backOff )))
+                      $JobResult = Get-AzureRmAutomationDscCompilationJob -Id $CompilationJob.Id -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
+                      Start-Sleep -Seconds $retryDelay 
+                      Write-Verbose "Waiting for $($retryDelay)sec for $($configurationData.DomainJoinServer.$($Server).DSCConfiguration) to Finish Compilation "
+                      $LoopCnt++
+                  }
+                  UNTIL (($JobResult.Status -eq "Completed")  -or ($JobResult.Status -eq "Suspended"))
+                  if ($JobResult.Status -ne "Completed")
+                  {
+                      Write-Warning "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration) result was $($JobResult.Status)"
+                  }
+                  else
+                  {
+                      Write-verbose "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration) result was $($JobResult.Status)"
+                  }
+             }
         }
     }
 }
@@ -855,64 +1045,33 @@ function New-AzureDSCConfigurations
           [PSCustomObject]$configuration)
 
     $configurationData = Get-Content -Path $configuration -Raw|ConvertFrom-Json | Convert-PSObjectToHashtable
-    
-    $FilePath = Join-Path -Path $configurationData.Scriptlocation -ChildPath "Configuration\AzureAutomation"
+    Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID 
+    $DomainCred = Get-AzureRmAutomationCredential -Name "$($configurationData.DomainName)_Admin" -ResourceGroupName $configurationData.AzureAutomationRG `
+                    -AutomationAccountName $configurationData.AzureAutomationAccount  -ErrorAction SilentlyContinue
+
+    if (!$DomainCred)
+    {
+        $AdminCred = New-Cred -userName $configurationData.DomainAdminUser -userPass $configurationData.DomainAdminPass
+        New-AzureRmAutomationCredential -Name "$($configurationData.DomainName)_Admin" -ResourceGroupName $configurationData.AzureAutomationRG `
+             -AutomationAccountName $configurationData.AzureAutomationAccount -Value $AdminCred 
+    }
+
+    $FilePath = Join-Path -Path $configurationData.InstallLocation -ChildPath "Scripts\Configuration\AzureAutomation"
     $files = Get-ChildItem $FilePath 
     foreach ($File in $Files)
     {
-        $ConfigData =@{
-        	AllNodes = @(
-        		@{
-        			NodeName = "SQLServer"
-                 
-                    PSDscAllowPlainTextPassword = $true
-                    PSDscAllowDomainUser =$true
-        		}
-        	)
-        }
-    
+
         $SoucePath = Join-Path -Path $FilePath -ChildPath $File
         Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID 
         
-        $MyDSCConfig = Get-AzureRmAutomationDscConfiguration -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -Name $File.BaseName -ErrorAction SilentlyContinue
+        $MyDSCConfig = Get-AzureRmAutomationDscConfiguration -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -Name $File.BaseName -ErrorAction SilentlyContinue
         if (!$MyDSCConfig)
         {
             Write-verbose "Creating new configuration $($File.BaseName)"
-            Import-AzureRmAutomationDscConfiguration -AutomationAccountName $configurationData.AzureAutomationAccount -ResourceGroupName "$($configurationData.LabPrefix)_RG" -SourcePath $SoucePath -Published -Force        
+            Import-AzureRmAutomationDscConfiguration -AutomationAccountName $configurationData.AzureAutomationAccount -ResourceGroupName $configurationData.AzureAutomationRG  -SourcePath $SoucePath -Published -Force        
         }
         else
         {Write-verbose "$($File.BaseName) exists skipping creation."}
-        
-        if ($MyDSCConfig)
-        {
-            $MyDSCConfigCompile = Get-AzureRmAutomationDscCompilationJob -ConfigurationName $MyDSCConfig.Name -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount |select -Last 1 -ErrorAction SilentlyContinue
-        }
-        if($MyDSCConfigCompile.Status -ne "Completed")
-        {
-            $CompilationJob =  Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -ConfigurationName $File.BaseName -Parameters $configurationData  -ConfigurationData $ConfigData
-            
-            $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
-            [Int]$LoopCnt = 1
-            
-            #Check status of DSC Complication and continue looping till done
-            $JobResult = ""
-            DO{
-                $retryDelay = [Math]::Ceiling(([Math]::pow( $LoopCnt, $backOff )))
-                $JobResult = Get-AzureRmAutomationDscCompilationJob -Id $CompilationJob.Id -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
-                Start-Sleep -Seconds $retryDelay 
-                Write-Verbose "Waiting for $($retryDelay)sec for $($File.BaseName) to Finish Compilation "
-                $LoopCnt++
-            }
-            UNTIL (($JobResult.Status -eq "Completed")  -or ($JobResult.Status -eq "Suspended"))
-            if ($JobResult.Status -ne "Completed")
-            {
-                Write-Warning "$($File.BaseName) result was $($JobResult.Status)"
-            }
-            else
-            {
-                Write-verbose "$($File.BaseName) result was $($JobResult.Status)"
-            }
-        }
     }
 }
 
@@ -933,7 +1092,6 @@ function Publish-AzureDSCModules
         New-AzureRmResourceGroup -Name $configurationData.AzureAutomationRG -Location $configurationData.Location
     }
 
-
     $AzureAutoAcct=Get-AzureRmAutomationAccount -Name $configurationData.AzureAutomationAccount -ResourceGroupName $configurationData.AzureAutomationRG -ErrorAction SilentlyContinue
     if(!$AzureAutoAcct)
     {
@@ -944,6 +1102,7 @@ function Publish-AzureDSCModules
     {
         Write-verbose "$($configurationData.AzureAutomationAccount) exists skipping creation."
     }
+
 
     #Substring is used here because there is a limit of 24 characaters 
     #ToLower is used because storage account require all lower case
@@ -962,7 +1121,7 @@ function Publish-AzureDSCModules
     $files = Get-ChildItem $FilePath 
     foreach ($File in $Files)
     {
-        $MyModule = Get-AzureRmAutomationModule -Name $File -ResourceGroupName $configurationData.AzureAutomationRG -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
+        $MyModule = Get-AzureRmAutomationModule -Name $File.BaseName -ResourceGroupName $configurationData.AzureAutomationRG -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
         if (!$MyModule)
         {
             $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
@@ -994,10 +1153,14 @@ function Publish-AzureDSCModules
             Write-Verbose "$($module.name) provisioning $($module.ProvisioningState)"
 
         }
+        else 
+        {Write-Verbose "$($File.BaseName) exists skipping Upload"}
     }
 }
 
-Export-ModuleMember -Function 'Stop-LabinaBox','Start-LabinaBox','CheckPoint-LabinaBox','Remove-LabinaBoxSnapshot','Remove-LabinaBox','New-LabinaBox',`
-                              'New-LabVM','Update-LabinaBox','New-DSCDataDrivenSQL','Add-ServerConfigtoQueue','New-AzureCertAuthentication',`
-                              'Login-AzurebyCert','New-AzureLab','Remove-AzureLab','Set-AzureDSCConfigurations','New-AzureDSCConfigurations',`
-                              'Convert-PSObjectToHashtable','Publish-AzureDSCModules','Get-ScriptDirectory'
+Export-ModuleMember -Function 'Stop-LabinaBox', 'Start-LabinaBox', 'CheckPoint-LabinaBox', 'Remove-LabinaBoxSnapshot', 'Remove-LabinaBox', 'New-LabinaBox',`
+					'New-LabVM', 'Update-LabinaBox', 'New-DSCDataDrivenSQL', 'Add-ServerConfigtoQueue', 'New-AzureCertAuthentication',`
+					'Login-AzurebyCert', 'New-AzureLab', 'Remove-AzureLab', 'Set-AzureDSCNodeConfigurations','Remove-AzureDSCNodeConfigurations', 'New-AzureDSCConfigurations',`
+					'Convert-PSObjectToHashtable', 'Publish-AzureDSCModules', 'Get-ScriptDirectory', 'New-LIABAzureNetwork', 'Compile-AzureDSCConfiguration'
+
+
