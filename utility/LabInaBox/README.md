@@ -34,6 +34,16 @@ Getting started with DSC can be difficult for developers because they don't have
 * If Hyper-V is not installed on the machine a reboot will be required and New-LabinBox will need to be executed again.
  
 ##Updates
+* Azure Lab in a box added along with Azure Automation DSC
+	* New-AzureCertAuthentication
+	* Login-AzurebyCert
+	* New-AzureLab
+	* Remove-AzureLab
+	* Set-AzureDSCNodeConfigurations
+	* Remove-AzureDSCNodeConfigurations
+	* New-AzureDSCConfigurations
+	* Publish-AzureDSCModules
+	* Compile-AzureDSCConfiguration
 * Added new GUI configuration utility to generate the JSON files
 * Added additional properties to JSON file to allow different ISO names to be leveraged. 
 * Simplified approach, functions added which take a JSON file as input with required variables.  
