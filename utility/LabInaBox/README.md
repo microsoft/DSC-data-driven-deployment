@@ -14,19 +14,17 @@ Getting started with DSC can be difficult for developers because they don't have
 	* Should leverage an answer file  
 
 ##Installation
-* Download LabInaBox and place on one of your drives
-* Create folder under LabInaBox named ParentVMDisks 
+* Download LabInaBox.msi from Configuration Utility
 * Copy your sysprepped image of Windows 2016 to ParentDisks
 	* AnswerFile Reference: [https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx "Building a Simple Answer File")
 	* Sysprep Command Reference: [https://technet.microsoft.com/en-us/library/hh825033.aspx](https://technet.microsoft.com/en-us/library/hh825033.aspx "Sysprep Command Line")
-* Install LIABConfigUtility.msi
-* Launch LIABConfigUtility
-* Click File... New from Template
-* Change any values you would like and finish the remainder of the fields required.
+* Install LabInaBox.msi 
+* Launch LabInaBox
+* Click File... Open
+* Select one of the templates Provided. (Default_Azure_Config.json,Default_NAT_Config.json,Default_Private_Config.json)
+* Edit the values to suit your needs 
 * Click Finish
-* Under the drive you selected as your resource drive you will find a folder in LabInaBox named LabConfig
-* Open the folder for the Prefix you provided in the Configuration tool
-* Open PowerShell ISE as and administrator and open the file which is named Create.ps1 it will be prefaced with your lab prefix name.
+* Open PowerShell ISE as and administrator and open the file which is named XXXCreate.ps1 it will be prefaced with your lab prefix name.
 * Run this script and watch the output for progress as your lab is built.
 * LabInaBox will utilize your sysprep drive in as a parent differencing disk
 	* Reference: [https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx "Using differencing disks")
