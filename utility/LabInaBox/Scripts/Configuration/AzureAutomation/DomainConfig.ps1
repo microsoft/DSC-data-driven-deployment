@@ -8,11 +8,15 @@ configuration DomainConfig
     Import-DscResource -ModuleName xActiveDirectory 
     Import-DscResource -ModuleName xNetworking 
     Import-DscResource -ModuleName xADCSDeployment 
+    Import-DscResource -modulename xPendingReboot
+     
     #Import-DscResource -ModuleName xSmbShare 
 
     Node $AllNodes.Nodename
     {
-
+        xPendingReboot PreTest{
+            Name = "Check for a pending reboot before changing anything"
+        }
 
         xComputer SetName
         {

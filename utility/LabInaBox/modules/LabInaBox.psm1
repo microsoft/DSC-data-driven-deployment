@@ -611,15 +611,16 @@ function New-LIABAzureNetwork {
 
    [CmdletBinding()]
    Param(
-       [Parameter(Mandatory, Position = 0)]
+       [Parameter(Mandatory)]
        [string] $LabPrefix, 
-       [Parameter(Mandatory, Position = 1)]
+       [Parameter(Mandatory)]
        [string] $Location,
-       [Parameter(Mandatory, Position = 2)]
+       [Parameter(Mandatory)]
        [string] $SubnetAddress,
-       [Parameter(Mandatory, Position = 3)]
-       [string] $VNetAddress  
-
+       [Parameter(Mandatory)]
+       [string] $VNetAddress,  
+       [Parameter(Mandatory)]
+       [string] $DNSIp
 
    )
     $VMResourceGroup = "$($LabPrefix)_RG"
@@ -634,10 +635,12 @@ function New-LIABAzureNetwork {
     
     # Create a virtual network
     $VNetTest = Get-AzureRmVirtualNetwork -ResourceGroupName $VMResourceGroup -Name $VNetName -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+    $DnsServer = @()
+    $DnsServer = $DnsServer + $DNSIp + '8.8.8.8'
     if(!$VNetTest)
     {
         $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $VMResourceGroup -Location $Location -WarningAction SilentlyContinue `
-            -Name $VNetName -AddressPrefix "$VNetAddress/16" -Subnet $subnetConfig
+            -Name $VNetName -AddressPrefix "$VNetAddress/16" -Subnet $subnetConfig -DnsServer $DnsServer
         Write-verbose -message "Virtual Network $VNetName created successfully."
     }
     else
@@ -771,7 +774,26 @@ function New-AzureLab
     $configurationData = Get-Content -Path $configuration -Raw| ConvertFrom-Json | Convert-PSObjectToHashtable
     $ResourceGroup = "$($configurationData.LabPrefix)_RG"
     Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
-    New-LIABAzureNetwork -LabPrefix $configurationData.LabPrefix -Location $configurationData.Location -SubnetAddress $configurationData.SubnetAddress -VNetAddress $configurationData.VNetAddress
+    New-LIABAzureNetwork -LabPrefix $configurationData.LabPrefix -Location $configurationData.Location -SubnetAddress $configurationData.SubnetAddress `
+        -VNetAddress $configurationData.VNetAddress -DNSIp $configurationData.DNSServer
+    foreach ($Server in $configurationData.DomainServer.keys)
+    {     
+        $VMTest = Get-AzureRmVM -ResourceGroupName $ResourceGroup -Name $Server -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
+        Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
+        If(!$VMTest)
+        {
+            New-LIABAzureVM -Location $configurationData.Location -LabPrefix $configurationData.LabPrefix -VMName $Server -VMSize $configurationData.Size `
+                -SubnetAddress $configurationData.SubnetAddress -VMUserName $configurationData.DomainServer.$($Server).VMUserName `
+                -VMPassword $configurationData.DomainServer.$($Server).VMPassword  `
+                -AzurePublisher $configurationData.DomainServer.$($Server).AzurePublisher `
+                -AzureOffer $configurationData.DomainServer.$($Server).AzureOffer `
+                -AzureSku $configurationData.DomainServer.$($Server).AzureSku `
+                -OS $configurationData.DomainServer.$($Server).OS
+        }    
+        else
+        {Write-verbose "$Server Exists skipping creation."}
+    }
+    
     foreach ($Server in $configurationData.DomainJoinServer.keys)
     {     
         $VMTest = Get-AzureRmVM -ResourceGroupName $ResourceGroup -Name $Server -ErrorAction SilentlyContinue -WarningAction SilentlyContinue
@@ -799,8 +821,17 @@ function Remove-AzureLab
 
     $configurationData = Get-Content -Path $configuration -Raw| ConvertFrom-Json
     Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
-    Remove-AzureRmResourceGroup -Name "$($configurationData.LabPrefix)_RG" -Force
-    Write-Verbose -Message "Removed Azure Lab in resource group $($configurationData.LabPrefix)_RG"
+    $RGTest = Get-AzureRmResourceGroup -name "$($configurationData.LabPrefix)_RG" -ErrorAction SilentlyContinue
+    If($RGTest)
+    {
+        Write-Verbose -Message "Removing resource group $($configurationData.LabPrefix)_RG..."
+        Remove-AzureRmResourceGroup -Name "$($configurationData.LabPrefix)_RG" -Force
+        Write-Verbose -Message "Removed Azure Lab in resource group $($configurationData.LabPrefix)_RG"
+    } 
+    else
+    {
+        Write-Verbose -Message "Resource Group $($configurationData.LabPrefix)_RG does not exist."
+    }
 }
 
 function Remove-AzureDSCNodeConfigurations
@@ -812,18 +843,44 @@ function Remove-AzureDSCNodeConfigurations
    $configurationData = Get-Content -Path $configuration -Raw|ConvertFrom-Json | Convert-PSObjectToHashtable
 
    Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
-   $Servers = $configurationData.DomainJoinServer.Keys 
-   foreach ($Server in $Servers)
+   
+    $ServerstoConfig = @()
+
+    foreach ($DomainServer in $configurationData.DomainServer.Keys)
     {
+        if ($configurationData.DomainServer.$($DomainServer).DSCConfiguration)
+        {
+            $ServerstoConfig = $ServerstoConfig + $DomainServer
+        }
+
+    }
+    foreach ($MemberServer in $configurationData.DomainJoinServer.Keys)
+    {
+        if ($configurationData.DomainJoinServer.$($MemberServer).DSCConfiguration)
+        {
+            $ServerstoConfig = $ServerstoConfig + $MemberServer
+        }
+
+    }
+
+   foreach ($Server in $ServerstoConfig)
+    {
+        if($configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+        {$DSCConfig =$configurationData.DomainJoinServer.$($Server).DSCConfiguration }
+        else 
+        {$DSCConfig=$configurationData.DomainServer.$($Server).DSCConfiguration}
+        
         $MyRegistration = Get-AzureRmAutomationDscNode -Name $server -ResourceGroupName $configurationData.AzureAutomationRG `
              -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
         if ($MyRegistration)
         {
-            If($configurationData.LabType -eq 'AzureLab' -and $configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+            If($configurationData.LabType -eq 'AzureLab')
             {          
                 Unregister-AzureRmAutomationDscNode -ResourceGroupName $configurationData.AzureAutomationRG `
                     -AutomationAccountName $configurationData.AzureAutomationAccount -Id $myRegistration.Id -Force
-
+                Remove-AzureRmAutomationDscNodeConfiguration $configurationData.AzureAutomationRG `
+                    -AutomationAccountName $configurationData.AzureAutomationAccount `
+                    -Name "$($DSCConfig).$($Server)" -Force
                 Write-Verbose "Removed $server from DSC configuration."
             }
             elseif($configurationData.LabType -eq 'HyperVLab')
@@ -836,6 +893,9 @@ function Remove-AzureDSCNodeConfigurations
                             -AutomationAccountName $configurationData.AzureAutomationAccount | Where-Object NAME -EQ $Server | Select-Object Id
                     Unregister-AzureRmAutomationDscNode -ResourceGroupName $configurationData.AzureAutomationRG `
                         -AutomationAccountName $configurationData.AzureAutomationAccount -Id $myRegistration.Id -Force
+                    Remove-AzureRmAutomationDscNodeConfiguration $configurationData.AzureAutomationRG `
+                    -AutomationAccountName $configurationData.AzureAutomationAccount `
+                    -Name "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration).$($configurationData.DomainJoinServer.$($Server))" -Force
                 }
                 else
                 {
@@ -862,20 +922,42 @@ function Set-AzureDSCNodeConfigurations
 
     Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationId -TenantId $configurationData.TenantId 
   
-    $Servers = $configurationData.DomainJoinServer.Keys 
-    
-    foreach ($Server in $Servers)
+    $ServerstoConfig = @()
+
+    foreach ($DomainServer in $configurationData.DomainServer.Keys)
     {
+        if ($configurationData.DomainServer.$($DomainServer).DSCConfiguration)
+        {
+            $ServerstoConfig = $ServerstoConfig + $DomainServer
+        }
+
+    }
+    foreach ($MemberServer in $configurationData.DomainJoinServer.Keys)
+    {
+        if ($configurationData.DomainJoinServer.$($MemberServer).DSCConfiguration)
+        {
+            $ServerstoConfig = $ServerstoConfig + $MemberServer
+        }
+
+    }
+
+    foreach ($Server in $ServerstoConfig)
+    {
+        if($configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+            {$DSCConfig =$configurationData.DomainJoinServer.$($Server).DSCConfiguration }
+        else 
+            {$DSCConfig=$configurationData.DomainServer.$($Server).DSCConfiguration}
+
         $MyRegistration = Get-AzureRmAutomationDscNode -Name $server -ResourceGroupName $configurationData.AzureAutomationRG `
              -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
         if (!$MyRegistration)
         {
-            If($configurationData.LabType -eq 'AzureLab' -and $configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+            If($configurationData.LabType -eq 'AzureLab')
             {          
                 Register-AzureRmAutomationDscNode -AutomationAccountName $configurationData.AzureAutomationAccount `
                     -ResourceGroupName $configurationData.AzureAutomationRG `
                     -AzureVMName $server -AzureVMResourceGroup "$($configurationData.LabPrefix)_RG" `
-                    -NodeConfigurationName "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration).$($Server)" `
+                    -NodeConfigurationName "$($DSCConfig).$($server)" `
                     -ActionAfterReboot ContinueConfiguration `
                     -AllowModuleOverwrite $true `
                     -ConfigurationMode ApplyAndAutocorrect `
@@ -900,7 +982,7 @@ function Set-AzureDSCNodeConfigurations
                 {
                     $NodeId=Get-AzureRmAutomationDscNode -ResourceGroupName "$($configurationData.LabPrefix)_RG" `
                             -AutomationAccountName $configurationData.AzureAutomationAccount | Where-Object NAME -EQ $Server | Select-Object Id
-                    Set-AzureRmAutomationDscNode -NodeConfigurationName $configurationData.DomainJoinServer.$server `
+                    Set-AzureRmAutomationDscNode -NodeConfigurationName $DSCConfig `
                         -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -Id $NodeId.Id
                 }
                 else
@@ -912,11 +994,11 @@ function Set-AzureDSCNodeConfigurations
         else
         {
             Write-verbose "$($MyRegistration.Name) is registered skipping registration."
-            if (!$MyRegistration.NodeConfigurationName -and $configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+            if (!$MyRegistration.NodeConfigurationName -and $DSCConfig)
             {
                 Write-verbose "Applying $($configurationData.DomainJoinServer.$server) to $($MyRegistration.Name)"
                 $NodeId=Get-AzureRmAutomationDscNode -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount | Where-Object NAME -EQ $Server| Select-Object Id
-                Set-AzureRmAutomationDscNode -NodeConfigurationName $configurationData.DomainJoinServer.$($Server).DSCConfiguration -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -Id $NodeId.Id  -Force
+                Set-AzureRmAutomationDscNode -NodeConfigurationName $DSCConfig -ResourceGroupName "$($configurationData.LabPrefix)_RG" -AutomationAccountName $configurationData.AzureAutomationAccount -Id $NodeId.Id  -Force
             }
             else
             {
@@ -933,21 +1015,37 @@ function Compile-AzureDSCConfiguration
           [PSCustomObject]$configuration)
  
     $configurationData = Get-Content -Path $configuration -Raw|ConvertFrom-Json | Convert-PSObjectToHashtable
-    $DCName = $configurationData.DomainJoinServer
     
-    foreach ($Server in $configurationData.DomainJoinServer.Keys)
-    {
-      If ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -eq "DomainConfig")
-      {
-          $MYDCIP = $(Get-AzureRmNetworkInterface -ResourceGroupName "$($configurationData.LabPrefix)_RG" | Where-Object {$_.Name -like "$Server*" }| Get-AzureRmNetworkInterfaceIpConfig | Select PrivateIPAddress).PrivateIPAddress
-      }
-    
-    }
+    $ServerstoConfig = @()
 
-    foreach ($Server in $configurationData.domainJoinServer.Keys)
+    foreach ($DomainServer in $configurationData.DomainServer.Keys)
+    {
+        if ($configurationData.DomainServer.$($DomainServer).DSCConfiguration)
+        {
+            $ServerstoConfig = $ServerstoConfig + $DomainServer
+        }
+
+    }
+    foreach ($MemberServer in $configurationData.DomainJoinServer.Keys)
+    {
+        if ($configurationData.DomainJoinServer.$($MemberServer).DSCConfiguration)
+        {
+            $ServerstoConfig = $ServerstoConfig + $MemberServer
+        }
+
+    }
+     
+
+    $Subnet = $configurationData.SubnetAddress
+
+    $MYDCIP="$($Subnet.Substring(0,$($Subnet.Length -1)))4"
+
+    foreach ($Server in $ServerstoConfig)
     {
         if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -like "*SQL*")
         {
+
+            
             #Write-Verbose "Its SQL Config"
             $ConfigData =@{
                 AllNodes = @(
@@ -976,7 +1074,7 @@ function Compile-AzureDSCConfiguration
   	            )
             }
         }
-        if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -like "*Domain*")
+        if ($configurationData.DomainServer.$($Server).DSCConfiguration -like "*Domain*")
         {
             #Write-Verbose "Its Domain Config"
               $ConfigData = @{
@@ -994,11 +1092,16 @@ function Compile-AzureDSCConfiguration
               }
         }
    
-        if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+        if ($configurationData.DomainJoinServer.$($Server).DSCConfiguration -or $configurationData.DomainServer.$($Server).DSCConfiguration)
         {        
+            if($configurationData.DomainJoinServer.$($Server).DSCConfiguration)
+            {$DSCConfig =$configurationData.DomainJoinServer.$($Server).DSCConfiguration }
+            else 
+            {$DSCConfig=$configurationData.DomainServer.$($Server).DSCConfiguration}
+
             Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID 
             
-            $MyDSCConfig = Get-AzureRmAutomationDscConfiguration -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -Name $configurationData.DomainJoinServer.$($Server).DSCConfiguration -ErrorAction SilentlyContinue
+            $MyDSCConfig = Get-AzureRmAutomationDscConfiguration -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -Name $DSCConfig -ErrorAction SilentlyContinue
       
             if ($MyDSCConfig)
               {
@@ -1009,7 +1112,7 @@ function Compile-AzureDSCConfiguration
               {
                   Login-AzurebyCert -CertSubject $configurationData.CertSubject -ApplicationId $configurationData.ApplicationID -TenantId $configurationData.TenantID 
             
-                  $CompilationJob =  Start-AzureRmAutomationDscCompilationJob -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -ConfigurationName $configurationData.DomainJoinServer.$($Server).DSCConfiguration -ConfigurationData $ConfigData
+                  $CompilationJob =  Start-AzureRmAutomationDscCompilationJob -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -ConfigurationName $DSCConfig -ConfigurationData $ConfigData
                   
                   $backOff = 1.75 # 0 seconds, 1 second, 4 seconds backoff delay
                   [Int]$LoopCnt = 1
@@ -1020,17 +1123,17 @@ function Compile-AzureDSCConfiguration
                       $retryDelay = [Math]::Ceiling(([Math]::pow( $LoopCnt, $backOff )))
                       $JobResult = Get-AzureRmAutomationDscCompilationJob -Id $CompilationJob.Id -ResourceGroupName $configurationData.AzureAutomationRG  -AutomationAccountName $configurationData.AzureAutomationAccount -ErrorAction SilentlyContinue
                       Start-Sleep -Seconds $retryDelay 
-                      Write-Verbose "Waiting for $($retryDelay)sec for $($configurationData.DomainJoinServer.$($Server).DSCConfiguration) to Finish Compilation "
+                      Write-Verbose "Waiting for $($retryDelay)sec for $DSCConfig to Finish Compilation "
                       $LoopCnt++
                   }
                   UNTIL (($JobResult.Status -eq "Completed")  -or ($JobResult.Status -eq "Suspended"))
                   if ($JobResult.Status -ne "Completed")
                   {
-                      Write-Warning "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration) result was $($JobResult.Status)"
+                      Write-Warning "$DSCConfig result was $($JobResult.Status)"
                   }
                   else
                   {
-                      Write-verbose "$($configurationData.DomainJoinServer.$($Server).DSCConfiguration) result was $($JobResult.Status)"
+                      Write-verbose "$DSCConfig result was $($JobResult.Status)"
                   }
              }
         }

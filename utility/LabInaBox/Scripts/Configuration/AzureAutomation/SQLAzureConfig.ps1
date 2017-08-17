@@ -7,9 +7,11 @@
     Import-DscResource -ModuleName xActiveDirectory 
     Import-DscResource -ModuleName xNetworking
     Import-DscResource -ModuleName xSQLServer
+    Import-DscResource -modulename xPendingReboot
 
     Node $AllNodes.NodeName
     {
+
         xWaitForADDomain WaitforDC
         {
            DomainName = "$($Node.domainname)$($Node.domainExtention)"
@@ -17,7 +19,6 @@
            RetryIntervalSec = 30 
            RetryCount = 45
            RebootRetryCount = 5
-           dependson = "[xDNSServerAddress]SetDNS"
         }
 
         xComputer SetName
@@ -25,26 +26,21 @@
             Name          = $Node.NodeName
             DomainName = "$($Node.domainname)$($Node.domainExtention)"
             Credential = $DCCred
-            dependson = "[xWaitForADDomain]WaitforDC","[xDNSServerAddress]SetDNS"
+            dependson = "[xWaitForADDomain]WaitforDC"
         }
        
-        xDNSServerAddress SetDNS{
-            Address = $Node.DNSIp
-            InterfaceAlias = 'Ethernet 3'
-            AddressFamily = 'Ipv4'
+        xSQLServerMemory SQLMemory
+        {
+            Ensure = "Present"
+            DynamicAlloc = $True
+            SQLInstanceName = $Node.SQLInstanceName
         }
-        #xSQLServerMemory SQLMemory
-        #{
-        #    Ensure = "Present"
-        #    DynamicAlloc = $True
-        #    SQLInstanceName = $Node.SQLInstanceName
-        #}
-        #
-        #xSQLServerMaxDop SQLMaxdop
-        #{
-        #    Ensure = "Present"
-        #    DynamicAlloc = $true
-        #    SQLInstanceName = $Node.SQLInstanceName
-        #}
+        
+        xSQLServerMaxDop SQLMaxdop
+        {
+            Ensure = "Present"
+            DynamicAlloc = $true
+            SQLInstanceName = $Node.SQLInstanceName
+        }
     }     
 }
