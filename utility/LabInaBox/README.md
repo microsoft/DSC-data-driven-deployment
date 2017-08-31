@@ -1,39 +1,49 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/6a59vfritv4kbc7d/branch/master?svg=true)](https://ci.appveyor.com/project/Microsoft/DSC-data-driven-deployment/branch/master)
 
-#Lab In a Box
+# Lab In a Box
 Simple lightweight utility to allow developers to spin up a sandbox lab environment quickly.    Virtual machines will be created on a private network without access to host. Ability to create multiple lab environments that can coexist.
  
-#Why
+# Why
 Getting started with DSC can be difficult for developers because they don't have control over all over their environment.  Often its difficult to validate secure configurations due to the need for certificates.  With LabInaBox these restrictions are lifted since its all encompassed in a sandbox.  Active Directory and Certificate services are already installed and configured allowing developers to begin testing their configurations as soon as the deployment is complete.
 
-##Prerequisites
+## Prerequisites
 * Machine running Windows 10 or Windows Server 2016
 * 16GB of Memory
 * Sysprepped image of Windows 2016
 	* Can utilize windows Core or Full
 	* Should leverage an answer file  
 
-##Installation
-* Download LabInaBox and place on one of your drives
-* Create folder under LabInaBox named ParentVMDisks 
+## Installation
+* Download LabInaBox.msi from Configuration Utility
 * Copy your sysprepped image of Windows 2016 to ParentDisks
 	* AnswerFile Reference: [https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc749317(v=ws.10).aspx "Building a Simple Answer File")
 	* Sysprep Command Reference: [https://technet.microsoft.com/en-us/library/hh825033.aspx](https://technet.microsoft.com/en-us/library/hh825033.aspx "Sysprep Command Line")
-* Install LIABConfigUtility.msi
-* Launch LIABConfigUtility
-* Click File... New from Template
-* Change any values you would like and finish the remainder of the fields required.
+* Install LabInaBox.msi 
+* Launch LabInaBox
+* Click File... Open
+* Select one of the templates Provided. (Default_Azure_Config.json,Default_NAT_Config.json,Default_Private_Config.json)
+* Edit the values to suit your needs 
 * Click Finish
-* Under the drive you selected as your resource drive you will find a folder in LabInaBox named LabConfig
-* Open the folder for the Prefix you provided in the Configuration tool
-* Open PowerShell ISE as and administrator and open the file which is named Create.ps1 it will be prefaced with your lab prefix name.
+* Open PowerShell ISE as and administrator and open the file which is named XXXCreate.ps1 it will be prefaced with your lab prefix name.
 * Run this script and watch the output for progress as your lab is built.
 * LabInaBox will utilize your sysprep drive in as a parent differencing disk
 	* Reference: [https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx](https://technet.microsoft.com/en-us/library/cc720381(v=ws.10).aspx "Using differencing disks")
 	* For the best performance parent and child disks should be on different disk drives
 * If Hyper-V is not installed on the machine a reboot will be required and New-LabinBox will need to be executed again.
  
-##Updates
+## Updates
+* Azure Lab in a box Azure Automation DSC fully functional
+	* New GUI configurator to create powershell scripts.
+* Azure Lab in a box added along with Azure Automation DSC
+	* New-AzureCertAuthentication
+	* Login-AzurebyCert
+	* New-AzureLab
+	* Remove-AzureLab
+	* Set-AzureDSCNodeConfigurations
+	* Remove-AzureDSCNodeConfigurations
+	* New-AzureDSCConfigurations
+	* Publish-AzureDSCModules
+	* Compile-AzureDSCConfiguration
 * Added new GUI configuration utility to generate the JSON files
 * Added additional properties to JSON file to allow different ISO names to be leveraged. 
 * Simplified approach, functions added which take a JSON file as input with required variables.  
@@ -49,11 +59,11 @@ Getting started with DSC can be difficult for developers because they don't have
 	* Add-ServerConfigtoQueue
 
 
-##Assumptions
+## Assumptions
 * Requires Windows 10 or Server 2016 as the Host Operating System
 * Requires Windows 2016 as a Guest OS.
 
-##Contribute
+## Contribute
 There are many ways to contribute.
 Submit bugs and help us verify fixes as they are checked in.
 Review code changes.

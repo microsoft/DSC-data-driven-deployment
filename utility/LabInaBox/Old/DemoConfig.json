@@ -1,0 +1,22 @@
+﻿{
+    "ScriptLocation": "D:\\LabInaBox\\Scripts",    
+    "DSCResourceDest": "C:\\Program Files\\WindowsPowerShell\\Modules",
+    "DSCResourceSource":"D:\\LabInaBox\\DSCResources",
+    "ParentFolderPath": "C:\\LabInaBox\\ParentVMDisks",
+    "ParentFolderPathSource":"D:\\LabInaBox\\ParentVMDisks",
+    "ChildFolderPath": "E:\\LabInaBox\\ChildVMDisks\\Demo",
+    "ISOFolderPath" : "D:\\LabInaBox\\ISO",
+    "DomainJoinPath": "E:\\LabInaBox\\ChildVMDisks\\Demo\\DomainJoin",
+    "DCMachineName": "DemoDC",
+    "DomainJoinServer": ["DemoDSC1","DemoSQL1","DemoSQL2"],
+    "localAdminPass": "P@ssw0rd",
+    "domainAdminPass": "P@ssw0rd",
+    "sysPrepDriveName": "Win16SysPrepFinal.vhdx",
+    "DCSysPrepDriveName": "Win16SysPrepFinal.vhdx",
+    "SwitchName": "GuestToGuest210",
+    "domainname": "DemoLab",
+    "domainExtention": ".com",
+    "DomainIpAddress":"192.168.210.1",
+    "DHCPScopeIpStart": "192.168.210.20",
+    "DHCPScopeIpEnd":"192.168.210.254"
+}
